@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>This is post list</title>
-</head>
-<body>
 
-    <p>Hi there!</p>
-    <p>It works!</p>
-</body>
-</html>
+
+{% extends 'TheaterWinBook/base.html' %}
+
+
+{% block content %}
+{% for post in posts %}
+    <div class="post">
+        <div class="date">
+            {{ post.published_date }}
+        </div>
+       <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+        <p>{{ post.text|linebreaksbr }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}
