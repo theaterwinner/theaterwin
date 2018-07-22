@@ -2,14 +2,763 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="028cb794-87bb-42bb-8a92-8b4aaaa2bc91" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_detail.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/ajax/loadMore-fullwidth.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/ajax/loadMore.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/ajax/project1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/js/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/js/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/js/npm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/YTPlayer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/animate.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/flexslider.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/flipclock.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jasny-bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/magnific-popup.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/owl.theme.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/rev-style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/select.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/style.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/sweetalert.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/theaterwinner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/yamm.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/css/cubeportfolio.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/css/cubeportfolio.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/img/cbp-sprite.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/img/cbp-sprite.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/js/jquery.cubeportfolio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/cubeportfolio/js/jquery.cubeportfolio.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/bg-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/bg-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/bg-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/bg-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/cl-1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/cl-2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/cl-3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/cl-4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/cl-5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/constro-bg-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/constro-bg-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/service-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/service-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/service-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/construction/work-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/customer-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/customer-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/customer-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/email-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/email-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/email-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/email-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/email-header.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/grabbing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/img-9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/logo-white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/mas-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/mas-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/mockup-ipad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/pattern.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/plus.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/bike-100x50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/bike-2-100x50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/bike-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/bike-60x60.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/bike.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/fit_edit.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/fitness-100x50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/fitness-60x60.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/fitness.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/greenstripe.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/gym1-100x50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/gym1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/gym2-100x50.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/r-5/gym2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/shadow-bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/showcase-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/showcase-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/showcase-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/showcase-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/showcase-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/team-8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/typing.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/typing_cover.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/img/video-poster.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/bootstrap-hover-dropdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/bootstrap.touchspin.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/contact_me.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/cube-portfolio.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/gmaps.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/isotope-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jasny-bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jqBootstrapValidation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-migrate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.backstretch.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.countdown.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.countdown.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.counterup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.easing.1.3.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.flexslider-min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.imagesloaded.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.isotope.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.magnific-popup.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.masonry.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.mb.YTPlayer.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.metisMenu.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.stellar.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery.sticky.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/map.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/masonary-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/masonry.pkgd.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/modernizr.custom.97074.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/pace.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/parallax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/revolution-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/sky-forms-custom.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/sweetalert.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/tweetie.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/typed.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/waypoints.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/wow.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/mail/contact_me.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/mailchimp/MCAPI.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/mailchimp/config.inc.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/mailchimp/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/mailchimp/process-subscribe.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/LICENSE" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/ajax-loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.carousel.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.carousel.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.theme.default.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.theme.default.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.theme.green.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.theme.green.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/assets/owl.video.play.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/owl.carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/owl-carousel/owl.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/pe-icons/Pe-icon-7-stroke.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/pe-icons/fonts/Pe-icon-7-stroke.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/pe-icons/fonts/Pe-icon-7-stroke.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/pe-icons/fonts/Pe-icon-7-stroke.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/pe-icons/fonts/Pe-icon-7-stroke.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/ipad.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/iphone.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/macbook.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/mockup-all.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/slider-2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rev-images/slider-5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/coloredbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/gridtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/gridtile_3x3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/gridtile_3x3_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/gridtile_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/fb.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/fr.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/ig.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/post.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/revolution_slide1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/revolution_slide2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/tw.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/vm.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/wc.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/yt.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/svg/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/svg/svg.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/closedhand.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/layers.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/ares.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/custom.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/dione.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/erinyen.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/gyges.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/hades.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/hebe.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/hephaistos.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/hermes.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/hesperiden.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/metis.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/persephone.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/uranus.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation-skins/zeus.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/navigation.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/openhand.cur" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/settings-ver.5.3.1.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/css/settings.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/css/font-awesome.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/css/font-awesome.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/FontAwesome.otf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/fontawesome-webfont.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/fontawesome-webfont.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/fontawesome-webfont.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/fonts/fontawesome-webfont.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/font-awesome/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/css/helper.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/css/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/css/pe-icon-7-stroke.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/fonts/Pe-icon-7-stroke.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/fonts/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/pe-icon-7-stroke/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/revicons/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/revicons/revicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/revicons/revicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/revicons/revicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/fonts/revicons/revicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/info.cfg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.actions.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.carousel.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.kenburn.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.layeranimation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.migration.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.navigation.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.parallax.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.slideanims.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/revolution.extension.video.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.actions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.carousel.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.kenburn.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.layeranimation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.migration.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.navigation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.parallax.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.slideanims.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/extensions/source/revolution.extension.video.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/jquery.themepunch.enablelog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/jquery.themepunch.revolution.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/jquery.themepunch.tools.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/source/index.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/source/jquery.themepunch.enablelog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/source/jquery.themepunch.revolution.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/js/source/jquery.themepunch.tools.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/facebook/class-facebook.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/flickr/class-flickr.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/instagram/class-instagram.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/twitter/RestApi.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/twitter/class-twitter.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/twitter/connection/Application.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/twitter/connection/ConnectionAbstract.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/twitter/connection/User.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/vimeo/class-vimeo.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/php/youtube/class-youtube.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_large_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_large_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_left2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrow_right2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrowleft.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrowright.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/arrows.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/black50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/boxed_bgtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/bullet.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/bullet_boxed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/bullets.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/bullets.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/bullets2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/coloredbg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/grain.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/gridtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/gridtile_3x3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/gridtile_3x3_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/gridtile_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/large_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/large_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/loader.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/loader2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/navigdots.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/navigdots_bgtile.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/shadow1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/shadow2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/shadow3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/small_arrows.psd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/small_left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/small_left_boxed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/small_right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/small_right_boxed.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/timer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/timerdot.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/transparent.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/assets/white50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/css/settings-ie8.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/css/settings.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/font/revicons.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/font/revicons.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/font/revicons.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/font/revicons.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/images/decor_inside.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/images/decor_inside_white.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/images/decor_testimonial.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/images/gradient/g30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/images/gradient/g40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/js/jquery.themepunch.enablelog.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/js/jquery.themepunch.revolution.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/js/jquery.themepunch.revolution.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/rs-plugin/js/jquery.themepunch.tools.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/_base.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/_footers.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/_header.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/_mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/_variables.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/scss/style.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/captcha/button.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/captcha/font/anorexia.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/captcha/image.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/captcha/process.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/css/sky-forms.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery-ui.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.form.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.maskedinput.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.modal.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.placeholder.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/jquery.validate.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/js/sky-forms-ie8.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/php_files/demo-contacts-process.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/sky-form/php_files/demo-login-process.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/Italic.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/agenda.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/alarm-clock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/alert.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/align-center.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/align-justify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/align-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/align-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/anchor.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/android.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-double-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-double-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-double-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-double-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/angle-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/announcement.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/apple.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/archive.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-circle-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-circle-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-circle-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-circle-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-top-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-top-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrows-corner.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrows-horizontal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/arrows-vertical.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/back-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/back-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bar-chart-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bar-chart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/basketball.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bell.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/blackboard.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bolt-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bolt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/book.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bookmark-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/bookmark.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/briefcase.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/brush-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/brush.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/calendar.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/camera.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/car.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/check-box.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/check.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/clip.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/clipboard.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/close.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/cloud-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/cloud-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/cloud.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/comment-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/comment.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/comments-smiley.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/comments.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-backward.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-eject.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-forward.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-pause.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-play.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-record.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-shuffle.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-skip-backward.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-skip-forward.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/control-stop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/credit-card.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/crown.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/css3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/cup.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/cut.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/dashboard.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/desktop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/direction-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/direction.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/download.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/dribbble.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/dropbox-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/dropbox.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/drupal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/email.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/envelope.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/eraser.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/exchange-vertical.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/export.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/eye.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/face-sad.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/face-smile.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/facebook.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/file.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/files.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/filter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/flag-alt-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/flag-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/flag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/flickr-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/flickr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/folder.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/fullscreen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/gallery.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/game.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/gift.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/google.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-drag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-open.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-point-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-point-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-point-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-point-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hand-stop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/harddrive.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/harddrives.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/headphone-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/headphone.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/heart-broken.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/heart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/help-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/help.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/home.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/html5.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/hummer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/id-badge.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/import.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/infinite.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/info-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/info.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ink-pen.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/joomla.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/jsfiddle.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/key.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layers-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layers.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-accordion-list.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-accordion-merged.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-accordion-separated.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column2-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column3-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column4-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-column4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-cta-btn-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-cta-btn-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-cta-center.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-cta-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-cta-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid2-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid2-thumb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid3-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid3.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid4-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-grid4.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-line-solid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-list-large-image.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-list-post.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-list-thumb-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-list-thumb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-center-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-center.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-left-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-overlay-alt-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-overlay-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-overlay.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-right-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-media-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-menu-full.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-menu-separated.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-menu-v.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-placeholder.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-sidebar-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-sidebar-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-sidebar-none.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-sidebar-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-slider-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-slider.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-tab-min.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-tab-v.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-tab-window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-tab.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-width-default-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-width-default.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout-width-full.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/layout.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/light-bulb.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/line-dashed.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/line-dotted.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/line-double.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/link.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/linux.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/list-ol.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/list.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/location-arrow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/location-pin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/lock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/loop.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/magnet.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/map-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/map.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/marker-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/marker.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/medall-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/medall.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/menu-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/menu.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/microphone-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/microphone.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/microsoft-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/microsoft.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/minus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/mobile.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/money.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/more-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/more.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/mouse-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/mouse.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/music-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/music.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/na.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/new-window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/notepad.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/package.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/paint-bucket.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/paint-roller.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/palette.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/panel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/paragraph.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pencil-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pencil-alt2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pencil.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pie-chart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pin-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pin2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pinterest-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pinterest.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/plug.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/plus.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/power-off.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/printer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/pulse.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/quote-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/quote-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/receipt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/reddit.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/reload.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/rocket.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/rss-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/rss.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ruler-alt-2.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ruler-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ruler-pencil.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ruler.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/save-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/save.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/search.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/server.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/settings.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/share-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/share.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/sharethis-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/sharethis.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shield.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shift-left-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shift-left.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shift-right-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shift-right.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shine.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shopping-cart-full.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shopping-cart.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/shortcode.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/signal.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/skype.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/slice.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/smallcap.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/soundcloud.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/split-h.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/split-v-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/split-v.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/spray.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/stack-overflow.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/stamp.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/star.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/stats-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/stats-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/support.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/tablet.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/tag.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/target.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/text.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/themify-favicon-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/themify-favicon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/themify-logo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/thought.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/thumb-down.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/thumb-up.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/ticket.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/time.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/timer.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/trash.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/trello.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/truck.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/tumblr-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/tumblr.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/twitter-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/twitter.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/underline.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/unlink.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/unlock.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/upload.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/uppercase.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/user.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/vector.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/video-camera.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/video-clapper.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/view-grid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/view-list-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/view-list.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/vimeo-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/vimeo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/volume.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/wallet.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/wand.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/wheelchair.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/widget-alt.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/widget.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/widgetized.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/window.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/wordpress.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/world.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/write.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/yahoo.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/youtube.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/zip.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/zoom-in.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/SVG/zoom-out.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/Themify IconFonts 5-23-2014.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/fonts/themify.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/fonts/themify.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/fonts/themify.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/fonts/themify.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/ie7/ie7.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/ie7/ie7.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/themify-icons/themify-icons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/twit-api/config.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/twit-api/tweet.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/twit-api/twitteroauth/OAuth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/twit-api/twitteroauth/twitteroauth.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/video-background/background.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/video-background/background.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/video-background/core.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/video-background/transition.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/template_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/GithubProjects.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/GithubProjects.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWin/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheaterWin/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWin/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWinBook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWinBook/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -48,94 +797,99 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="wsgi.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWin/wsgi.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="133">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
+      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="true">
+        <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/contrib/auth/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+            <state relative-caret-position="315">
+              <caret line="133" column="97" selection-start-line="133" selection-start-column="97" selection-end-line="133" selection-end-column="97" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.py" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/db/backends/mysql/base.py">
+      <file leaf-file-name="bootstrap.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+            <state relative-caret-position="202">
+              <caret line="1925" selection-start-line="1925" selection-end-line="1925" selection-end-column="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="console.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7d20d888-0247-4096-9ca1-dbc1fa31f99b/console.sql">
+      <file leaf-file-name="bootstrap.min.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="4" column="25846" lean-forward="true" selection-start-line="4" selection-start-column="25846" selection-end-line="4" selection-end-column="25846" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.min.css.map" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css.map">
+          <provider editor-type-id="sourcemapFileViewerProvider" />
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="post_detail.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_detail.html">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+              <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="post_list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-            </state>
-          </provider>
+      <file leaf-file-name="bootstrap.css.map" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css.map">
+          <provider editor-type-id="sourcemapFileViewerProvider" />
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/login.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="276">
+              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
               <folding>
-                <element signature="e#0#32#0" expanded="true" />
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="theaterwinner.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css">
+      <file leaf-file-name="signup.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
+            <state relative-caret-position="183">
+              <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="75" />
+              <folding>
+                <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html">
+      <file leaf-file-name="base_header_footer.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+              <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+              <folding>
+                <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -145,8 +899,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="CSS File" />
+        <option value="Python Script" />
         <option value="HTML File" />
       </list>
     </option>
@@ -154,6 +908,20 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>posts</find>
+      <find>img</find>
+      <find>support</find>
+      <find>footer-btm</find>
+      <find>home</find>
+      <find>home1</find>
+      <find>navbar</find>
+      <find>custom</find>
+      <find>le</find>
+      <find>Home</find>
+      <find>60px</find>
+      <find>breadcrum-wr</find>
+      <find>assan</find>
+      <find>col-md</find>
+      <find>col-sm-offset-2</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -164,15 +932,27 @@
       <list>
         <option value="$PROJECT_DIR$/TheaterWinBook/models.py" />
         <option value="$PROJECT_DIR$/TheaterWinBook/admin.py" />
-        <option value="$PROJECT_DIR$/TheaterWin/urls.py" />
         <option value="$PROJECT_DIR$/TheaterWinBook/static/css/jjunests.css" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/urls.py" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/views.py" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_detail.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/join.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/adduser.html" />
+        <option value="$PROJECT_DIR$/TheaterWin/urls.py" />
         <option value="$PROJECT_DIR$/TheaterWin/settings.py" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/css/style.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/theaterwinner.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/style.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/forms.py" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/urls.py" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/login.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/views.py" />
       </list>
     </option>
   </component>
@@ -185,7 +965,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-286" />
     <option name="y" value="65" />
     <option name="width" value="3908" />
@@ -200,55 +980,105 @@
         <subPane>
           <expand>
             <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap.css" type="620a8d5e:NestingTreeNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="GithubProjects" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GithubProjects" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GithubProjects" type="cbb8eebc:String" user="GithubProjects" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GithubProjects" type="cbb8eebc:String" user="GithubProjects" />
+              <item name="TheaterWin" type="cbb8eebc:String" user="TheaterWin" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GithubProjects" type="cbb8eebc:String" user="GithubProjects" />
+              <item name="TheaterWinBook" type="cbb8eebc:String" user="TheaterWinBook" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -259,6 +1089,15 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\DjangoProjects\GithubProjects\TheaterWinBook\static\TheaterWinBook" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\DjangoProjects\GithubProjects\TheaterWinBook\templates\TheaterWinBook" />
+      <recent name="C:\DjangoProjects\GithubProjects\TheaterWinBook\static" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -301,16 +1140,16 @@
         <env name="PYTHONUNBUFFERED" value="1" />
         <env name="DJANGO_SETTINGS_MODULE" value="TheaterWin.settings" />
       </envs>
-      <option name="SDK_HOME" value="C:\Users\jjunest\myvenv\Scripts\python.exe" />
+      <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
+      <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="launchJavascriptDebuger" value="false" />
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
+      <option name="browserUrl" value="http://127.0.0.1:8000/" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -343,31 +1182,32 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32978722" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32978722" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32978722" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.178125" />
+      <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="right" id="Database" order="3" visible="true" weight="0.3296875" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32978722" />
-      <window_info anchor="right" id="R Packages" order="3" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -402,140 +1242,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7d20d888-0247-4096-9ca1-dbc1fa31f99b/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWin/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="21" selection-end-line="13" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="10" lean-forward="true" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="12" lean-forward="true" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="16" column="46" selection-start-line="16" selection-start-column="46" selection-end-line="16" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1064">
-          <caret line="56" column="48" selection-start-line="56" selection-start-column="48" selection-end-line="56" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWin/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="23" column="36" selection-start-line="23" selection-start-column="36" selection-end-line="23" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="39" selection-start-line="4" selection-start-column="39" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
@@ -641,25 +1347,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/tests.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="22" lean-forward="true" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWin/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWin/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWin/wsgi.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -669,20 +1358,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/css/jjunests.css" />
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/css/theaterwinner.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
@@ -690,15 +1365,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
+    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/db/backends/mysql/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="152">
+          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7d20d888-0247-4096-9ca1-dbc1fa31f99b/console.sql" />
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/join.html" />
+    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/core/handlers/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2451">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/core/handlers/exception.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWin/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
           <folding>
-            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#634#666#0" expanded="true" />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2641">
+          <caret line="140" selection-start-line="140" selection-end-line="140" />
+          <folding>
+            <element signature="e#311#320#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/video-background/core.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/post_detail.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -707,30 +1418,149 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/theaterwinner.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="95">
+          <caret line="5" column="1" lean-forward="true" selection-start-line="5" selection-start-column="1" selection-end-line="5" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="4" column="25" lean-forward="true" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/tests.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/template_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="10" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="3254" column="42" selection-start-line="3254" selection-start-column="42" selection-end-line="3254" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#32#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/db/backends/mysql/base.py">
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
+        <state relative-caret-position="171">
+          <caret line="9" column="15" lean-forward="true" selection-start-line="9" selection-start-column="15" selection-end-line="9" selection-end-column="15" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/7d20d888-0247-4096-9ca1-dbc1fa31f99b/console.sql">
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap-theme.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="81" column="21" lean-forward="true" selection-start-line="81" selection-start-column="21" selection-end-line="81" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="79" column="51" selection-start-line="79" selection-start-column="51" selection-end-line="79" selection-end-column="51" />
+        <state relative-caret-position="174">
+          <caret line="4" column="25846" lean-forward="true" selection-start-line="4" selection-start-column="25846" selection-end-line="4" selection-end-column="25846" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="87" lean-forward="true" selection-start-line="87" selection-end-line="87" />
+          <folding>
+            <element signature="n#style#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#4;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#5;n#ul#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="25" column="44" lean-forward="true" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="75" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#h3#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css.map">
+      <provider editor-type-id="sourcemapFileViewerProvider" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/bootstrap/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="1925" selection-start-line="1925" selection-end-line="1925" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/contrib/auth/__init__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="133" column="97" selection-start-line="133" selection-start-column="97" selection-end-line="133" selection-end-column="97" />
         </state>
       </provider>
     </entry>
