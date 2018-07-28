@@ -3,4 +3,17 @@
 
 .navbar-default .navbar-nav>li>a{
     text-align: center;
+
 }
+
+
+.container{
+
+    padding-left: 1px;
+    padding-right: 1px;
+}
+
+ul {
+  list-style-type: none;
+}
+
