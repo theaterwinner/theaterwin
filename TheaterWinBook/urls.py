@@ -15,4 +15,7 @@ urlpatterns = [
     url(r'^login_view/$', views.login_view, name='login_view'),
     url(r'^logout/$', auth_views.logout, {'next_page': '/'}),  # 로그아웃 후 홈으로 이동
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
+    url(r'^winbook_statistics/$', views.winbook_statistics, name='winbook_statistics'),
+    url(r'^winbook_calendar/$', views.winbook_calendar, name='winbook_calendar'),
+
 ]

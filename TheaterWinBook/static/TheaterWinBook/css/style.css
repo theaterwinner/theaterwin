@@ -7,6 +7,11 @@
 @import "https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,700";
 @import "https://fonts.googleapis.com/css?family=Raleway:400,600,700,800";
 @import url(../pe-icons/Pe-icon-7-stroke.css);
+
+/*custom css start*/
+
+
+/*custom css end*/
 body {
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -1088,7 +1093,7 @@ MULTI LEVEL DROPDOWN CSS
 #footer {
   background: #111;
   font-size: 0.9em;
-  padding: 5px 0 0;
+  padding: 80px 0 0;
   position: relative;
   clear: both;
 }
@@ -1154,7 +1159,7 @@ MULTI LEVEL DROPDOWN CSS
 }
 
 .footer-btm {
-  margin-top: 0px;
+  margin-top: 30px;
   padding: 20px;
   background-color: #0c0c0c;
   border-top-left-radius: 6px;
@@ -3254,7 +3259,7 @@ ul.post-desc li + li {
 
 /****************************breadcrumb***************************/
 .breadcrumb-wrap {
-  padding: 30px 0;
+  padding: 60px 0;
   background-position: center center;
   background-repeat: no-repeat;
   background: url(../img/showcase-1.jpg) no-repeat center center;

@@ -1,11 +1,231 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
-{% block content %}
+{% block css_script %}
+    <style>
+        .ui-datepicker {
+            width: 80%; /*what ever width you want*/
+        }
 
-
-    <div class="divide40"><h1>insert</h1>
-    </div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
+    </style>
 
 {% endblock %}
+{% block content %}
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4>토계부 정보 입력</h4>
+                </div>
+
+
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
+
+
+    <div class="container" style="padding: 0px;width: 100%">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-md-offset-0 col-sm-offset-1">
+                <div class="comment-form" style="background:#f5f5f8; margin: 0px;padding: 20px">
+
+                    <div class="form-contact">
+                        <form role="form" method="post" action="" id="inputForm">
+                            {% csrf_token %}
+
+                            <div class="form-group">
+                                <label id="label_buy_date">*구입 날짜</label>
+                                {{ form.buy_date }}
+                            </div>
+                            {#                            글을 쓴 날짜는 hidden #}
+                            <div class="form-group hidden">
+                                <label id="label_buy_date">* 글을 쓴 날짜</label>
+                                {{ form.writing_date }}
+                            </div>
+
+                            <div class="form-group">
+                                <label id="label_buy_game_title">*구입 경기</label>
+                                {{ form.buy_game_title }}
+                            </div>
+                            <div class="form-group">
+                                <label id="label_batting_ratio">*배당률</label>
+                                {{ form.batting_ratio }}
+                            </div>
+                            <div class="form-group">
+                                <label id="label_batting_money">*배팅 금액</label>
+                                {{ form.batting_money }}
+                            </div>
+                            <div class="form-group">
+                                <label id="label_folder_num">*폴더 수</label>
+                                {{ form.folder_num }}
+                            </div>
+                            <div class="form-group">
+                                <div><label id="label_win_check">*적중 유무</label></div>
+
+
+                                {{ form.win_check }}
+                            </div>
+                            <div class="form-group">
+                                <label id="label_etc_memo">기타 메모</label>
+                                {{ form.etc_memo }}
+                            </div>
+                            <div class="form-group">
+
+                                <button type="submit" id="submit_BT" class="btn btn-theme-bg btn-lg"
+                                        style="width: 90%; margin: 0% 5%" ;>정보 입력
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+{% endblock %}
+
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+
+
+
+
+
+            {{ form.errors }}
+
+
+
+            {#            3자리마다 콤마#}
+            $("#id_batting_money").keyup(function () {
+
+
+            });
+
+            {#     폼 에러가 안나게 input type check 하기       #}
+            $('#submit_BT').click(function () {
+                event.preventDefault();
+                var check_input_result = check_input_value();
+                if (check_input_result == true) {
+
+                    $("#inputForm").submit();
+                } else {
+
+                }
+
+            });
+
+            {# 달력 한글화 #}
+            $('#buy_date').datepicker({
+                inline: true,
+                showOtherMonths: true,
+                showMonthAfterYear: true,
+                monthNames: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                dateFormat: 'yy-mm-dd',
+            }).datepicker("setDate", new Date());
+
+            {#    #}
+        });
+
+        function check_input_value() {
+            var check_input_result = false;
+            var buy_date = $('#buy_date').val();
+            if (date_check(buy_date) == false) {
+                {#달력 데이터가 정상적 입력값이 아니면 false#}
+                alert("구입 날짜를 정확히 입력해주세요!");
+                $('#buy_date').focus();
+                return false;
+            }
+            if ($("#id_buy_game_title").val() == '') {
+                var result = confirm("구입 경기 정보를 입력하지 않으셨습니다.\n그대로 저장하시겠습니까?");
+                if (result) {
+                    var default_buy_game_title = buy_date + ' 구입 경기';
+                    $('#id_buy_game_title').val(default_buy_game_title);
+                    $('#id_buy_game_title').css("border", "");
+                } else {
+                    $('#id_buy_game_title').focus().get(0).scrollIntoView(true);
+                    $('#id_buy_game_title').css("border", "solid red");
+                    return false;
+                }
+
+            }
+
+            if ($("#id_batting_ratio").val() == '' || $("#id_batting_ratio").val() <= 0) {
+                alert("배당률 정보가 없거나 0이하입니다. \n배당률을 정확히 입력해주세요!");
+                $('#id_batting_ratio').focus().get(0).scrollIntoView(true);
+                $('#id_batting_ratio').css("border", "solid red");
+                return false;
+            } else {
+                $('#id_batting_ratio').css("border", "");
+            }
+
+            if ($("#id_batting_money").val() == '' || $("#id_batting_money").val() <= 0) {
+                alert("배팅 금액 정보가 없거나 0원 이하입니다. \n배팅 금액을 정확히 입력해주세요!");
+                $('#id_batting_money').focus().get(0).scrollIntoView(true);
+                $('#id_batting_money').css("border", "solid red");
+                return false;
+            } else {
+                $('#id_batting_money').css("border", "");
+            }
+
+
+            if ($("#id_folder_num").val() == '' || $("#id_folder_num").val() <= 0) {
+                alert("폴더 수가 없거나 0이하입니다. \n폴더 수를 정확히 입력해주세요!");
+                $('#id_folder_num').focus().get(0).scrollIntoView(true);
+                $('#id_folder_num').css("border", "solid red");
+                return false;
+            } else {
+                $('#id_folder_num').css("border", "");
+            }
+
+            if ($("#id_win_check").val() == '') {
+                alert("적중 유무를 정확히 입력해주세요");
+                $('#id_win_check').focus().get(0).scrollIntoView(true);
+                $('#id_win_check').css("border", "solid red");
+                return false;
+            } else {
+                $('#id_win_check').css("border", "");
+            }
+            {#적중 안된 것 0, 적중 된 것 1, 미정 2 #}
+            if (!($("#id_win_check").val() == 0 || $("#id_win_check").val() == 1 || $("#id_win_check").val() == 2)) {
+                alert("적중 유무가 적당하지 않습니다. ");
+                $('#id_win_check').focus().get(0).scrollIntoView(true);
+                $('#id_win_check').css("border", "solid red");
+                return false;
+            } else {
+                $('#id_win_check').css("border", "");
+            }
+
+
+            return true;
+        }
+
+        function date_check(dateString) {
+            var regEx = /^\d{4}-\d{2}-\d{2}$/;
+            if (!dateString.match(regEx)) return false;  // Invalid format
+            var d = new Date(dateString);
+            if (!d.getTime() && d.getTime() !== 0) return false; // Invalid date
+            return d.toISOString().slice(0, 10) === dateString;
+        }
+
+        {#3자리마다 콤마 찍어주기#}
+
+        function comma(str) {
+            str = String(str);
+            return str.replace(/(\d)(?=(?:\d{3})+(?!\d))/g, '$1,');
+        }
+
+
+        function uncomma(str) {
+            str = String(str);
+            return str.replace(/[^\d]+/g, '');
+        }
+
+
+    </script>
+{% endblock %}
+
+

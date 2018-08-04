@@ -1,10 +1,60 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
 {% block content %}
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="">
+                    <h4 style="padding-left: 5%">나의 기록</h4>
+                </div>
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
 
 
-    <div class="divide40"><h1>listing </h1>
+    {#{% for s in winbook_user_result %}#}
+    {#  {{ s.buy_game_title }}#}
+    {#<br>#}
+    {# {{ s.batting_money}}#}
+    {##}
+    {#  {% endfor %}#}
+    <div class="row" style="padding: 0 2%">
+        <div class="col-md-12">
+            {% for s in winbook_user_result %}
+                <div class="about-author" style="margin: 10px;border-radius: 10px; padding: 10px; border: solid red">
+                    <ul class="list-inline post-detail" style="margin: 0px; text-align: center ">
+                        <li><i class="fa fa-calendar"></i> {{ s.buy_date }} 구입
+                        </li>
+                        <li><i class="fa fa-tag"></i> <a href="#"> {{ s.win_check }} </a></li>
+                        <li><i class="fa fa-tag"></i> <a href="#"> {{ s.folder_num }} 폴더 </a></li>
+                    </ul>
+                    <div style="padding: 10px">
+
+                        <h4 class="colored-text" style="margin-top: 5px"> {{ s.buy_game_title }} </h4>
+                        <p>
+                            * 배팅금액 : {{ s.batting_money }}원 / 적중 배당 : {{ s.batting_ratio }} 배
+                        </p>
+                        <p>
+                            * 최종금액 : {{ s.batting_money  }}원
+                        </p>
+                        <p> * 기타 메모: {{ s.etc_memo }} </p>
+                    </div>
+
+
+                    <ul class="list-inline post-detail" style="margin: 0px; text-align: right">
+                           <li>  {{ s.writing_date }} 기록됨
+                        </li>
+                        <li><i class="fa fa-calendar"></i> 삭제</li>
+                        <li><i class="fa fa-tag"></i> <a href="#"> 수정 </a></li>
+                    </ul>
+
+                </div><!--about author-->
+            {% endfor %}
+
+
+        </div><!--col-->
+
+    </div><!--row for blog post-->
     </div>
-    <div class="divide40"></div>
     <div class="divide40"></div>
     <div class="divide40"></div>
 
