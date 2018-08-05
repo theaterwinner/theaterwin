@@ -10,9 +10,20 @@
 
 {% block content %}
 
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="">
+                    <h4 style="padding-left: 5%">구매 달력</h4>
+                </div>
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
 
-    <div class="divide40"><h1>Content goes here</h1>
-    </div>
+
+
+    <div id='calendar'></div>
+
     <div class="divide40"></div>
     <div class="divide40"></div>
     <div class="divide40"></div>
@@ -20,13 +31,59 @@
 {% endblock %}
 
 {% block javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.js"></script>
     <script>
         $(document).ready(function () {
+          {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_calendar") > -1) {
+                $("#navtop_winbook_calendar").css("color", "#32c5d2");
+            }
+            {#calendarEvent();#}
+           $('#calendar').fullCalendar({
+  schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives'
 
-            // JQuery 적용
+});
 
         });
 
+        function calendarEvent(eventData) {
+            alert("this is calendar");
+
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+            var calendar = $('#calendar').fullCalendar({
+                header: {
+                    left: "",
+                    center: "title",
+//    right: "month,basicWeek,basicDay"
+                    right: "today prev,next"
+                },
+                editable: true,
+                titleFormat: {
+                    month: "yyyy년 MMMM",
+                    week: "[yyyy] MMM dd일{ [yyyy] MMM dd일}",
+                    day: "yyyy년 MMM d일 dddd"
+                },
+                allDayDefault: false,
+                defaultView: "month",
+                editable: false,
+                monthNames: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                monthNamesShort: ["1월", "2월", "3월", "4월", "5월", "6월", "7월", "8월", "9월", "10월", "11월", "12월"],
+                dayNames: ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"],
+                dayNamesShort: ["일", "월", "화", "수", "목", "금", "토"],
+                buttonText: {
+                    today: "오늘",
+                    month: "월별",
+                    week: "주별",
+                    day: "일별",
+                },
+                events: eventData,
+                timeFormat: "HH:mm",
+            });
+        }
 
     </script>
 {% endblock %}

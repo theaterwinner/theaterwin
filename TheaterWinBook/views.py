@@ -2,6 +2,7 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.db.models.functions import Lower
 from django.http import JsonResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
@@ -9,8 +10,8 @@ from django.utils import timezone
 
 from .forms import UserForm, LoginForm, TheaterWinBookRecordForm
 from .models import Post, TheaterWinBookRecord
-
-
+from django.contrib import messages
+from django.contrib.messages import get_messages
 # Create your views here.
 def post_list(request):
     posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
@@ -44,8 +45,10 @@ def winbook_insert(request):
             inputForm.save()
             # 저장한 후에 pk 값 가져오기
             print("this is after saving records pk :",inputForm.pk);
-            # 정보를 성공적으로 입력한 후에는 방금 정리되었던
-            return redirect('index')  # url의 name을 경로대신 입력한다.
+            new_winbook_pk = inputForm.pk
+            messages.success(request, 'insert_success', extra_tags=new_winbook_pk)
+            # 정보를 성공적으로 입력한 후에는, 메세지에 방금 입력된 pk값을 담아서 보내기
+            return redirect('winbook_list')
         else:
 
             messages.error(request, "please enter right field");
@@ -61,11 +64,26 @@ def winbook_statistics(request):
 
 @login_required(login_url='/login_view')
 def winbook_list(request):
-    login_user_name = request.user
-    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name)
-    winbook_user_list = {"winbook_user_result":winbook_user_result}
+    # 신규 글 number를 메세지로 받아오기
+    storage = get_messages(request)
+    # 만약에 new_winbook_pk 의 디폴트 값을 설정하자..
+    new_winbook_pk =0
+    new_winbook_check = 'n'
+    for message in storage:
+        print(message)
+        # 메세지 중에서, insert_success 메세지가 있으면, extra tag에서 데이터를 가져온다.
+        if str(message) == "insert_success":
+            new_winbook_pk = message.extra_tags
+            #개인적으로 check 컨텍스트도 넘겨주자..
+            new_winbook_check = 'y'
+        else:
+            print("메세지 도달 실패")
 
-    return render(request, 'TheaterWinBook/winbook_list.html',winbook_user_list)
+        # 로그인된 user를 확인하고
+    login_user_name = request.user
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-writing_date','-pk')
+    print('new_winbook_pk 는',new_winbook_pk)
+    return render(request, 'TheaterWinBook/winbook_list.html', {"winbook_user_result":winbook_user_result, "new_winbook_pk":new_winbook_pk,'new_winbook_check':new_winbook_check})
 
 
 def to_winnerBros(request):
@@ -86,8 +104,10 @@ def signup(request):
             # 회원가입을 하고 로그인을 바로 하는 것이 아니라, 로그인 페이지로 이동시키자
             # login(request, new_user)
             print('valid2')
-            signup_try = 'signup_success'
-            return render(request, 'TheaterWinBook/login_view.html', {'signup_try': signup_try})
+            messages.success(request,"회원가입 완료! 가입하신 정보로 로그인해주세요!")
+            return redirect('login_view')
+            # signup_try = 'signup_success'
+            # return render(request, 'TheaterWinBook/login_view.html', {'signup_try': signup_try})
         else:
             form = UserForm()
             # 검증에 실패시 form.error 에 오류 정보를 저장하여 함께 렌더링

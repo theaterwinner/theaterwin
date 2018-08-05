@@ -1,5 +1,26 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
+{% block css_script %}
+    <style>
+        .breadcrumb-wrap {
+            padding: 5%;
+        }
+    </style>
+{% endblock %}
+
+
 {% block content %}
+
+
+        <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="">
+                    <h4 style="padding-left: 5%">구매 통계</h4>
+                </div>
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
+
 
 
     <div class="divide40"><h1> statistics page here</h1>
@@ -13,7 +34,10 @@
 {% block javascript %}
     <script>
         $(document).ready(function(){
-
+          {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_statistics") > -1) {
+                $("#navtop_winbook_statistics").css("color", "#32c5d2");
+            }
             // JQuery 적용
 
         });

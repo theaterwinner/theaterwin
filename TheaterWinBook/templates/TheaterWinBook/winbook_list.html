@@ -1,4 +1,29 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
+
+{% block css_script %}
+    <style>
+
+        {#  전체/적중/비적중/라디오버튼  #}
+        .input-group .form-control.form-control-selectpicker {
+            padding: 0;
+        }
+
+        .input-group .form-control.form-control-selectpicker > .btn-group.bootstrap-select {
+            width: 100%;
+        }
+
+        .input-group .form-control.form-control-selectpicker .btn-group .btn {
+            border: 0;
+        }
+
+        label span {
+            color: #32c5d2;
+        }
+
+    </style>
+{% endblock %}
+
+
 {% block content %}
     <div class="breadcrumb-wrap">
         <div class="container">
@@ -11,6 +36,33 @@
     </div><!--breadcrumbs-->
 
 
+    <div class="col-md-12" style="margin-top: 5px;text-align: center">
+        <div class="btn-group" role="group">
+            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 5px;" id="win_check_all_label">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check"
+                      data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="win_check_all" style="display: none" autocomplete="false"/> 전체
+            </label>
+            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 5px;">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check"
+                      data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="win_check_hit" style="display: none" autocomplete="false"/> 적중
+            </label>
+            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 3px;">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check"
+                      data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="win_check_miss" style="display: none" autocomplete="false"/> 비적중
+            </label>
+            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 3px;">
+                <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check"
+                      data-icon-off="glyphicon glyphicon-unchecked"></span>
+                <input name="radio" type="radio" value="win_check_yet" style="display: none" autocomplete="false"/> 경기전
+            </label>
+
+        </div>
+    </div>
+
+
     {#{% for s in winbook_user_result %}#}
     {#  {{ s.buy_game_title }}#}
     {#<br>#}
@@ -19,43 +71,174 @@
     {#  {% endfor %}#}
     <div class="row" style="padding: 0 2%">
         <div class="col-md-12">
-            {% for s in winbook_user_result %}
-                <div class="about-author" style="margin: 10px;border-radius: 10px; padding: 10px; border: solid red">
-                    <ul class="list-inline post-detail" style="margin: 0px; text-align: center ">
-                        <li><i class="fa fa-calendar"></i> {{ s.buy_date }} 구입
-                        </li>
-                        <li><i class="fa fa-tag"></i> <a href="#"> {{ s.win_check }} </a></li>
-                        <li><i class="fa fa-tag"></i> <a href="#"> {{ s.folder_num }} 폴더 </a></li>
-                    </ul>
-                    <div style="padding: 10px">
+            {% for winbook_record in winbook_user_result %}
+                {#  적중/비적중/미경기에 따라서 테두리 색을 바꾸자   #}
+                {% if winbook_record.win_check == 0 %}
+                    {% with win_check_color_status="#ff253b" %}
+                        <div class="about-author win_check_miss"
+                             style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
+                    {% endwith %}
+                {% elif winbook_record.win_check == 1 %}
+                    {% with win_check_color_status="#59df57" %}
+                        <div class="about-author  win_check_hit"
+                             style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
+                    {% endwith %}
+                {% elif winbook_record.win_check == 2 %}
+                    {% with win_check_color_status="#ffcd38" %}
+                        <div class="about-author win_check_yet "
+                             style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
+                    {% endwith %}
+                {% endif %}
+            <ul class="list-inline post-detail" style="margin: 0px; text-align: center ">
+                {#   slugify 는 integer나 string을 최소한의 형태로 맞추어 주는 역할이다. 비교를 할 때는 반드시 이걸 하자.. #}
+                {% if new_winbook_pk|slugify == winbook_record.pk|slugify %}
+                    <span class="label label-primary">New</span>
+                {% endif %}
 
-                        <h4 class="colored-text" style="margin-top: 5px"> {{ s.buy_game_title }} </h4>
-                        <p>
-                            * 배팅금액 : {{ s.batting_money }}원 / 적중 배당 : {{ s.batting_ratio }} 배
-                        </p>
-                        <p>
-                            * 최종금액 : {{ s.batting_money  }}원
-                        </p>
-                        <p> * 기타 메모: {{ s.etc_memo }} </p>
-                    </div>
+                <li><i class="fa fa-calendar"></i> {{ winbook_record.buy_date }} 구입
+                </li>
+                <li><i class="fas fa-medal"></i>
+                    {% if winbook_record.win_check == 0 %}
+                        비적중
+                    {% elif winbook_record.win_check == 1 %}
+                        적중
+                    {% elif winbook_record.win_check == 2 %}
+                        경기전
+                    {% endif %}
+                </li>
+                <li><i class="fas fa-dice"></i> {{ winbook_record.folder_num }} 폴더</li>
+            </ul>
+            <div style="padding: 10px">
+
+                <h4 class="colored-text" style="margin-top: 5px"> {{ winbook_record.buy_game_title }} </h4>
+                <p>
+                    * 배팅금액 : {{ winbook_record.batting_money }}원
+                </p>
+                <p>
+                    * 적중 배당 : {{ winbook_record.batting_ratio }} 배
+                </p>
+                <p>
+                    * 최종금액 : {{ winbook_record.batting_money }}원
+                </p>
+                <p> * 기타 메모: {{ winbook_record.etc_memo }} </p>
+            </div>
 
 
-                    <ul class="list-inline post-detail" style="margin: 0px; text-align: right">
-                           <li>  {{ s.writing_date }} 기록됨
-                        </li>
-                        <li><i class="fa fa-calendar"></i> 삭제</li>
-                        <li><i class="fa fa-tag"></i> <a href="#"> 수정 </a></li>
-                    </ul>
+            <ul class="list-inline post-detail" style="margin: 0px; text-align: right">
 
-                </div><!--about author-->
+
+                <li>  {{ winbook_record.writing_date }} 기록
+                </li>
+                <li><i class="fas fa-trash-alt"></i><a href="#"> 삭제</a></li>
+                <li><i class="fas fa-pen-square"></i> <a href="#"> 수정 </a></li>
+            </ul>
+
+            </div><!--about author-->
             {% endfor %}
 
 
-        </div><!--col-->
+            </div><!--col-->
 
-    </div><!--row for blog post-->
+            </div><!--row for blog post-->
+        </div>
     </div>
     <div class="divide40"></div>
     <div class="divide40"></div>
 
 {% endblock %}
+
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+
+            {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_list") > -1) {
+                $("#navtop_winbook_list").css("color", "#32c5d2");
+            }
+            {#라디오버튼 클릭시 적용  #}
+            $('body').on('click', '.btn-checkbox', function (e) {
+                e.stopPropagation();
+                e.preventDefault();
+                var $radio = $(this).find(':input[type=radio]');
+                if ($radio.length) {
+                    if ($radio.val() == 'win_check_all') {
+                        $(".about-author").removeClass("hidden");
+                    }
+                    else if ($radio.val() == 'win_check_hit') {
+                        $(".win_check_hit").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    }
+                    else if ($radio.val() == 'win_check_miss') {
+                        $(".win_check_miss").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    } else if ($radio.val() == 'win_check_yet') {
+                        $(".win_check_yet").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                    } else {
+                        alert("이거슨 잘못된 행위");
+                    }
+                    {#checked에 있는 클래스들 모두 hidden으로.. #}
+
+
+                    var $group = $radio.closest('.btn-group');
+                    $group.find(':input[type=radio]').not($radio).each(function () {
+                        unchecked($(this));
+                    })
+                    var $icon = $(this).find('[data-icon-on]');
+                    if ($radio.is(':checked')) {
+                        unchecked($radio);
+                    } else {
+                        checked($radio);
+                    }
+                    return;
+                }
+            });
+
+            {#페이지 시작시에 기본적으로 전체 라디오버튼 클릭, 앞의 라디오 버튼 설정 뒤에 클릭행위가 들어가야함. #}
+            $("#win_check_all_label").trigger('click');
+
+            {#새로운 토계부 정보를 체크하는 변수가  yes이면#}
+            var new_winbook_check = '{{ new_winbook_check }}';
+            if (new_winbook_check == 'n') {
+            } else if (new_winbook_check == 'y') {
+                alert("새로운 토계부 정보가 성공적으로 등록되었습니다");
+            } else {
+            }
+            // JQuery 적용
+
+        });
+
+
+
+        {#라디오 버튼에 사용되는 checkd & unchecked#}
+
+        function checked($input) {
+            var $button = $input.closest('.btn');
+            var $icon = $button.find('[data-icon-on]');
+            $button.addClass('active');
+            $input.prop('checked', true);
+            $icon.css('width', $icon.width());
+            $icon.removeAttr('class').addClass($icon.data('icon-on'));
+            $input.trigger('change');
+        }
+
+        function unchecked($input) {
+            var $button = $input.closest('.btn');
+            var $icon = $button.find('[data-icon-on]');
+            $button.removeClass('active');
+            $input.prop('checked', false);
+            $icon.css('width', $icon.width());
+            $icon.removeAttr('class').addClass($icon.data('icon-off'));
+            $input.trigger('change');
+        }
+    </script>
+{% endblock %}
+
+

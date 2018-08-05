@@ -12,11 +12,8 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 
-
-
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -28,7 +25,6 @@ SECRET_KEY = 'v4t3@&*^zrj(+fxjpx_=2i_+$royxy5u98)2!8^pa@2l9%dxvj'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -72,14 +68,13 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'TheaterWin.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME':os.path.join(BASE_DIR,'db.sqlite3')
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
 
     }
 }
@@ -113,7 +108,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
 
@@ -127,13 +121,11 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
 
 # 로그인 이후 경로 수정
 TEMPLATE_CONTEXT_PROCESSORS = (

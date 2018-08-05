@@ -24,7 +24,7 @@
 
     <div class="container" style="padding: 0px;width: 100%">
         <div class="row">
-            <div class="col-md-12 col-sm-12 col-md-offset-0 col-sm-offset-1">
+            <div class="col-md-12 col-sm-12 col-md-offset-0">
                 <div class="comment-form" style="background:#f5f5f8; margin: 0px;padding: 20px">
 
                     <div class="form-contact">
@@ -62,6 +62,7 @@
 
 
                                 {{ form.win_check }}
+                                <div><label style="width:  100%;background:#A9A9A9;margin-top: 2px; border-radius: 5px; padding: 0 10px;color: whitesmoke;text-align: right" ><i class="fas fa-won-sign"></i> <span style="color: whitesmoke;">30,000</span></span></label></div>
                             </div>
                             <div class="form-group">
                                 <label id="label_etc_memo">기타 메모</label>
@@ -89,12 +90,12 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
+          {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_insert") > -1) {
+                $("#navtop_winbook_insert").css("color", "#32c5d2");
+            }
 
-
-
-
-
-            {{ form.errors }}
+            {#예상 금액 변경해주기 #}
 
 
 
