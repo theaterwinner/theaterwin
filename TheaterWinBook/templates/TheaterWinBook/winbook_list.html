@@ -38,7 +38,8 @@
 
     <div class="col-md-12" style="margin-top: 5px;text-align: center">
         <div class="btn-group" role="group">
-            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 5px;" id="win_check_all_label">
+            <label class="btn btn-default btn-checkbox" style="width: 25%;    padding-left: 5px;"
+                   id="win_check_all_label">
                 <span class="glyphicon glyphicon-unchecked" data-icon-on="glyphicon glyphicon-check"
                       data-icon-off="glyphicon glyphicon-unchecked"></span>
                 <input name="radio" type="radio" value="win_check_all" style="display: none" autocomplete="false"/> 전체
@@ -125,12 +126,14 @@
 
 
             <ul class="list-inline post-detail" style="margin: 0px; text-align: right">
-
-
                 <li>  {{ winbook_record.writing_date }} 기록
                 </li>
-                <li><i class="fas fa-trash-alt"></i><a href="#"> 삭제</a></li>
-                <li><i class="fas fa-pen-square"></i> <a href="#"> 수정 </a></li>
+                <li><i class="fas fa-trash-alt"></i><a href="#" id="delete_btn_{{ winbook_record.pk }}"
+                                                       record_pk={{ winbook_record.pk }}
+                                                               name="delete_btn"> 삭제</a></li>
+                <li><i class="fas fa-pen-square"></i> <a href="#" id="modify_btn_{{ winbook_record.pk }}"
+                                                         name="modify_btn" record_pk={{ winbook_record.pk }}>
+                    수정 </a></li>
             </ul>
 
             </div><!--about author-->
@@ -151,6 +154,8 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
+            //삭제버튼 및 수정버튼 클릭시 confirm
+            btn_delete_modify();
 
             {#url체크해서 navigation에 색깔 칠해주기. #}
             if (window.location.href.indexOf("winbook_list") > -1) {
@@ -210,12 +215,65 @@
             } else if (new_winbook_check == 'y') {
                 alert("새로운 토계부 정보가 성공적으로 등록되었습니다");
             } else {
+
             }
             // JQuery 적용
 
         });
+        {#삭제 및 수정 버튼#}
+
+        function btn_delete_modify() {
+            $("[name = 'delete_btn']").click(function () {
+                var delete_result = confirm('해당 게시물을 정말 삭제하시겠습니까?');
+                {#버튼이 사실이면?#}
+                if (delete_result == true) {
+                    var record_pk = $(this).attr('record_pk');
+                    $.ajax({
+                        type: "POST",
+                        url: "/list_delete/",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            'record_pk': record_pk,
+                        },
+                        success: function (data) {
+                            var delete_result = data.delete_success;
+                            if (delete_result == "success") {
+                                alert("삭제가 성공적으로 이루어 졌습니다.");
+                                location.reload();
+                            } else {
+                                alert("삭제가 정상적으로 되지 않았습니다.\n 다시 시도해주시기 바랍니다");
+                            }
+                        }
+                    });
+                }
+                else {
+                }
+            });
 
 
+            $("[name = 'modify_btn']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $.ajax({
+                    type: "POST",
+                    url: "/list_usercheck/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                    },
+                    success: function (data) {
+                        var usercheck_result = data.usercheck_success;
+                        if (usercheck_result == "success") {
+                            window.location = '/winbook_modify?record_pk=' + record_pk;
+                        } else {
+                            alert("정상적인 수정과정이 아닙니다. \n 재로그인 후 다시 시도해주세요");
+                        }
+                    }
+                });
+
+
+            });
+
+        }
 
         {#라디오 버튼에 사용되는 checkd & unchecked#}
 

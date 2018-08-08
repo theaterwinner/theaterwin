@@ -16,5 +16,10 @@ urlpatterns = [
     url(r'^ajax/validate_username/$', views.validate_username, name='validate_username'),
     url(r'^winbook_statistics/$', views.winbook_statistics, name='winbook_statistics'),
     url(r'^winbook_calendar/$', views.winbook_calendar, name='winbook_calendar'),
-
+    url(r'^index_video_test/$', views.index_video_test, name='index_video_test'),
+    url(r'^list_delete/$', views.list_delete, name='list_delete'),
+    url(r'^list_usercheck/$', views.list_usercheck, name='list_usercheck'),
+    url(r'^winbook_modify/$', views.winbook_modify, name='winbook_modify'),
+    url(r'^error_404/$', views.error_404, name='error_404'),
+    url(r'^error_wronguser/$', views.error_wronguser, name='error_wronguser'),
 ]

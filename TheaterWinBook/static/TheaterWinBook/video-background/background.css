@@ -79,6 +79,7 @@
   opacity: 0;
 }
 .fs-background-media.fs-background-animated {
+  height: 758.813px; top: -79.4063px; opacity: 1; width: 1349px; left: 0px;
   -webkit-transition: opacity 0.5s linear;
           transition: opacity 0.5s linear;
 }

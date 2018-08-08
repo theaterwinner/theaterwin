@@ -1,9 +1,11 @@
+import datetime
+
 from django import forms
 from django.contrib.auth.models import User
-from django.forms import RadioSelect
 from django.forms.utils import ErrorList
+
 from TheaterWinBook.models import TheaterWinBookRecord, Post
-import datetime
+
 
 class UserForm(forms.ModelForm):
     class Meta:
@@ -29,8 +31,8 @@ class TheaterWinBookRecordForm(forms.ModelForm):
 
     buy_date = forms.DateField(widget=forms.DateInput(attrs={'type':'text','id':'buy_date'}),initial=datetime.date.today)
     writing_date = forms.DateField(widget=forms.DateInput(attrs={'type':'text','id':'writing_date'}),initial=datetime.date.today)
-    batting_ratio = forms.FloatField(required=True, max_value=100, min_value=0, widget=forms.NumberInput(attrs={'step': "0.01"}),initial=0)
-    batting_money = forms.IntegerField(required=True, max_value=1000000000, min_value=1000, widget=forms.NumberInput(attrs={'step': "1000"}), initial=1000)
+    batting_ratio = forms.FloatField(required=True, max_value=100, min_value=0, widget=forms.NumberInput(attrs={'step': "0.01"}),initial=1)
+    batting_money = forms.CharField(required=True, widget=forms.TextInput(attrs={'type':'text'}))
     folder_num = forms.IntegerField(required=True, max_value=1000000, min_value=1, widget=forms.NumberInput(attrs={'step': "1"}), initial=1)
     # choice의 선택지이다. value가 첫 번째이고, 두 번째는 화면에 나타나는 부분.
     win_check_choice = [(0, '적중실패'), (1, '적중성공'), (2, '경기전')]

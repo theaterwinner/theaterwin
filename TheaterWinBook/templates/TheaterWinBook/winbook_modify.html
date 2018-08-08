@@ -1,19 +1,20 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
+
 {% block css_script %}
     <style>
-        .ui-datepicker {
-            width: 80%; /*what ever width you want*/
+        .breadcrumb-wrap {
+            padding: 5%;
         }
-
     </style>
-
 {% endblock %}
+
 {% block content %}
+
     <div class="breadcrumb-wrap">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    <h4>토계부 정보 입력</h4>
+                    <h4>토계부 정보 수정하기</h4>
                 </div>
 
 
@@ -21,14 +22,13 @@
         </div>
     </div><!--breadcrumbs-->
 
-
     <div class="container" style="padding: 0px;width: 100%">
         <div class="row">
             <div class="col-md-12 col-sm-12 col-md-offset-0">
                 <div class="comment-form" style="background:#f5f5f8; margin: 0px;padding: 20px">
 
                     <div class="form-contact">
-                        <form role="form" method="post" action="" id="inputForm">
+                        <form role="form" method="post" action="" id="modifyForm">
                             {% csrf_token %}
 
                             <div class="form-group">
@@ -82,7 +82,7 @@
                             <div class="form-group">
 
                                 <button type="submit" id="submit_BT" class="btn btn-theme-bg btn-lg"
-                                        style="width: 90%; margin: 0% 5%" ;>입력 하기
+                                        style="width: 90%; margin: 0% 5%" ;>수정 하기
                                 </button>
                             </div>
                         </form>
@@ -94,13 +94,13 @@
 
 
 
-
 {% endblock %}
-
 
 {% block javascript %}
     <script>
         $(document).ready(function () {
+            {#수정 페이지는 이미 값이 존재하니, 한번 expecting_money를 체크해주자. #}
+            expecting_money();
             {#url체크해서 navigation에 색깔 칠해주기. #}
             if (window.location.href.indexOf("winbook_insert") > -1) {
                 $("#navtop_winbook_insert").css("color", "#32c5d2");
@@ -168,14 +168,13 @@
                 event.preventDefault();
                 var check_input_result = check_input_value();
                 if (check_input_result == true) {
-
                     {#배팅 머니 input 컴마 있는 부분 다 없애서 저장하기#}
                     var batting_money_comma = $("#id_batting_money").val();
                     var batting_money_nocomma = batting_money_comma.replace(/,/g, "");
                     {#콤마를 다 제거한 것이 숫자 형태여야만 한다. 아니라면 return false#}
                     if ($.isNumeric(batting_money_nocomma)) {
                         $("#id_batting_money").val(batting_money_nocomma);
-                        $("#inputForm").submit();
+                        $("#modifyForm").submit();
                     } else {
                         alert("배팅금액에는 숫자만 넣어주세요");
                         $('#id_batting_money').focus().get(0).scrollIntoView(true);

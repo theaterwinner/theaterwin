@@ -1,11 +1,11 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
 {% load static %}
 {% block css_script %}
-       <style type="text/css">
-            html,body{
-                height:100%;
-            }
-        </style>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+    </style>
 
 {% endblock %}
 
@@ -18,11 +18,11 @@
         <div class="overlay"></div>
         <div class="video-overlay">
             <div class="container">
-                <h1 class="wow animated fadeInDown" data-wow-delay="0.1s">극장승</h1>
                 <p class="wow animated fadeInDown" data-wow-delay="0.2s">
                     토계부 극장승을 사용하고 <br> 영화같은 승리를 쟁취하세요!
                 </p>
-                <a href='#about' class="btn btn-lg btn-theme-bg wow animated fadeInDown" data-wow-delay="0.3s">회원가입하기</a>
+                <a href='#about' class="btn btn-lg btn-theme-bg wow animated fadeInDown"
+                   data-wow-delay="0.3s">회원가입하기</a>
             </div>
         </div>
     </section>
@@ -35,21 +35,19 @@
     <script>
         $(document).ready(function () {
 
-            {#var poster_url = "{% static 'TheaterWinBook/img/typing_cover.jpg\' %}" ;#}
-            // Formstone Background - Video Background Settings
-            $(".video-section").background({
-                source: {
 
-                    poster:  '../static/TheaterWinBook/img/typing_cover.jpg' ,
-
-                    mp4: '../static/TheaterWinBook/img/typing.mp4'
-                }
-            });
+        });
+    </script>
+    <script>
+        // Formstone Background - Video Background Settings
+        $(".video-section").background({
+            source: {
+                poster: "../static/TheaterWinBook/img/intro_screenshot.PNG",
+                mp4: "../static/TheaterWinBook/img/TheaterWin_intro.mp4"
+            }
         });
     </script>
 
-
-    });
 
 
 
