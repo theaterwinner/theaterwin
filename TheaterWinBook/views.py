@@ -2,17 +2,20 @@ from django.contrib import messages
 from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
+from django.core import serializers
 from django.db.models.functions import Lower
 from django.http import JsonResponse, HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils import timezone
+from django.utils.encoding import smart_text
 
 from .forms import UserForm, LoginForm, TheaterWinBookRecordForm
 from .models import Post, TheaterWinBookRecord
 from django.contrib import messages
 from django.contrib.messages import get_messages
 import json
+from django.core.serializers.json import DjangoJSONEncoder
 
 
 # Create your views here.
@@ -44,7 +47,19 @@ def post_detail(request, pk):
 
 @login_required(login_url='/login_view')
 def winbook_calendar(request):
-    return render(request, 'TheaterWinBook/winbook_calendar.html')
+    # 로그인된 user를 확인하고
+    login_user_name = request.user
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-writing_date',
+                                                                                                  '-pk')
+    winbook_user_result_json = serializers.serialize('json', winbook_user_result)
+    # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
+    # print(winbook_user_result)
+    # winbook_user_result_json = json.dumps(list(winbook_user_result), ensure_ascii=False, default=str)
+    print("this is json:"+winbook_user_result_json)
+
+    return render(request, 'TheaterWinBook/winbook_calendar.html',
+                  {"winbook_user_result_json": winbook_user_result_json})
+
 
 
 @login_required(login_url='/login_view')
@@ -188,9 +203,6 @@ def winbook_list(request):
                                                                                                   '-pk')
 
     # 현재까지 순수익 구하기.
-
-
-
     return render(request, 'TheaterWinBook/winbook_list.html',
                   {"winbook_user_result": winbook_user_result, "new_winbook_pk": new_winbook_pk,
                    'new_winbook_check': new_winbook_check})

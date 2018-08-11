@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Event Deleting (JavaScript Event Calendar)</title>
+
+        <!-- head -->
+        <meta charset="utf-8"> 
+        <!-- demo stylesheet -->
+    	<link type="text/css" rel="stylesheet" href="../helpers/demo.css?v=2018.2.232" />    
+        <link type="text/css" rel="stylesheet" href="../helpers/media/layout.css?v=2018.2.232" />    
+        <link type="text/css" rel="stylesheet" href="../helpers/media/elements.css?v=2018.2.232" />   
+
+	<!-- helper libraries -->
+	<script src="../helpers/jquery-1.9.1.min.js" type="text/javascript"></script>
+    
+	<!-- daypilot libraries -->
+        <script src="../js/daypilot-all.min.js?v=2018.2.232" type="text/javascript"></script>
+
+        <!-- daypilot themes -->
+	<link type="text/css" rel="stylesheet" href="../themes/month_white.css?v=2018.2.232" />
+	<link type="text/css" rel="stylesheet" href="../themes/month_green.css?v=2018.2.232" />    
+	<link type="text/css" rel="stylesheet" href="../themes/month_transparent.css?v=2018.2.232" />    
+        
+	<link type="text/css" rel="stylesheet" href="../themes/calendar_transparent.css?v=2018.2.232" />    
+	<link type="text/css" rel="stylesheet" href="../themes/calendar_white.css?v=2018.2.232" />    
+	<link type="text/css" rel="stylesheet" href="../themes/calendar_green.css?v=2018.2.232" />    
+
+	<link type="text/css" rel="stylesheet" href="../themes/navigator_green.css?v=2018.2.232" />    
+	<link type="text/css" rel="stylesheet" href="../themes/navigator_white.css?v=2018.2.232" />    
+
+        <!-- /head -->
+       
+</head>
+<body>
+
+<!-- top -->
+        <div id="header">
+			<div class="bg-help">
+				<div class="inBox">
+					<h1 id="logo"><a href='https://javascript.daypilot.org/open-source/'>DayPilot Lite for JavaScript</a> &raquo; <a href='https://javascript.daypilot.org/demo/lite/'>Demo</a></h1>
+					<p id="claim">Open-Source AJAX Calendar/Scheduling Widgets for JavaScript/jQuery/HTML5.</p>
+					<hr class="hidden" />
+				</div>
+			</div>
+		</div>
+		
+    <div id="download">
+            <div style="float:left; width: 130px;"><a href="https://javascript.daypilot.org/download/" class="css3button"><span>Download</span></a></div>
+            <div style="margin-left: 130px;">
+                <div><a href="https://javascript.daypilot.org/download/">Download</a> DayPilot Lite (open-source).</div>
+                <div>See also the advanced features of <a href="https://javascript.daypilot.org/demo/">DayPilot Pro</a> (commercial).</div>
+            </div>
+        
+    </div>
+
+    <div id="main">
+        <div id="tabs">
+            <!-- tabs -->
+<div>
+<a class='tab' href='../index.html'><span style="width: 100px; text-align:center;">Home</span></a>
+<a class='tab selected' href='../calendar/index.html'><span style="width: 100px; text-align:center;">Calendar</span></a>
+<a class='tab' href='../month/index.html'><span style="width: 100px; text-align:center;">Month</span></a>
+<a class='tab' href='../scheduler/index.html'><span style="width: 100px; text-align:center;">Scheduler</span></a>
+</div>
+<div class="header"><div class="bg-help">Outlook-Like Day/Week View. Customizable Columns.</div></div>
+
+            <!-- /tabs -->
+        </div>
+        
+        <div id="container" >
+	        <div id="left" class="menu">
+		    	            <div>
+                        <!-- menu -->
+<div class="header">Main</div>
+<div>
+  <a href='index.html'><span>JavaScript Event Calendar</span></a>
+</div>
+<div class="header">Navigation</div>
+<div>
+  <a href='navigator.html'><span>Navigator</span></a>
+</div>
+<div>
+  <a href='datepicker.html'><span>Date Picker</span></a>
+</div>
+<div>
+  <a href='nextprevious.html'><span>Next/Previous</span></a>
+</div>
+<div class="header">Themes</div>
+<div>
+  <a href='themegreen.html'><span>Green</span></a>
+</div>
+<div>
+  <a href='themetransparent.html'><span>Transparent</span></a>
+</div>
+<div>
+  <a href='themewhite.html'><span>White</span></a>
+</div>
+<div class="header">Events</div>
+<div>
+  <a href='eventdeleting.html'><span>Event Deleting</span> <span class="new">NEW</span></a>
+</div>
+<div>
+  <a href='eventcustomization.html'><span>Event Customization</span> <span class="new">NEW</span></a>
+</div>
+<div class="header">API</div>
+<div>
+  <a href='angularjs.html'><span>AngularJS</span> <span class="new">NEW</span></a>
+</div>
+<div>
+  <a href='angularjsctrlas.html'><span>AngularJS (Controller As)</span> <span class="new">NEW</span></a>
+</div>
+<div class="header">Localization</div>
+<div>
+  <a href='localization.html'><span>Localization</span></a>
+</div>
+<div class="header">View Types</div>
+<div>
+  <a href='day.html'><span>Day View</span></a>
+</div>
+<div>
+  <a href='week.html'><span>Week View</span></a>
+</div>
+
+                        <!-- /menu -->
+	    		            </div>
+            </div>
+	        <div id="content">
+	            <div>
+<!-- /top -->
+
+<div class="note">Read more about <a href="http://doc.daypilot.org/calendar/">event deleting</a>.</div>
+
+<div id="dp"></div>
+
+<script type="text/javascript">
+
+    var dp = new DayPilot.Calendar("dp");
+
+    // view
+    dp.startDate = "2013-03-25";  // or just dp.startDate = "2013-03-25";
+    dp.viewType = "Week";
+    
+    // event creating
+    dp.onTimeRangeSelected = function (args) {
+        var name = prompt("New event name:", "Event");
+        if (!name) return;
+        var e = new DayPilot.Event({
+            start: args.start,
+            end: args.end,
+            id: DayPilot.guid(),
+            text: name
+        });
+        dp.events.add(e);
+        dp.clearSelection();
+    };
+
+    dp.eventDeleteHandling = "Update";
+    dp.onEventDelete = function(args) {
+        if (!confirm("Do you really want to delete this event?")) {
+            args.preventDefault();
+        }
+    };
+
+    dp.headerDateFormat = "dddd";
+    dp.init();
+
+    var e = new DayPilot.Event({
+        start: new DayPilot.Date("2013-03-25T12:00:00"),
+        end: new DayPilot.Date("2013-03-25T12:00:00").addHours(3).addMinutes(15),
+        id: "1",
+        text: "Special event"
+    });
+    dp.events.add(e);
+    
+</script>
+
+<!-- bottom -->
+                </div>
+	        </div>
+        </div>
+    </div>
+<script type="text/javascript">
+$(document).ready(function() {
+    var url = window.location.href;
+    var filename = url.substring(url.lastIndexOf('/')+1);
+    if (filename === "") filename = "index.html";
+    $(".menu a[href='" + filename + "']").addClass("selected");
+});
+        
+</script>
+<!-- /bottom -->
+
+</body>
+</html>
+

@@ -1,179 +1,143 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
 {% load static %}
 {% block css_script %}
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.css">
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.css">
-    <link rel="stylesheet" type="text/css" href="/static/TheaterWinBook/tuicalendar/dist/tui-calendar.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/TheaterWinBook/tuicalendar/css/default.css"></link>
-    <link rel="stylesheet" type="text/css" href="/static/TheaterWinBook/tuicalendar/css/icons.css"></link>
-
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"/>
-
     <style>
         .breadcrumb-wrap {
             padding: 5%;
         }
     </style>
+    <!-- demo stylesheet -->
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/demo.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/media/layout.css' %}"
+          href="../helpers/"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/demo.css' %}"
+          href="../helpers/media/elements.css?v=2018.2.232"/>
 
+    <!-- helper libraries -->
+    <script src="{% static 'TheaterWinBook/daypilot/helpers/jquery-1.9.1.min.js' %}"></script>
+
+    <!-- daypilot libraries -->
+    <script src="{% static 'TheaterWinBook/daypilot/js/daypilot-all.min.js' %}" type="text/javascript"></script>
+
+    <!-- daypilot themes -->
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_white.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_green.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_transparent.css' %}"/>
+
+    <link type="text/css" rel="stylesheet"
+          href="{% static 'TheaterWinBook/daypilot/themes/calendar_transparent.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/calendar_white.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/calendar_green.css' %}"/>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/navigator_green.css' %}"/>
+    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/navigator_white.css' %}"/>
 {% endblock %}
 
 {% block content %}
+        {{ winbook_user_result_json }}
 
+    <div id="container">
+        <div id="content" style="margin: 0px 1%">
 
-    <div id="top">
-        <a href="https://github.com/nhnent/tui.calendar">
-            <img src="./images/img-bi.png" srcset="./images/img-bi@2x.png 2x,./images/img-bi@3x.png 3x">
-        </a>
-    </div>
-    <div id="lnb">
-        <div class="lnb-new-schedule">
-            <button id="btn-new-schedule" type="button" class="btn btn-default btn-block lnb-new-schedule-btn"
-                    data-toggle="modal">
-                New schedule
-            </button>
-        </div>
-        <div id="lnb-calendars" class="lnb-calendars">
             <div>
-                <div class="lnb-calendars-item">
-                    <label>
-                        <input class="tui-full-calendar-checkbox-square" type="checkbox" value="all" checked>
-                        <span></span>
-                        <strong>View all</strong>
-                    </label>
+                <div class="space">
+                    <a href="javascript:dp.startDate = dp.startDate.addMonths(-1); dp.update();">Previous</a>
+                    |
+                    <a href="javascript:dp.startDate = dp.startDate.addMonths(1); dp.update();">Next</a>
                 </div>
-            </div>
-            <div id="calendarList" class="lnb-calendars-d1">
-            </div>
-        </div>
-        <div class="lnb-footer">
-            © NHN Entertainment Corp.
-        </div>
-    </div>
-    <div id="right">
-        <div id="menu">
-            <span class="dropdown">
-                <button id="dropdownMenu-calendarType" class="btn btn-default btn-sm dropdown-toggle" type="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="true">
-                    <i id="calendarTypeIcon" class="calendar-icon ic_view_month" style="margin-right: 4px;"></i>
-                    <span id="calendarTypeName">Dropdown</span>&nbsp;
-                    <i class="calendar-icon tui-full-calendar-dropdown-arrow"></i>
-                </button>
-                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu-calendarType">
-                    <li role="presentation">
-                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-daily">
-                            <i class="calendar-icon ic_view_day"></i>Daily
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weekly">
-                            <i class="calendar-icon ic_view_week"></i>Weekly
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-monthly">
-                            <i class="calendar-icon ic_view_month"></i>Month
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks2">
-                            <i class="calendar-icon ic_view_week"></i>2 weeks
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a class="dropdown-menu-title" role="menuitem" data-action="toggle-weeks3">
-                            <i class="calendar-icon ic_view_week"></i>3 weeks
-                        </a>
-                    </li>
-                    <li role="presentation" class="dropdown-divider"></li>
-                    <li role="presentation">
-                        <a role="menuitem" data-action="toggle-workweek">
-                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-workweek"
-                                   checked>
-                            <span class="checkbox-title"></span>Show weekends
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" data-action="toggle-start-day-1">
-                            <input type="checkbox" class="tui-full-calendar-checkbox-square" value="toggle-start-day-1">
-                            <span class="checkbox-title"></span>Start Week on Monday
-                        </a>
-                    </li>
-                    <li role="presentation">
-                        <a role="menuitem" data-action="toggle-narrow-weekend">
-                            <input type="checkbox" class="tui-full-calendar-checkbox-square"
-                                   value="toggle-narrow-weekend">
-                            <span class="checkbox-title"></span>Narrower than weekdays
-                        </a>
-                    </li>
-                </ul>
-            </span>
-            <span id="menu-navi">
-                <button type="button" class="btn btn-default btn-sm move-today" data-action="move-today">Today</button>
-                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-prev">
-                    <i class="calendar-icon ic-arrow-line-left" data-action="move-prev"></i>
-                </button>
-                <button type="button" class="btn btn-default btn-sm move-day" data-action="move-next">
-                    <i class="calendar-icon ic-arrow-line-right" data-action="move-next"></i>
-                </button>
-            </span>
-            <span id="renderRange" class="render-range"></span>
-        </div>
-        <div id="calendar"></div>
-    </div>
 
+                <div id="dp"></div>
+
+
+                <!-- bottom -->
+            </div>
+        </div>
+    </div>
     <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
+    </div>
 
 
 {% endblock %}
 
 {% block javascript %}
-    <script type="text/javascript"
-            src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.min.js"></script>
-    <script type="text/javascript" src="https://uicdn.toast.com/tui.time-picker/latest/tui-time-picker.min.js"></script>
-    <script type="text/javascript" src="https://uicdn.toast.com/tui.date-picker/latest/tui-date-picker.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chance/1.0.13/chance.min.js"></script>
-    <script src="/static/TheaterWinBook/tuicalendar/dist/tui-calendar.js"></script>
-    <script src="/static/TheaterWinBook/tuicalendar/js/data/calendars.js"></script>
-    <script src="/static/TheaterWinBook/tuicalendar/js/data/schedules.js"></script>
-    <script src="/static/TheaterWinBook/tuicalendar/js/theme/dooray.js"></script>
-    <script src="/static/TheaterWinBook/tuicalendar/js/default.js"></script>
 
-    <script>
+
+    <script type="text/javascript">
+        {#    오늘 날짜 구해서 달력에 표시하기 #}
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth() + 1; //January is 0!
+        var yyyy = today.getFullYear();
+        if (dd < 10) {
+            dd = '0' + dd
+        }
+        if (mm < 10) {
+            mm = '0' + mm
+        }
+        today = yyyy + '-' + mm + '-' + dd;
+        var dp = new DayPilot.Month("dp");
+        // view
+        dp.startDate = today;  // or just dp.startDate = "2013-03-25";
+
+
+        {% comment %}
+               // 달력 클릭 시 이벤트 삽입은 나중에
+              // event creating
+              dp.onTimeRangeSelected = function (args) {
+                  var name = prompt("New event name:", "Event");
+                  dp.clearSelection();
+                  if (!name) return;
+                  var e = new DayPilot.Event({
+                      start: args.start,
+                      end: args.end,
+                      id: DayPilot.guid(),
+                      text: name
+                  });
+                  alert("this is add button");
+                  dp.events.add(e);
+              };
+              {% endcomment %}
+
+        dp.onEventClicked = function (args) {
+            alert("clicked: " + args.e.id());
+            alert("this is event button");
+        };
+        dp.init();
+    </script>
+
+    <script type="text/javascript">
         $(document).ready(function () {
+            var url = window.location.href;
+            var filename = url.substring(url.lastIndexOf('/') + 1);
+            if (filename === "") filename = "index.html";
+            $(".menu a[href='" + filename + "']").addClass("selected");
 
-            var calendar = new Calendar('#calendar', {
-                defaultView: 'month',
-                taskView: true,
-                template: {
-                    monthGridHeader: function (model) {
-                        var date = new Date(model.date);
-                        var template = '<span class="tui-full-calendar-weekday-grid-date">' + date.getDate() + '</span>';
-                        return template;
-                    }
-                }
-            });
+            // 모든 정보 불러오기
+            var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
+            var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
+            for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
+                var record_buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+                var duration = 0;
+                var start = 0;
+                {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
+                var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
+                    record_buy_date= record_buy_date.replace(regExp, "");
+                var e = new DayPilot.Event({
+                    start: new DayPilot.Date(record_buy_date).addDays(start),
+                    end: new DayPilot.Date(record_buy_date).addDays(start).addDays(duration),
+                    {#end: new DayPilot.Date("2013-03-04T12:00:00").addDays(start).addDays(duration),#}
+                    id: "startday" + start,
+                    text: "Event " + i
+                });
+                dp.events.add(e);
+
+            }
+
 
         });
 
-
     </script>
+
 {% endblock %}
-
-
 
 

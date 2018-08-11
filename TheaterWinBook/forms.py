@@ -28,7 +28,6 @@ class LoginForm(forms.ModelForm):
 
 class TheaterWinBookRecordForm(forms.ModelForm):
     # 개인적으로 input type의 위젯이 필요하면, 이렇게 바꾼다
-
     buy_date = forms.DateField(widget=forms.DateInput(attrs={'type':'text','id':'buy_date'}),initial=datetime.date.today)
     writing_date = forms.DateField(widget=forms.DateInput(attrs={'type':'text','id':'writing_date'}),initial=datetime.date.today)
     batting_ratio = forms.FloatField(required=True, max_value=100, min_value=0, widget=forms.NumberInput(attrs={'step': "0.01"}),initial=1)
@@ -49,7 +48,7 @@ class TheaterWinBookRecordForm(forms.ModelForm):
                          use_required_attribute)
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
-                'class': 'form-control'
+                'class': 'form-control input-lg'
             })
 
 

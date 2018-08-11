@@ -1,43 +1,33 @@
 {% extends "TheaterWinBook/base_header_footer.html" %}
+{% load static %}
 {% block css_script %}
     <style>
         .breadcrumb-wrap {
             padding: 5%;
         }
     </style>
+     <link rel="stylesheet" type="text/css" href="../dist/tui-chart.css" />
+    <link rel='stylesheet' type='text/css' href='../node_modules/codemirror/lib/codemirror.css'/>
+    <link rel='stylesheet' type='text/css' href='../node_modules/codemirror/addon/lint/lint.css'/>
+    <link rel='stylesheet' type='text/css' href='./css/example.css'/>
 {% endblock %}
-
 
 {% block content %}
 
 
-        <div class="breadcrumb-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6" style="">
-                    <h4 style="padding-left: 5%">구매 통계</h4>
-                </div>
-            </div>
-        </div>
-    </div><!--breadcrumbs-->
-
-
-
-    <div class="divide40"><h1> statistics page here</h1>
+<div class='wrap'style="margin: 10px 10%">
+    <div class='code-html' id='code-html' style="text-align: center">
+        <div id='chart-area'></div>
     </div>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
+</div>
     <div class="divide40"></div>
 
 {% endblock %}
 
 {% block javascript %}
     <script>
-        $(document).ready(function(){
-          {#url체크해서 navigation에 색깔 칠해주기. #}
-            if (window.location.href.indexOf("winbook_statistics") > -1) {
-                $("#navtop_winbook_statistics").css("color", "#32c5d2");
-            }
+        $(document).ready(function () {
+
             // JQuery 적용
 
         });
