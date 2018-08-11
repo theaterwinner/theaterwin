@@ -5,35 +5,166 @@
         .breadcrumb-wrap {
             padding: 5%;
         }
+
     </style>
-     <link rel="stylesheet" type="text/css" href="../dist/tui-chart.css" />
-    <link rel='stylesheet' type='text/css' href='../node_modules/codemirror/lib/codemirror.css'/>
-    <link rel='stylesheet' type='text/css' href='../node_modules/codemirror/addon/lint/lint.css'/>
-    <link rel='stylesheet' type='text/css' href='./css/example.css'/>
+
 {% endblock %}
 
 {% block content %}
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="">
+                    <h4 style="padding-left: 5%">극장승 통계</h4>
+                </div>
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
 
-
-<div class='wrap'style="margin: 10px 10%">
-    <div class='code-html' id='code-html' style="text-align: center">
-        <div id='chart-area'></div>
-    </div>
-</div>
+    <canvas id="myChart" width="400" height="400"></canvas>
     <div class="divide40"></div>
+    <div class="divide40"></div>
+    <canvas id="pieChart" width="100%"></canvas>
+    <div class="divide40"></div>
+
 
 {% endblock %}
 
 {% block javascript %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
     <script>
         $(document).ready(function () {
-
+            {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_statistics") > -1) {
+                $("#navtop_winbook_statistics").css("color", "#32c5d2");
+            }
             // JQuery 적용
+
+        });
+    </script>
+    <script>
+
+        // 모든 정보 불러오기
+        var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
+        var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
+        var chart_x_array = [];
+        var chart_y_array = [];
+        var lose_counting = 0;
+        var win_counting = 0;
+        var yet_counting = 0;
+
+        for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
+            var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
+            var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+            chart_x_array.push(buy_date);
+            var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
+            var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
+            var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
+            var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
+            chart_y_array.push(batting_money);
+            var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
+            var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
+            if (win_check == "0") {
+                lose_counting++;
+            } else if (win_check == '1') {
+                win_counting++;
+            } else if (win_check == '2') {
+                yet_counting++;
+            }
+            var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
+            var duration = 0;
+            var start = 0;
+            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
+            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
+            buy_date = buy_date.replace(regExp, "");
+        }
+
+
+        // For a pie chart
+        pie_data = {
+            datasets: [{
+                data: [win_counting, lose_counting, yet_counting],
+
+            }],
+
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: [
+                '적중',
+                '비적중',
+                '미경기'
+            ],
+            backgroundColor: [
+                'rgba(25, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            hoverBackgroundColor: [
+                'rgba(25, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ]
+
+
+        };
+        var ctx2 = document.getElementById("pieChart").getContext('2d');
+        var myPieChart = new Chart(ctx2, {
+            type: 'doughnut',
+            data: pie_data,
+            backgroundColor: [
+                'rgba(25, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            hoverBackgroundColor: [
+                'rgba(25, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ]
+
 
         });
 
 
+        var ctx = document.getElementById("myChart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: chart_x_array,
+                datasets: [{
+                    label: '순이익 ',
+                    data: chart_y_array,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
     </script>
+
 {% endblock %}
 
 

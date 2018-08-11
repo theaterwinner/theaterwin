@@ -34,7 +34,15 @@
 {% endblock %}
 
 {% block content %}
-        {{ winbook_user_result_json }}
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6" style="">
+                    <h4 style="padding-left: 5%">극장승 달력</h4>
+                </div>
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
 
     <div id="container">
         <div id="content" style="margin: 0px 1%">
@@ -99,14 +107,18 @@
               {% endcomment %}
 
         dp.onEventClicked = function (args) {
-            alert("clicked: " + args.e.id());
-            alert("this is event button");
+            alert(args.e.id());
         };
         dp.init();
     </script>
 
     <script type="text/javascript">
         $(document).ready(function () {
+            {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_calendar") > -1) {
+                $("#navtop_winbook_calendar").css("color", "#32c5d2");
+            }
+
             var url = window.location.href;
             var filename = url.substring(url.lastIndexOf('/') + 1);
             if (filename === "") filename = "index.html";
@@ -116,21 +128,39 @@
             var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
             var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
             for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
-                var record_buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+                var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
+                var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+                var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
+                var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
+                var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
+                var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
+                var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
+                var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
+                var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
+
                 var duration = 0;
                 var start = 0;
                 {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
                 var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
-                    record_buy_date= record_buy_date.replace(regExp, "");
+                buy_date = buy_date.replace(regExp, "");
                 var e = new DayPilot.Event({
-                    start: new DayPilot.Date(record_buy_date).addDays(start),
-                    end: new DayPilot.Date(record_buy_date).addDays(start).addDays(duration),
+                    start: new DayPilot.Date(buy_date).addDays(start),
+                    end: new DayPilot.Date(buy_date).addDays(start).addDays(duration),
                     {#end: new DayPilot.Date("2013-03-04T12:00:00").addDays(start).addDays(duration),#}
-                    id: "startday" + start,
-                    text: "Event " + i
+                    id: buy_game_title,
+                    text: buy_game_title,
+                    tags: {
+                        buy_date: buy_date,
+                        writing_date: "ddd",
+                        buy_game_title: buy_game_title,
+                        batting_ratio: batting_ratio,
+                        batting_money: batting_money,
+                        folder_num: folder_num,
+                        win_check: win_check,
+                        etc_memo: etc_memo
+                    }
                 });
                 dp.events.add(e);
-
             }
 
 

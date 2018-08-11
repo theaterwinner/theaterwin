@@ -2,87 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="028cb794-87bb-42bb-8a92-8b4aaaa2bc91" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/100pctheight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/50columns.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/allday.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/angularjs.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/angularjsctrlas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/crosshair.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/datepicker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/day.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/eventareas.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/eventcustomization.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/eventdeleting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/eventmenu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/eventselecting.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/hierarchy.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/localization.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/lunchbreak.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/navigator.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/nextprevious.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/overnight.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/resources.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/rtl.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/themegreen.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/themetransparent.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/themewhite.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/calendar/week.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/demo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/jquery-1.9.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/elements.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/header-in.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/header.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/home/calendar-270x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/home/month-270x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/home/scheduler-270x150.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/li.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/main.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/shadow.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/js/daypilot-all.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/calendar_green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/calendar_transparent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/calendar_white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/month_green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/month_transparent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/month_white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/navigator_green.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/navigator_transparent.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/navigator_white.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/dhtmlxscheduler.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/dhtmlxscheduler_material.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/Shape.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/agenda-calendar-hov.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/agenda-calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/agenda_bg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/arrow_left.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/arrow_left_hov.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/arrow_right.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/arrow_right_hov.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/but_repeat.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/calendar.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/clock_big.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/clock_small.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/close_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/collapse_expand_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/controls.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/databg.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/drag-horizontal.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/drag-vertical.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/export_ical.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/export_pdf.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/menu-down.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/resizing.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/time.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/dhtmlx/imgs_dhx_material/tree_arrow.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/template_content.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/template_content.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TheaterWinBook/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -125,16 +48,44 @@
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
   </component>
+  <component name="DockManager">
+    <window id="1">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="winbook_calendar.html" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="456">
+                    <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="winbook_calendar.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html">
+      <file leaf-file-name="winbook_statistics.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="339">
-              <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+              <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
               <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="winbook_insert.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -142,8 +93,8 @@
       <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="361">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+            <state relative-caret-position="342">
+              <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
             </state>
           </provider>
         </entry>
@@ -151,8 +102,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2340">
-              <caret line="52" column="96" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
+            <state relative-caret-position="363">
+              <caret line="180" column="51" lean-forward="true" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -168,7 +119,7 @@
       <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/core/serializers/__init__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="201">
+            <state relative-caret-position="2223">
               <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
             </state>
           </provider>
@@ -177,24 +128,8 @@
       <file leaf-file-name="winbook_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="74" column="33" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="calendar_green.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/calendar_green.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-57" />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="navigator_white.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/navigator_white.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="228">
+              <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
             </state>
           </provider>
         </entry>
@@ -202,8 +137,8 @@
       <file leaf-file-name="daypilot-all.min.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/js/daypilot-all.min.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="7" column="20378" selection-start-line="7" selection-start-column="20377" selection-end-line="7" selection-end-column="20381" />
+            <state relative-caret-position="-380">
+              <caret line="7" column="64616" selection-start-line="7" selection-start-column="64616" selection-end-line="7" selection-end-column="64616" />
             </state>
           </provider>
         </entry>
@@ -211,8 +146,8 @@
       <file leaf-file-name="base_header_footer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="228" column="30" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
+            <state relative-caret-position="192">
+              <caret line="43" column="35" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -230,19 +165,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>list_user</find>
-      <find>modifyForm</find>
-      <find>winbook_insert</find>
-      <find>get</find>
-      <find>batting_ratio</find>
-      <find>folder_num</find>
-      <find>id_folder_num</find>
-      <find>keydown</find>
-      <find>usercheck</find>
-      <find>winbook_modify</find>
-      <find>pirnt</find>
       <find>submit_bt</find>
-      <find>this is click</find>
       <find>inputForm</find>
       <find>input</find>
       <find>정보 입력</find>
@@ -260,6 +183,18 @@
       <find>calenda</find>
       <find>-----</find>
       <find>alert</find>
+      <find>click</find>
+      <find>writing date</find>
+      <find>this is click</find>
+      <find>statistic</find>
+      <find>buy_date</find>
+      <find>jquery</find>
+      <find>writing</find>
+      <find>writing_date</find>
+      <find>buy</find>
+      <find>statistics</find>
+      <find>of vote</find>
+      <find>height</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -297,17 +232,17 @@
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/error_404.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/error_wronguser.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_modify.html" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/template_content.html" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/forms.py" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/signup.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/js/daypilot-all.min.js" />
-        <option value="$PROJECT_DIR$/TheaterWinBook/views.py" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/views.py" />
+        <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" />
       </list>
     </option>
   </component>
@@ -321,8 +256,8 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="319" />
+    <option name="x" value="2" />
+    <option name="y" value="7" />
     <option name="width" value="1918" />
     <option name="height" value="1040" />
   </component>
@@ -547,7 +482,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
@@ -556,25 +490,52 @@
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.30319148" />
       <window_info anchor="bottom" id="Terminal" order="11" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17760417" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.17760417" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="6" weight="0.25208333" />
       <window_info anchor="right" id="SciView" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="right" id="R Graphics" order="3" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32978722" />
-      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="right" id="R Packages" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32978722" />
     </layout>
+    <layout-to-restore>
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17760417" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="5" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="R Graphics" order="3" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30319148" />
+      <window_info anchor="bottom" id="Inspection Results" order="12" weight="0.32978722" />
+      <window_info anchor="right" id="R Packages" order="4" />
+      <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" id="Database" order="6" weight="0.25208333" />
+      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32978722" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -588,7 +549,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django_bootstrap_calendar/urls.py" />
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/bootstrap_calendar.html" />
     <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django_bootstrap_calendar/models.py" />
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/login_view.html">
@@ -769,13 +729,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="46" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/revolution/assets/sources/fb.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -783,16 +736,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="836">
-          <caret line="44" column="57" selection-start-line="44" selection-start-column="57" selection-end-line="44" selection-end-column="57" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#8;n#form#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -821,9 +764,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/calendar_green.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57" />
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/themes/navigator_white.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -832,30 +773,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/js/daypilot-all.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="7" column="20378" selection-start-line="7" selection-start-column="20377" selection-end-line="7" selection-end-column="20381" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="228" column="30" selection-start-line="228" selection-start-column="30" selection-end-line="228" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="74" column="33" selection-start-line="74" selection-start-column="19" selection-end-line="74" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/myvenv/Lib/site-packages/django/core/serializers/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="201">
+        <state relative-caret-position="2223">
           <caret line="121" column="4" selection-start-line="121" selection-start-column="4" selection-end-line="121" selection-end-column="4" />
         </state>
       </provider>
@@ -863,17 +783,48 @@
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python37/Lib/json/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/js/daypilot-all.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-380">
+          <caret line="7" column="64616" selection-start-line="7" selection-start-column="64616" selection-end-line="7" selection-end-column="64616" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="31" column="60" lean-forward="true" selection-start-line="31" selection-start-column="60" selection-end-line="31" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/daypilot/helpers/media/layout/home/calendar-270x150.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="43" column="35" selection-start-line="43" selection-start-column="29" selection-end-line="43" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="342">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2340">
-          <caret line="52" column="96" selection-start-line="52" selection-start-column="96" selection-end-line="52" selection-end-column="96" />
+        <state relative-caret-position="363">
+          <caret line="180" column="51" lean-forward="true" selection-start-line="180" selection-start-column="51" selection-end-line="180" selection-end-column="51" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -882,10 +833,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
-          <caret line="56" column="10" lean-forward="true" selection-start-line="56" selection-start-column="10" selection-end-line="56" selection-end-column="10" />
+          <caret line="121" column="41" lean-forward="true" selection-start-line="121" selection-start-column="41" selection-end-line="121" selection-end-column="41" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#h4#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

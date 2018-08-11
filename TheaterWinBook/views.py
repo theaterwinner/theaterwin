@@ -49,7 +49,7 @@ def post_detail(request, pk):
 def winbook_calendar(request):
     # 로그인된 user를 확인하고
     login_user_name = request.user
-    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-writing_date',
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date',
                                                                                                   '-pk')
     winbook_user_result_json = serializers.serialize('json', winbook_user_result)
     # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
@@ -172,12 +172,15 @@ def winbook_insert(request):
 def winbook_statistics(request):
     # 로그인된 user를 확인하고
     login_user_name = request.user
-    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-writing_date',
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('buy_date',
                                                                                                   '-pk')
-
-    # 전체 통계 확인하기, 지금까지 순수익 구해보기...
-
-    return render(request, 'TheaterWinBook/winbook_statistics.html')
+    winbook_user_result_json = serializers.serialize('json', winbook_user_result)
+    # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
+    # print(winbook_user_result)
+    # winbook_user_result_json = json.dumps(list(winbook_user_result), ensure_ascii=False, default=str)
+    print("this is json:"+winbook_user_result_json)
+    return render(request, 'TheaterWinBook/winbook_statistics.html',
+                  {"winbook_user_result_json": winbook_user_result_json})
 
 
 @login_required(login_url='/login_view')
@@ -199,7 +202,7 @@ def winbook_list(request):
 
         # 로그인된 user를 확인하고
     login_user_name = request.user
-    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-writing_date',
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date',
                                                                                                   '-pk')
 
     # 현재까지 순수익 구하기.
