@@ -28,6 +28,13 @@ def error_404(request):
     return render(request, 'TheaterWinBook/error_404.html')
 
 
+def bower_test(request):
+    return render(request, 'TheaterWinBook/bower_test.html')
+
+def calendar_test(request):
+    return render(request, 'TheaterWinBook/calendar_test.html')
+
+
 def error_wronguser(request):
     return render(request, 'TheaterWinBook/error_wronguser.html')
 
@@ -61,12 +68,13 @@ def winbook_calendar(request):
                   {"winbook_user_result_json": winbook_user_result_json})
 
 
-
 @login_required(login_url='/login_view')
 def winbook_modify(request):
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
-        form = TheaterWinBookRecordForm(request.POST)  # PostForm으로 부터 받은 데이터를 처리하기 위한 인스턴스 생성
+        record_pk = request.POST.get("record_pk", "")
+        target_modify_record = TheaterWinBookRecord.objects.get(pk=record_pk)
+        form = TheaterWinBookRecordForm(request.POST, instance=target_modify_record)  # PostForm으로 부터 받은 데이터를 처리하기 위한 인스턴스 생성
         if form.is_valid():  # 폼 검증 메소드
             inputForm = form.save(commit=False)  # 오브젝트를 form으로 부터 가져오지만, 실제로 DB반영은 하지 않는다.
             # 가져 온 후 데이터 처리를 ㅐㅎ도 된다.
@@ -90,7 +98,7 @@ def winbook_modify(request):
         if (target_record.user_name == login_user):
             #   정상적으로 modify로 이동시켜준다.
             form = TheaterWinBookRecordForm(instance=target_record)  # forms.py의 PostForm 클래스의 인스턴스
-            return render(request, 'TheaterWinBook/winbook_modify.html', {'form': form})
+            return render(request, 'TheaterWinBook/winbook_modify.html', {'form': form,'record_pk':record_pk})
         else:
             #  그렇지 않으면 리스트로 이동시켜 준다.
             return render(request, 'TheaterWinBook/error_wronguser.html')

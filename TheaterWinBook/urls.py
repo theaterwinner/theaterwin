@@ -22,4 +22,6 @@ urlpatterns = [
     url(r'^winbook_modify/$', views.winbook_modify, name='winbook_modify'),
     url(r'^error_404/$', views.error_404, name='error_404'),
     url(r'^error_wronguser/$', views.error_wronguser, name='error_wronguser'),
+    url(r'^bower_test/$', views.bower_test, name='bower_test'),
+    url(r'^calendar_test/$', views.calendar_test, name='calendar_test'),
 ]

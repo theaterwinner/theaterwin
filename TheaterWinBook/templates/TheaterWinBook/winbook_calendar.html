@@ -6,31 +6,10 @@
             padding: 5%;
         }
     </style>
-    <!-- demo stylesheet -->
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/demo.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/media/layout.css' %}"
-          href="../helpers/"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/helpers/demo.css' %}"
-          href="../helpers/media/elements.css?v=2018.2.232"/>
+    <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
+    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"/>
 
-    <!-- helper libraries -->
-    <script src="{% static 'TheaterWinBook/daypilot/helpers/jquery-1.9.1.min.js' %}"></script>
-
-    <!-- daypilot libraries -->
-    <script src="{% static 'TheaterWinBook/daypilot/js/daypilot-all.min.js' %}" type="text/javascript"></script>
-
-    <!-- daypilot themes -->
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_white.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_green.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/month_transparent.css' %}"/>
-
-    <link type="text/css" rel="stylesheet"
-          href="{% static 'TheaterWinBook/daypilot/themes/calendar_transparent.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/calendar_white.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/calendar_green.css' %}"/>
-
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/navigator_green.css' %}"/>
-    <link type="text/css" rel="stylesheet" href="{% static 'TheaterWinBook/daypilot/themes/navigator_white.css' %}"/>
 {% endblock %}
 
 {% block content %}
@@ -43,131 +22,174 @@
             </div>
         </div>
     </div><!--breadcrumbs-->
+    <div style="text-align: center; margin: 5px">
+    <span id="menu-navi">
+          <button type="button" id="calendar_go_prevbtn" class="btn btn-default btn-sm move-day"
+                  data-action="move-prev" style="border-radius: 25px;text-align: center">
+                    <i class="fas fa-chevron-left" style="text-align: center; margin: 0 2px"></i>
+                </button>
+                 <button type="button" id="calendar_go_todaybtn" class="btn btn-default btn-sm move-today"
+                         data-action="move-today" style="text-align: center; margin: 0 2px">TODAY</button>
 
+                <button type="button" id="calendar_go_nextbtn" class="btn btn-default btn-sm move-day"
+                        data-action="move-next" style="border-radius: 25px;">
+                   <i class="fas fa-chevron-right " style="text-align: center; margin: 0 2px"></i>
+                </button>
+            </span>
+    </div>
     <div id="container">
-        <div id="content" style="margin: 0px 1%">
-
-            <div>
-                <div class="space">
-                    <a href="javascript:dp.startDate = dp.startDate.addMonths(-1); dp.update();">Previous</a>
-                    |
-                    <a href="javascript:dp.startDate = dp.startDate.addMonths(1); dp.update();">Next</a>
-                </div>
-
-                <div id="dp"></div>
-
-
-                <!-- bottom -->
-            </div>
-        </div>
+        <div id="calendar" style="width: 100%; height: 800px"></div>
     </div>
-    <div class="divide40"></div>
-    </div>
+
 
 
 {% endblock %}
 
 {% block javascript %}
 
+    <script>
+        var Calendar = tui.Calendar;
 
-    <script type="text/javascript">
-        {#    오늘 날짜 구해서 달력에 표시하기 #}
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
-        if (dd < 10) {
-            dd = '0' + dd
-        }
-        if (mm < 10) {
-            mm = '0' + mm
-        }
-        today = yyyy + '-' + mm + '-' + dd;
-        var dp = new DayPilot.Month("dp");
-        // view
-        dp.startDate = today;  // or just dp.startDate = "2013-03-25";
-
-
-        {% comment %}
-               // 달력 클릭 시 이벤트 삽입은 나중에
-              // event creating
-              dp.onTimeRangeSelected = function (args) {
-                  var name = prompt("New event name:", "Event");
-                  dp.clearSelection();
-                  if (!name) return;
-                  var e = new DayPilot.Event({
-                      start: args.start,
-                      end: args.end,
-                      id: DayPilot.guid(),
-                      text: name
-                  });
-                  alert("this is add button");
-                  dp.events.add(e);
-              };
-              {% endcomment %}
-
-        dp.onEventClicked = function (args) {
-            alert(args.e.id());
-        };
-        dp.init();
-    </script>
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            {#url체크해서 navigation에 색깔 칠해주기. #}
-            if (window.location.href.indexOf("winbook_calendar") > -1) {
-                $("#navtop_winbook_calendar").css("color", "#32c5d2");
+        var calendar = new Calendar(document.getElementById('calendar'), {
+            defaultView: 'month',
+            taskView: true,    // can be also ['milestone', 'task']
+            scheduleView: true,  // can be also ['allday', 'time']
+            template: {
+                milestone: function (schedule) {
+                    return '<span style="color:red;"><i class="fa fa-flag"></i> ' + schedule.title + '</span>';
+                },
+                milestoneTitle: function () {
+                    return 'Milestone';
+                },
+                task: function (schedule) {
+                    return '&nbsp;&nbsp;#' + schedule.title;
+                },
+                taskTitle: function () {
+                    return '<label><input type="checkbox" />Task</label>';
+                },
+                allday: function (schedule) {
+                    return schedule.title + ' <i class="fa fa-refresh"></i>';
+                },
+                alldayTitle: function () {
+                    return 'All Day';
+                },
+                time: function (schedule) {
+                    return schedule.title + ' <i class="fa fa-refresh"></i>' + schedule.start;
+                }
+            },
+            month: {
+                daynames: ['일', '월', '화', '수', '목', '금', '토'],
+                startDayOfWeek: 0,
+                narrowWeekend: false
             }
+        });
 
-            var url = window.location.href;
-            var filename = url.substring(url.lastIndexOf('/') + 1);
-            if (filename === "") filename = "index.html";
-            $(".menu a[href='" + filename + "']").addClass("selected");
 
-            // 모든 정보 불러오기
-            var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
-            var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
-            for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
-                var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
-                var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
-                var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
-                var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
-                var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
-                var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
-                var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
-                var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
-                var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
+        {#    tui-line-chart#}
+        // 모든 정보 불러오기
+        var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
+        var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
+        var chart_x_array = [];
+        var chart_y_array = [];
+        var lose_counting = 0;
+        var win_counting = 0;
+        var yet_counting = 0;
+        var untilnow_profit = 0;
 
-                var duration = 0;
-                var start = 0;
-                {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
-                var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
-                buy_date = buy_date.replace(regExp, "");
-                var e = new DayPilot.Event({
-                    start: new DayPilot.Date(buy_date).addDays(start),
-                    end: new DayPilot.Date(buy_date).addDays(start).addDays(duration),
-                    {#end: new DayPilot.Date("2013-03-04T12:00:00").addDays(start).addDays(duration),#}
-                    id: buy_game_title,
-                    text: buy_game_title,
-                    tags: {
-                        buy_date: buy_date,
-                        writing_date: "ddd",
-                        buy_game_title: buy_game_title,
-                        batting_ratio: batting_ratio,
-                        batting_money: batting_money,
-                        folder_num: folder_num,
-                        win_check: win_check,
-                        etc_memo: etc_memo
-                    }
+        for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
+            var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
+            var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+            chart_x_array.push(buy_date);
+            var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
+            var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
+            var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
+            var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
+            var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
+            var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
+            var net_profit = 0
+            if (win_check == "0") {
+                lose_counting++;
+                net_profit = -(batting_money * folder_num);
+            } else if (win_check == '1') {
+                win_counting++;
+                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+            } else if (win_check == '2') {
+                yet_counting++;
+                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+
+            }
+            untilnow_profit += net_profit
+            chart_y_array.push(untilnow_profit)
+            var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
+            var duration = 0;
+            var start = 0;
+            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
+            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
+            buy_date = buy_date.replace(regExp, "");
+
+            {#caelndaer에 스케줄 추가#}
+            calendar.createSchedules([
+                {
+                    id: record_pk,
+                    title: buy_game_title,
+                    calendarId: '1',
+                    category: 'allday',
+                    start: buy_date,
+                    end: buy_date,
+                }
+            ]);
+
+
+        }
+
+
+        calendar.on('clickSchedule', function (event) {
+
+            var schedule = event.schedule;
+            alert(schedule.title);
+            if (lastClickSchedule) {
+                calendar.updateSchedule(lastClickSchedule.id, lastClickSchedule.calendarId, {
+                    isFocused: false
                 });
-                dp.events.add(e);
             }
+            calendar.updateSchedule(schedule.id, schedule.calendarId, {
+                isFocused: true
+            });
+
+            lastClickSchedule = schedule;
+            // open detail view
+        });
 
 
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#calendar_go_nextbtn").click(function () {
+                calendar.next();
+                console.log(calendar.getDateRangeStart());
+                console.log(calendar.getDate().getMonth());
+                console.log(calendar.getDateRangeEnd());
+            });
+            $("#calendar_go_prevbtn").click(function () {
+                calendar.prev();
+                console.log(calendar.getDateRangeStart());
+                console.log(calendar.getDate().getMonth());
+                console.log(calendar.getDateRangeEnd());
+            });
+            $("#calendar_go_todaybtn").click(function () {
+                calendar.today();
+                console.log(calendar.getDateRangeStart());
+                console.log(calendar.getDate().getMonth());
+                console.log(calendar.getDateRangeEnd());
+            });
+
+            console.log(calendar.getDateRangeStart());
+            console.log(calendar.getDate().getMonth());
+            console.log(calendar.getDateRangeEnd());
+            console.log((calendar.getDateRangeStart()+calendar.getDateRangeEnd())/2);
         });
 
     </script>
-
 {% endblock %}
 
 

@@ -298,7 +298,6 @@
 
 
         {#금액 한글로 표시하기#}
-
         function viewKorean(num) {
             var hanA = new Array("", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구", "십");
             var danA = new Array("", "십", "백", "천", "", "십", "백", "천", "", "십", "백", "천", "", "십", "백", "천");
@@ -318,7 +317,6 @@
         }
 
         {#  입력값 변경 시마다 예상금액 바꿔주기 #}
-
         function expecting_money() {
             var id_batting_ratio = $("#id_batting_ratio").val();
 
@@ -342,17 +340,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + (id_batting_money * id_folder_num);
-                net_profit_text = "- " + (id_batting_money * id_folder_num);
+                expecting_text = "- " + addCommas(id_batting_money * id_folder_num);
+                net_profit_text = "- " + addCommas(id_batting_money * id_folder_num);
             } else if (id_win_check == 1) {
-                var expecting_money = (id_batting_ratio * id_batting_money * id_folder_num);
-                var net_profit_money = (id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num);
+                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num);
+                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = (id_batting_ratio * id_batting_money * id_folder_num)
-                var net_profit_money = (id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num);
+                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num)
+                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }

@@ -7,7 +7,16 @@
         }
 
     </style>
-
+    {#toast chart를 위한 static files import#}
+    <!-- include application-chart.min.css -->
+    <link rel="stylesheet" type="text/css" href="/static/tui-chart/dist/tui-chart.min.css"/>
+    <!-- include libraries -->
+    <script src="/static/tui-code-snippet/dist/tui-code-snippet.js"></script>
+    <script src="/static/raphael/raphael.js"></script>
+    <!-- include chart.min.js -->
+    <script src="/static/tui-chart/dist/tui-chart.min.js"></script>
+    <!-- include map data (only map chart) -->
+    <script src="/static/tui-chart/dist/maps/world.js"></script>
 {% endblock %}
 
 {% block content %}
@@ -21,12 +30,9 @@
         </div>
     </div><!--breadcrumbs-->
 
-    <canvas id="myChart" width="400" height="400"></canvas>
-    <div class="divide40"></div>
-    <div class="divide40"></div>
-    <canvas id="pieChart" width="100%"></canvas>
-    <div class="divide40"></div>
 
+    <div id="tui_line_chart"></div>
+    <div id="tui_pie_chart"></div>
 
 {% endblock %}
 
@@ -44,7 +50,7 @@
         });
     </script>
     <script>
-
+        {#    tui-line-chart#}
         // 모든 정보 불러오기
         var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
         var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
@@ -53,6 +59,7 @@
         var lose_counting = 0;
         var win_counting = 0;
         var yet_counting = 0;
+        var untilnow_profit = 0;
 
         for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
             var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
@@ -62,16 +69,22 @@
             var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
             var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
             var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
-            chart_y_array.push(batting_money);
             var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
             var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
+            var net_profit = 0
             if (win_check == "0") {
                 lose_counting++;
+                net_profit = -(batting_money * folder_num);
             } else if (win_check == '1') {
                 win_counting++;
+                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
             } else if (win_check == '2') {
                 yet_counting++;
+                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+
             }
+            untilnow_profit += net_profit
+            chart_y_array.push(untilnow_profit)
             var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
             var duration = 0;
             var start = 0;
@@ -81,88 +94,116 @@
         }
 
 
-        // For a pie chart
-        pie_data = {
-            datasets: [{
-                data: [win_counting, lose_counting, yet_counting],
-
-            }],
-
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: [
-                '적중',
-                '비적중',
-                '미경기'
-            ],
-            backgroundColor: [
-                'rgba(25, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ],
-            hoverBackgroundColor: [
-                'rgba(25, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ]
-
-
-        };
-        var ctx2 = document.getElementById("pieChart").getContext('2d');
-        var myPieChart = new Chart(ctx2, {
-            type: 'doughnut',
-            data: pie_data,
-            backgroundColor: [
-                'rgba(25, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ],
-            hoverBackgroundColor: [
-                'rgba(25, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ]
-
-
-        });
-
-
-        var ctx = document.getElementById("myChart").getContext('2d');
-        var myChart = new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: chart_x_array,
-                datasets: [{
-                    label: '순이익 ',
-                    data: chart_y_array,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero: true
-                        }
-                    }]
+        var container = document.getElementById('tui_line_chart');
+        var data = {
+            categories: chart_x_array,
+            series: [
+                {
+                    name: '순이익',
+                    data: chart_y_array
                 }
+            ]
+        };
+        var chart_height = 0;
+        if ($('body').width() > 500) {
+            chart_height = 485;
+        } else {
+            chart_height = $('body').width() - 15;
+        }
+        var options = {
+            series: {
+                shifting: true
+            },
+            chart: {
+                {#width 는 bodyy #}
+                width: $('body').width() - 10,
+                height: chart_height,
+                format: '1,000',
+            },
+            yAxis: {
+                title: '순이익',
+                pointOnColumn: true
+            },
+            xAxis: {
+                title: {
+                    text: '구입 날짜',
+                    align: 'left',
+                },
+                type: 'datetime',
+                dateFormat: 'MM-dd'
+            },
+            series: {
+                showDot: true,
+                zoomable: false
+            },
+            tooltip: {
+                suffix: '원'
+            },
+            legend: {
+                showCheckbox: false,
+                visible: false,
+            },
+        };
+        var theme = {
+            series: {
+                colors: [
+                    '#83b14e', '#458a3f', '#295ba0', '#2a4175', '#289399',
+                    '#289399', '#617178', '#8a9a9a', '#516f7d', '#dddddd'
+                ]
             }
-        });
+        };
+
+        // For apply theme
+
+        // tui.chart.registerTheme('myTheme', theme);
+        // options.theme = 'myTheme';
+
+        var linechart = tui.chart.lineChart(container, data, options);
+
+    </script>
+    <script>
+        {#tui-pie-chart#}
+        var container = document.getElementById('tui_pie_chart');
+        var data = {
+            categories: ['적중 결과'],
+            series: [
+                {
+                    name: '미적중',
+                    data: lose_counting
+                },
+                {
+                    name: '적중',
+                    data: win_counting
+                },
+                {
+                    name: '경기전',
+                    data: yet_counting
+                },
+            ]
+        };
+        var options = {
+            chart: {
+                width: $('body').width() - 10,
+                height: chart_height,
+            },
+            tooltip: {
+                suffix: '건'
+            }
+        };
+        var theme = {
+            series: {
+                colors: [
+                    '#ff253b', '#59df57', '#ffcd38',
+                ]
+            }
+        };
+
+        // For apply theme
+        tui.chart.registerTheme('myTheme', theme);
+        options.theme = 'myTheme';
+        tui.chart.pieChart(container, data, options);
+
+
     </script>
 
 {% endblock %}

@@ -9,9 +9,15 @@
 });
 //sticky header on scroll
 $(document).ready(function () {
-    $(window).load(function () {
-        $(".sticky").sticky({topSpacing: 0});
+
+
+//change
+    $(window).on('load', function() {
+          $(".sticky").sticky({topSpacing: 0});
     });
+
+    
+
     
     //on hover dropdown menu
      $(".navbar-nav>.dropdown").hover(function () {

@@ -30,7 +30,7 @@
                     <div class="form-contact">
                         <form role="form" method="post" action="" id="modifyForm">
                             {% csrf_token %}
-
+                            <input type="number" name = "record_pk" value="{{ record_pk }}" class="hidden">
                             <div class="form-group">
                                 <label id="label_buy_date">*구입 날짜</label>
                                 {{ form.buy_date }}
@@ -39,6 +39,7 @@
                             <div class="form-group hidden">
                                 <label id="label_buy_date">* 글을 쓴 날짜</label>
                                 {{ form.writing_date }}
+
                             </div>
 
                             <div class="form-group">
@@ -341,17 +342,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + (id_batting_money * id_folder_num);
-                net_profit_text = "- " + (id_batting_money * id_folder_num);
+                expecting_text = "- " + addCommas(id_batting_money * id_folder_num);
+                net_profit_text = "- " + addCommas(id_batting_money * id_folder_num);
             } else if (id_win_check == 1) {
-                var expecting_money = (id_batting_ratio * id_batting_money * id_folder_num);
-                var net_profit_money = (id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num);
+                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num);
+                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = (id_batting_ratio * id_batting_money * id_folder_num)
-                var net_profit_money = (id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num);
+                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num)
+                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }

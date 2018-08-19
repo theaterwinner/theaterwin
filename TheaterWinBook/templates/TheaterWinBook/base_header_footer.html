@@ -41,7 +41,8 @@
 {#          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>#}
         <![endif]-->
     {#jquery UI CSS 추가함. #}
-    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">
+    <link href="{% static 'TheaterWinBook/css/jquery-ui-1.7.css' %}" rel="stylesheet" type="text/css">
+{#    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">#}
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
@@ -49,7 +50,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
 
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"/>
     <style>
         .breadcrumb-wrap {
             padding: 5%;
@@ -136,7 +136,8 @@
                 </li>
                 <li style="float: right; "><a id="navtop_winbook_list" href="{% url 'winbook_list' %}">기록</a></li>
                 <li style=" float: right;"><a id="navtop_winbook_insert" href="{% url 'winbook_insert' %}">입력</a></li>
-
+{#                <li style=" float: right;"><a id="navtop_bower_test" href="{% url 'bower_test' %}">test</a></li>#}
+{#                <li style=" float: right;"><a id="navtop_calendar_test" href="{% url 'calendar_test' %}">달력</a></li>#}
 
                 {#<span style="font-size: 8px">{{ user.username }}님</span>#}
 
@@ -184,7 +185,10 @@
 <!-- 이렇게 함으로써 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
 <script src="http://code.jquery.com/jquery-latest.min.js">
 </script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+
+{#<script type="text/javascript" src="{% static 'TheaterWinBook/js/jquery_3.3.1.js' %}"></script>#}
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+{#<script type="text/javascript" src="{% static 'TheaterWinBook/js/jquery-ui-1.7.js' %}"></script>#}
 {#아래는 jquery-latest에 발생하는 에러를 해결하기 위한 코드#}
 <script>
     jQuery.browser = {};
@@ -241,9 +245,7 @@
 <script src="{% static 'TheaterWinBook/video-background/transition.js' %}"></script>
 <script src="{% static 'TheaterWinBook/video-background/background.js' %}"></script>
 
-<script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
 
-<script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
 {% block javascript %}{% endblock %}
 
 </body>

@@ -62,6 +62,10 @@
 
         </div>
     </div>
+    <div style="text-align: right;margin-right: 10%">
+
+        총 순이익 : <span id="total_net_profit"></span> 원
+    </div>
 
 
     {#{% for s in winbook_user_result %}#}
@@ -70,26 +74,28 @@
     {# {{ s.batting_money}}#}
     {##}
     {#  {% endfor %}#}
-    <div class="row" style="padding: 0 2%">
+    <div class="row " style="padding: 0 2%">
         <div class="col-md-12">
             {% for winbook_record in winbook_user_result %}
+
                 {#  적중/비적중/미경기에 따라서 테두리 색을 바꾸자   #}
                 {% if winbook_record.win_check == 0 %}
                     {% with win_check_color_status="#ff253b" %}
-                        <div class="about-author win_check_miss"
+                        <div class="about-author win_check_miss winbook_record_list"
                              style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
                     {% endwith %}
                 {% elif winbook_record.win_check == 1 %}
                     {% with win_check_color_status="#59df57" %}
-                        <div class="about-author  win_check_hit"
+                        <div class="about-author  win_check_hit winbook_record_list"
                              style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
                     {% endwith %}
                 {% elif winbook_record.win_check == 2 %}
                     {% with win_check_color_status="#ffcd38" %}
-                        <div class="about-author win_check_yet "
+                        <div class="about-author win_check_yet winbook_record_list"
                              style="margin: 10px;border-radius: 10px; padding: 10px; border: 3px solid {{ win_check_color_status }}">
                     {% endwith %}
                 {% endif %}
+            <span class="hidden win_check">{{ winbook_record.win_check }}</span>
             <ul class="list-inline post-detail" style="margin: 0px; text-align: center ">
                 {#   slugify 는 integer나 string을 최소한의 형태로 맞추어 주는 역할이다. 비교를 할 때는 반드시 이걸 하자.. #}
                 {% if new_winbook_pk|slugify == winbook_record.pk|slugify %}
@@ -100,28 +106,28 @@
                 </li>
                 <li><i class="fas fa-medal"></i>
                     {% if winbook_record.win_check == 0 %}
-                        비적중
+                        미적중
                     {% elif winbook_record.win_check == 1 %}
                         적중
                     {% elif winbook_record.win_check == 2 %}
                         경기전
                     {% endif %}
                 </li>
-                <li><i class="fas fa-dice"></i> {{ winbook_record.folder_num }} 폴더</li>
+                <li><i class="fas fa-dice"></i> <span class="folder_num">{{ winbook_record.folder_num }} </span>폴더</li>
             </ul>
             <div style="padding: 10px">
 
                 <h4 class="colored-text" style="margin-top: 5px"> {{ winbook_record.buy_game_title }} </h4>
                 <p>
-                    * 배팅금액 : {{ winbook_record.batting_money }}원
+                    * 배팅금액 : <span class="batting_moeny">{{ winbook_record.batting_money }}</span>원
                 </p>
                 <p>
-                    * 적중 배당 : {{ winbook_record.batting_ratio }} 배
+                    * 적중배당 : <span class="batting_ratio">{{ winbook_record.batting_ratio }}</span> 배
                 </p>
                 <p>
-                    * 최종금액 : {{ winbook_record.batting_money }}원
+                    * 순이익 : <span class="net_profit_money">{{ winbook_record.batting_money }}</span>원
                 </p>
-                <p> * 기타 메모: {{ winbook_record.etc_memo }} </p>
+                <p> * 기타 메모: <span>{{ winbook_record.etc_memo }}</span></p>
             </div>
 
 
@@ -156,11 +162,14 @@
         $(document).ready(function () {
             //삭제버튼 및 수정버튼 클릭시 confirm
             btn_delete_modify();
+            money_calculate();
 
             {#url체크해서 navigation에 색깔 칠해주기. #}
             if (window.location.href.indexOf("winbook_list") > -1) {
                 $("#navtop_winbook_list").css("color", "#32c5d2");
             }
+
+
             {#라디오버튼 클릭시 적용  #}
             $('body').on('click', '.btn-checkbox', function (e) {
                 e.stopPropagation();
@@ -220,6 +229,46 @@
             // JQuery 적용
 
         });
+        {#돈 단위에 3자리 컴마#}
+
+        function money_calculate() {
+            var total_net_profit = 0;
+            {#모든 Class에 대해서 #}
+            $(".winbook_record_list").each(function (index) {
+                var win_check = parseInt(($(this).find(".win_check").text()));
+                var batting_money = parseInt($(this).find(".batting_moeny").text());
+                var batting_ratio = parseFloat($(this).find(".batting_ratio").text());
+                var folder_num = parseInt($(this).find(".folder_num").text());
+                var net_profit = 0;
+                if (win_check == 0) {
+                    net_profit = -(batting_money * folder_num);
+                } else if (win_check == 1) {
+                    net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+                } else if (win_check == 2) {
+                    net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+                }
+                total_net_profit += net_profit;
+                $(this).find(".net_profit_money").text(addCommas(net_profit));
+                $(this).find(".batting_moeny").text(addCommas(batting_money));
+            });
+            $("#total_net_profit").text(addCommas(total_net_profit));
+
+            {#     돈 단위에 comma 찍기        #}
+
+        }
+
+        {#3자리마다 콤마 찍어주기#}
+        //3자리 단위마다 콤마 생성
+        function addCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        //모든 콤마 제거
+        function removeCommas(x) {
+            if (!x || x.length == 0) return "";
+            else return x.split(",").join("");
+        }
+
         {#삭제 및 수정 버튼#}
 
         function btn_delete_modify() {

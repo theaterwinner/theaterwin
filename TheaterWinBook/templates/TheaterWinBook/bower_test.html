@@ -1,0 +1,147 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>극장승 토계부 - 영화같은 승리를 위하여</title>
+
+
+    {#toast chart를 위한 static files import#}
+    <!-- include application-chart.min.css -->
+    <link rel="stylesheet" type="text/css" href="/static/tui-chart/dist/tui-chart.min.css"/>
+    <!-- include libraries -->
+    <script src="/static/tui-code-snippet/dist/tui-code-snippet.js"></script>
+    <script src="/static/raphael/raphael.js"></script>
+    <!-- include chart.min.js -->
+    <script src="/static/tui-chart/dist/tui-chart.min.js"></script>
+    <!-- include map data (only map chart) -->
+    <script src="/static/tui-chart/dist/maps/world.js"></script>
+
+
+    <style>
+        .breadcrumb-wrap {
+            padding: 5%;
+        }
+    </style>
+    {% block css_script %}
+
+
+
+    {% endblock %}
+
+
+</head>
+<body style="">
+CHART
+<div id="container-id"></div>
+<div id="calendar" style="height: 800px;"></div>
+
+
+{% block content %}
+
+    {#    This is where Contents are placed #}
+
+{% endblock %}
+
+
+<!-- 이렇게 함으로써 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
+<script src="http://code.jquery.com/jquery-latest.min.js">
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+{#아래는 jquery-latest에 발생하는 에러를 해결하기 위한 코드#}
+<script>
+
+    var container = document.getElementById('container-id'),
+        data = {
+            categories: ['cate1', 'cate2', 'cate3'],
+            series: [
+                {
+                    name: 'Legend1',
+                    data: [20, 30, 50]
+                },
+                {
+                    name: 'Legend2',
+                    data: [40, 40, 60]
+                },
+                {
+                    name: 'Legend3',
+                    data: [60, 50, 10]
+                },
+                {
+                    name: 'Legend4',
+                    data: [80, 10, 70]
+                }
+            ]
+        },
+        options = {
+            chart: {
+                width: 500,
+                height: 400,
+                title: 'Chart Title'
+            },
+            yAxis: {
+                title: 'Y Axis Title'
+            },
+            xAxis: {
+                title: 'X 축타이틀'
+            }
+        };
+
+    tui.chart.barChart(container, data, options);
+
+</script>
+<script>
+
+
+    var calendar = tui.tuiCalendar(document.getElementById('calendar'), {
+        defaultView: 'week',
+        taskView: true,    // can be also ['milestone', 'task']
+        scheduleView: true,  // can be also ['allday', 'time']
+        template: {
+            milestone: function (schedule) {
+                return '<span style="color:red;"><i class="fa fa-flag"></i> ' + schedule.title + '</span>';
+            },
+            milestoneTitle: function () {
+                return 'Milestone';
+            },
+            task: function (schedule) {
+                return '&nbsp;&nbsp;#' + schedule.title;
+            },
+            taskTitle: function () {
+                return '<label><input type="checkbox" />Task</label>';
+            },
+            allday: function (schedule) {
+                return schedule.title + ' <i class="fa fa-refresh"></i>';
+            },
+            alldayTitle: function () {
+                return 'All Day';
+            },
+            time: function (schedule) {
+                return schedule.title + ' <i class="fa fa-refresh"></i>' + schedule.start;
+            }
+        },
+        month: {
+            daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            startDayOfWeek: 0,
+            narrowWeekend: true
+        },
+        week: {
+            daynames: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+            startDayOfWeek: 0,
+            narrowWeekend: true
+        }
+    });
+
+
+</script>
+<!--must need plugin jquery-->
+{#<script src="{% static 'TheaterWinBook/js/jquery.min.js' %}"  type="text/javascript"></script>#}
+<script src="{% static 'TheaterWinBook/js/jquery-migrate.min.js' %}"></script>
+
+
+{% block javascript %}{% endblock %}
+
+</body>
+</html>
