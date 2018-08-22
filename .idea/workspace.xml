@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="028cb794-87bb-42bb-8a92-8b4aaaa2bc91" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui-1.12.0-rc.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui-1.12.1.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui-1.12.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui-1.7.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/css/jquery-ui-1.8.11.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui-1.12.0-rc.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui-1.12.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui-1.12.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui-1.7.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery-ui-1.8.11.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery_3.1.0.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/jquery_3.3.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/bower_test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/calendar_test.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/TheaterWinBook/css/jquery-ui-1.12.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/TheaterWinBook/css/jquery-ui-1.8.11.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/TheaterWinBook/js/jquery-ui-1.12.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWin/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/custom.js" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/static/TheaterWinBook/js/custom.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_modify.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_modify.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TheaterWinBook/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWinBook/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,7 +47,7 @@
       <file leaf-file-name="base_header_footer.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="183">
+            <state relative-caret-position="1482">
               <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="55" />
             </state>
           </provider>
@@ -85,25 +56,26 @@
       <file leaf-file-name="winbook_statistics.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1200">
-              <caret line="85" column="41" lean-forward="true" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+            <state relative-caret-position="1615">
+              <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="winbook_calendar.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="winbook_calendar.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="738">
-              <caret line="186" column="55" lean-forward="true" selection-start-line="186" selection-start-column="55" selection-end-line="188" selection-end-column="85" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#button#0;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#1;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#button#2;n#span#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#button#2;n#span#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="3002">
+              <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="247">
+              <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -111,23 +83,8 @@
       <file leaf-file-name="winbook_list.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="316">
-              <caret line="125" column="20" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
-              <folding>
-                <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#0;n#label#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="27" column="17" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="17" />
+            <state relative-caret-position="2375">
+              <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -135,8 +92,8 @@
       <file leaf-file-name="winbook_insert.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="342">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
         </entry>
@@ -144,7 +101,7 @@
       <file leaf-file-name="winbook_modify.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_modify.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="608">
               <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
             </state>
           </provider>
@@ -153,11 +110,8 @@
       <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="57">
+            <state relative-caret-position="475">
               <caret line="31" column="53" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="53" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -174,11 +128,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="67" column="58" lean-forward="true" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="950">
+              <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
             </state>
           </provider>
         </entry>
@@ -342,26 +293,6 @@
               <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
               <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
@@ -543,12 +474,11 @@
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.30319148" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.30319148" />
       <window_info anchor="bottom" id="Terminal" order="11" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17760417" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="6" weight="0.25208333" />
-      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="right" id="SciView" order="5" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -562,6 +492,7 @@
       <window_info anchor="right" id="R Packages" order="4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Concurrent Activities Diagram" order="14" weight="0.32978722" />
     </layout>
   </component>
@@ -732,13 +663,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" selection-start-column="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/TheaterWinBook/js/jquery-ui-1.12.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -793,14 +717,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
+        <state relative-caret-position="456">
           <caret line="27" column="17" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_modify.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
+        <state relative-caret-position="608">
           <caret line="32" column="68" selection-start-line="32" selection-start-column="68" selection-end-line="32" selection-end-column="68" />
         </state>
       </provider>
@@ -810,55 +734,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="316">
-          <caret line="125" column="20" lean-forward="true" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#label#0;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#2;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#label#3;n#div#0;n#div#1;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="2375">
+          <caret line="125" column="20" selection-start-line="125" selection-start-column="20" selection-end-line="125" selection-end-column="20" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="401">
-          <caret line="67" column="58" lean-forward="true" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="950">
+          <caret line="67" column="58" selection-start-line="67" selection-start-column="58" selection-end-line="67" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/base_header_footer.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
+        <state relative-caret-position="1482">
           <caret line="78" column="53" selection-start-line="78" selection-start-column="53" selection-end-line="78" selection-end-column="55" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1200">
-          <caret line="85" column="41" lean-forward="true" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
+        <state relative-caret-position="1615">
+          <caret line="85" column="41" selection-start-line="85" selection-start-column="41" selection-end-line="85" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_insert.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/forms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
+        <state relative-caret-position="475">
           <caret line="31" column="53" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="53" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -871,16 +783,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="738">
-          <caret line="186" column="55" lean-forward="true" selection-start-line="186" selection-start-column="55" selection-end-line="188" selection-end-column="85" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#button#0;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#2;n#span#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#button#2;n#span#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="3002">
+          <caret line="158" column="32" selection-start-line="158" selection-start-column="32" selection-end-line="158" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="18" column="35" lean-forward="true" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
