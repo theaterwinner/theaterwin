@@ -146,7 +146,7 @@ BOWER_INSTALLED_APPS = (
 
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # 로그인 이후 경로 수정
 TEMPLATE_CONTEXT_PROCESSORS = (

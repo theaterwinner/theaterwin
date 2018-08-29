@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="028cb794-87bb-42bb-8a92-8b4aaaa2bc91" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/theaterwin_uwsgi.ini" beforeDir="false" afterPath="$PROJECT_DIR$/theaterwin_uwsgi.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheaterWin/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/TheaterWin/settings.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -80,8 +79,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+            <state relative-caret-position="529">
+              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
             </state>
           </provider>
         </entry>
@@ -132,9 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>base</find>
-      <find>jquery-ui</find>
-      <find>jquery-ui-</find>
       <find>net_profit_money</find>
       <find>배팅금액</find>
       <find>addCommas</find>
@@ -162,6 +158,9 @@
       <find>narrow</find>
       <find>Static</find>
       <find>allowed</find>
+      <find>STATIC_ROOT</find>
+      <find>BASE_DIR</find>
+      <find>Static_root</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -221,8 +220,8 @@
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_calendar.html" />
         <option value="$PROJECT_DIR$/TheaterWinBook/templates/TheaterWinBook/winbook_statistics.html" />
         <option value="$PROJECT_DIR$/static/TheaterWinBook/js/custom.js" />
-        <option value="$PROJECT_DIR$/TheaterWin/settings.py" />
         <option value="$PROJECT_DIR$/theaterwin_uwsgi.ini" />
+        <option value="$PROJECT_DIR$/TheaterWin/settings.py" />
       </list>
     </option>
   </component>
@@ -264,7 +263,38 @@
             <path>
               <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
               <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
               <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -732,8 +762,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="46" column="35" selection-start-line="46" selection-start-column="35" selection-end-line="46" selection-end-column="35" />
+        <state relative-caret-position="529">
+          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
         </state>
       </provider>
     </entry>
