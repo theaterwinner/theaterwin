@@ -79,8 +79,8 @@
       <file leaf-file-name="settings.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+            <state relative-caret-position="852">
+              <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -131,7 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>net_profit_money</find>
       <find>배팅금액</find>
       <find>addCommas</find>
       <find>custom</find>
@@ -161,6 +160,7 @@
       <find>STATIC_ROOT</find>
       <find>BASE_DIR</find>
       <find>Static_root</find>
+      <find>debug</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -281,19 +281,6 @@
             <path>
               <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
               <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TheaterWin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TheaterWin" type="462c0819:PsiDirectoryNode" />
-              <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="TheaterWinBook" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -762,8 +749,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TheaterWin/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="145" lean-forward="true" selection-start-line="145" selection-end-line="145" />
+        <state relative-caret-position="852">
+          <caret line="46" column="13" lean-forward="true" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
         </state>
       </provider>
     </entry>
