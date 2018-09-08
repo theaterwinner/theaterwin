@@ -9,14 +9,16 @@
     </style>
     {#toast chart를 위한 static files import#}
         <!-- include application-chart.min.css -->
-    <link rel="stylesheet" type="text/css" href="/static/tui-chart/dist/tui-chart.min.css"/>
+{% comment %}    <link rel="stylesheet" type="text/css" href="/static/tui-chart/dist/tui-chart.min.css"/>
     <!-- include libraries -->
     <script src="/static/tui-code-snippet/dist/tui-code-snippet.js"></script>
     <script src="/static/raphael/raphael.js"></script>
     <!-- include chart.min.js -->
     <script src="/static/tui-chart/dist/tui-chart.min.js"></script>
     <!-- include map data (only map chart) -->
-    <script src="/static/tui-chart/dist/maps/world.js"></script>
+    <script src="/static/tui-chart/dist/maps/world.js"></script>{% endcomment %}
+    <script src="{% static 'TheaterWinBook/js/raphael.min.js' %}" type="text/javascript"></script>
+    <script src="https://unpkg.com/tui-code-snippet"></script>
     <link rel="stylesheet" href="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.css">
     <script src="https://uicdn.toast.com/tui.chart/latest/tui-chart.min.js"></script>
 {% endblock %}
