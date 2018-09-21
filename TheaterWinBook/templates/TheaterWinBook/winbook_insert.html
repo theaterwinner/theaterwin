@@ -1,4 +1,4 @@
-{% extends "TheaterWinBook/base_header_footer.html" %}
+{% extends "TheaterWinBook/base_header_footer_dark.html" %}
 {% block css_script %}
     <style>
         .ui-datepicker {
@@ -9,6 +9,126 @@
 
 {% endblock %}
 {% block content %}
+
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="btn-group pull-right m-t-20">
+                    </div>
+                    <h4 class="page-title">토계부 정보 입력</h4>
+                </div>
+            </div>
+            <!-- end page title end breadcrumb -->
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="card-box">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="p-20">
+                                    <form role="form" class="form-horizontal" method="post" action="" id="inputForm">
+                                        {% csrf_token %}
+
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">구매날짜</label>
+                                            <div class="col-9">
+                                                <div class="input-group">
+                                                    {{ form.buy_date }}
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text"><i
+                                                                class="ti-calendar"></i></span>
+                                                    </div>
+                                                </div><!-- input-group -->
+                                            </div>
+                                        </div>
+                                        {#                            글을 쓴 날짜는 hidden #}
+                                        <div class="form-group row" style="display: none">
+                                            <label class="col-3 col-form-label">기록날짜</label>
+                                            <div class="col-9"> {{ form.writing_date }}</div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">구매경기</label>
+                                            <div class="col-9">
+                                                {{ form.buy_game_title }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">배당률</label>
+                                            <div class="col-9">
+                                                {{ form.batting_ratio }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">금액</label>
+                                            <div class="col-9">
+                                                {{ form.batting_money }}
+                                            </div>
+                                            <div class="col-12" style="text-align: right">            <span
+                                                    id="batting_money_kor"
+                                                    style="color: gray"> * 0 원</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">폴더수</label>
+                                            <div class="col-9">
+                                                {{ form.folder_num }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">적중유무</label>
+                                            <div class="col-9">
+                                                {{ form.win_check }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row"><label
+                                                style="width:100%; margin-top: 2px; border-radius: 5px; padding: 0 10px;color: whitesmoke;text-align: right">적중금액
+                                            <i class="fas fa-won-sign"></i> <span id="expecting_money"
+                                                                                  style="color: whitesmoke;"> </span></label>
+                                        </div>
+                                        <div class="form-group row"><label
+                                                style="width:100%;margin-top: 2px; border-radius: 5px; padding: 0 10px;color: whitesmoke;text-align: right">순수익
+                                            <i class="fas fa-won-sign"></i> <span id="net_profit_money"
+                                                                                  style="color: whitesmoke;"> </span></label>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">기타 메모</label>
+                                            <div class="col-9">
+                                                {{ form.etc_memo }}
+
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" id="submit_BT"
+                                                class="btn btn-block btn--md btn-info waves-effect waves-light"
+                                                style="width: 90%; margin: 0% 5%;height: 45px; border-radius: 6px;" ;>입력
+                                            하기
+                                        </button>
+
+
+                                    </form>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    {% comment %}
+
+
     <div class="breadcrumb-wrap">
         <div class="container">
             <div class="row">
@@ -93,6 +213,8 @@
     </div>
 
 
+{% endcomment %}
+
 
 
 {% endblock %}
@@ -101,6 +223,20 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
+            {#dark version starti#}
+            $('#buy_date').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                todayHighlight: true,
+                inline: true,
+                showOtherMonths: true,
+                showMonthAfterYear: true,
+                monthNames: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+            });
+            {#           dark version end #}
+
+
             {#url체크해서 navigation에 색깔 칠해주기. #}
             if (window.location.href.indexOf("winbook_insert") > -1) {
                 $("#navtop_winbook_insert").css("color", "#32c5d2");
@@ -190,17 +326,16 @@
 
             });
 
-            {# 달력 한글화 #}
-            $('#buy_date').datepicker({
-                inline: true,
-                showOtherMonths: true,
-                showMonthAfterYear: true,
-                monthNames: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-                dateFormat: 'yy-mm-dd',
-            }).datepicker("setDate", new Date());
+            {% comment %}            {# 달력 한글화 #}
+                        $('#buy_date').datepicker({
+                            inline: true,
+                            showOtherMonths: true,
+                            showMonthAfterYear: true,
+                            monthNames: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
+                            dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+                            dateFormat: 'yy-mm-dd',
+                        }).datepicker("setDate", new Date());{% endcomment %}
 
-            {#    #}
         });
 
         function check_input_value() {
@@ -298,6 +433,7 @@
 
 
         {#금액 한글로 표시하기#}
+
         function viewKorean(num) {
             var hanA = new Array("", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구", "십");
             var danA = new Array("", "십", "백", "천", "", "십", "백", "천", "", "십", "백", "천", "", "십", "백", "천");
@@ -311,12 +447,13 @@
                 if (i == 12) str += "조";
                 result = str + result;
             }
-            if (num != 0) result = "- " + result + "원";
-            if (num == 0) result = result + " - 0 원";
+            if (num != 0) result = "* " + result + "원";
+            if (num == 0) result = result + " * 0 원";
             return result;
         }
 
         {#  입력값 변경 시마다 예상금액 바꿔주기 #}
+
         function expecting_money() {
             var id_batting_ratio = $("#id_batting_ratio").val();
 

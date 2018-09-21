@@ -36,7 +36,7 @@ class TheaterWinBookRecordForm(forms.ModelForm):
     folder_num = forms.IntegerField(required=True, max_value=1000000, min_value=1, widget=forms.NumberInput(attrs={'step': "1"}), initial=1)
     # choice의 선택지이다. value가 첫 번째이고, 두 번째는 화면에 나타나는 부분.
     win_check_choice = [(0, '적중실패'), (1, '적중성공'), (2, '경기전')]
-    win_check = forms.ChoiceField(choices=win_check_choice,initial=1)
+    win_check = forms.ChoiceField(choices=win_check_choice,initial=1, widget=forms.Select(attrs={'style':'padding:5px 5px; text-align-last:center'}))
 
     class Meta:
         model = TheaterWinBookRecord

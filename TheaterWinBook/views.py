@@ -31,6 +31,7 @@ def error_404(request):
 def bower_test(request):
     return render(request, 'TheaterWinBook/bower_test.html')
 
+
 def calendar_test(request):
     return render(request, 'TheaterWinBook/calendar_test.html')
 
@@ -62,7 +63,7 @@ def winbook_calendar(request):
     # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
     # print(winbook_user_result)
     # winbook_user_result_json = json.dumps(list(winbook_user_result), ensure_ascii=False, default=str)
-    print("this is json:"+winbook_user_result_json)
+    print("this is json:" + winbook_user_result_json)
 
     return render(request, 'TheaterWinBook/winbook_calendar.html',
                   {"winbook_user_result_json": winbook_user_result_json})
@@ -74,7 +75,8 @@ def winbook_modify(request):
         # create a form instance and populate it with data from the request:
         record_pk = request.POST.get("record_pk", "")
         target_modify_record = TheaterWinBookRecord.objects.get(pk=record_pk)
-        form = TheaterWinBookRecordForm(request.POST, instance=target_modify_record)  # PostForm으로 부터 받은 데이터를 처리하기 위한 인스턴스 생성
+        form = TheaterWinBookRecordForm(request.POST,
+                                        instance=target_modify_record)  # PostForm으로 부터 받은 데이터를 처리하기 위한 인스턴스 생성
         if form.is_valid():  # 폼 검증 메소드
             inputForm = form.save(commit=False)  # 오브젝트를 form으로 부터 가져오지만, 실제로 DB반영은 하지 않는다.
             # 가져 온 후 데이터 처리를 ㅐㅎ도 된다.
@@ -98,7 +100,7 @@ def winbook_modify(request):
         if (target_record.user_name == login_user):
             #   정상적으로 modify로 이동시켜준다.
             form = TheaterWinBookRecordForm(instance=target_record)  # forms.py의 PostForm 클래스의 인스턴스
-            return render(request, 'TheaterWinBook/winbook_modify.html', {'form': form,'record_pk':record_pk})
+            return render(request, 'TheaterWinBook/winbook_modify.html', {'form': form, 'record_pk': record_pk})
         else:
             #  그렇지 않으면 리스트로 이동시켜 준다.
             return render(request, 'TheaterWinBook/error_wronguser.html')
@@ -154,10 +156,12 @@ def list_delete(request):
 def winbook_insert(request):
     if request.method == "POST":
         # create a form instance and populate it with data from the request:
+        print("this is post1")
         form = TheaterWinBookRecordForm(request.POST)  # PostForm으로 부터 받은 데이터를 처리하기 위한 인스턴스 생성
         if form.is_valid():  # 폼 검증 메소드
+            print("this is post2")
             inputForm = form.save(commit=False)  # 오브젝트를 form으로 부터 가져오지만, 실제로 DB반영은 하지 않는다.
-            # 가져 온 후 데이터 처리를 ㅐㅎ도 된다.
+            # 가져 온 후 데이터 처리를 해도 된다.
             inputForm.user_name = request.user
             # inputForm 저장하기
             inputForm.save()
@@ -166,9 +170,10 @@ def winbook_insert(request):
             new_winbook_pk = inputForm.pk
             messages.success(request, 'insert_success', extra_tags=new_winbook_pk)
             # 정보를 성공적으로 입력한 후에는, 메세지에 방금 입력된 pk값을 담아서 보내기
+            print("this is post3")
             return redirect('winbook_list')
         else:
-
+            print("this is post4")
             messages.error(request, "please enter right field");
 
     else:
@@ -186,7 +191,7 @@ def winbook_statistics(request):
     # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
     # print(winbook_user_result)
     # winbook_user_result_json = json.dumps(list(winbook_user_result), ensure_ascii=False, default=str)
-    print("this is json:"+winbook_user_result_json)
+    print("this is json:" + winbook_user_result_json)
     return render(request, 'TheaterWinBook/winbook_statistics.html',
                   {"winbook_user_result_json": winbook_user_result_json})
 
@@ -210,13 +215,30 @@ def winbook_list(request):
 
         # 로그인된 user를 확인하고
     login_user_name = request.user
-    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date',
-                                                                                                  '-pk')
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date', '-pk')
+    winbook_user_result_list = list(winbook_user_result)
+    total_net_profit = 0
+    for listobject in winbook_user_result_list:
+        win_check = listobject.win_check
+        batting_money = listobject.batting_money
+        batting_ratio = listobject.batting_ratio
+        folder_num = listobject.folder_num
+        net_profit = 0
 
+        if win_check ==0:
+            net_profit = -(batting_money * folder_num)
+        elif win_check ==1:
+            net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num))
+        elif win_check ==2:
+            net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num))
+        total_net_profit += net_profit
+
+    total_net_profit = format(int(total_net_profit),',')
     # 현재까지 순수익 구하기.
+
     return render(request, 'TheaterWinBook/winbook_list.html',
                   {"winbook_user_result": winbook_user_result, "new_winbook_pk": new_winbook_pk,
-                   'new_winbook_check': new_winbook_check})
+                   'new_winbook_check': new_winbook_check, "total_net_profit":total_net_profit})
 
 
 def to_winnerBros(request):

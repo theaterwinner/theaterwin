@@ -1,0 +1,87 @@
+
+
+{% extends "TheaterWinBook/base_header_footer.html" %}
+{% block content %}
+
+    <div class="breadcrumb-wrap">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h4 style="width: 30%">로그인 </h4>
+                </div>
+
+
+            </div>
+        </div>
+    </div><!--breadcrumbs-->
+
+
+    <div class="container" style="padding: 0px">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-md-offset-0 ">
+
+                <div class="login-form">
+
+
+                    <div style="text-align: center;margin-bottom: 5px">
+                        {% if auth_page == 'yes' %}
+                            <span style="text-align: center;font-size: 9px;color: 	#808080;">* 극장승의 원활한 이용을 위해 로그인이 필요합니다. </span>
+                        {% endif %}
+                        {% if login_try == 'login_fail' %}
+                            <span style="text-align: center;font-size: 9px;color: red;">* 로그인 실패! 아이디와 비밀번호를 확인해주세요</span>
+                        {% endif %}
+                        {% if messages %}
+                            {% for message in messages %}
+                                {% if message.tags == 'success' %}
+                                    <span style="text-align: center;font-size: 10px;color: green ; ">* {{ message }}</span>
+                                {% elif message.tags == 'error' %}
+
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        {#                        {% if signup_try == 'signup_success' %}#}
+                        {#                            <span style="text-align: center;font-size: 10px;color: green ; ">* 회원가입 완료! 가입하신 정보로 로그인해주세요!</span>#}
+                        {#                        {% endif %}#}
+
+                    </div>
+                    <form role="form" method="post" action="">
+                        {% csrf_token %}
+                        {#                        로그인 후 previous PAGE로 돌아가기 위한 함수. #}
+
+                        <div class="form-group">
+                            <label for="exampleInputEmail1" style="color: #696969">&nbsp&nbsp로그인 아이디</label>
+                            <input class="form-control" name="username" maxlength="15" placeholder="로그인 아이디를 입력해주세요">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1" style="color: #696969">&nbsp&nbsp비밀번호</label>
+                            <input class="form-control" type="password" name="password" maxlength="15"
+                                   placeholder="비밀번호를 입력해주세요">
+                        </div>
+
+
+                        <button type="submit" class="btn btn-theme-bg" style="width: 90%; margin: 5px 5%">로그인 하기
+                        </button>
+                        <a class="btn btn-theme-bg" style="width: 90%; margin: 5px 5%" href="/signup">회원가입 하기</a>
+                    </form>
+                    <div style="text-align: center">
+                        <span style="text-align: center;font-size: 5px;color: 	#808080"> <br> * 아이디/비밀번호 분실은 TheaterWinner@gmail.com 에 문의주세요</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+        });
+
+    </script>
+{% endblock %}
+
+
+
+
