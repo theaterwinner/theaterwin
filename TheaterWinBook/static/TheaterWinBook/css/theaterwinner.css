@@ -1,2 +1,6 @@
 
 .css_test {color:red;}
+
+.hidden{
+    display: none;
+}

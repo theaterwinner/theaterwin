@@ -43,16 +43,15 @@
         //Warning Message
         $('#sa-warning').click(function () {
             swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: '정말 삭제하시겠습니까?',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#4fa7f3',
                 cancelButtonColor: '#d57171',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: '네, 삭제',
             }).then(function () {
                 swal(
-                    'Deleted!',
+                    '삭제!',
                     'Your file has been deleted.',
                     'success'
                 )
