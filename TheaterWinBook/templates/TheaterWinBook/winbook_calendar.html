@@ -1,195 +1,231 @@
 {% extends "TheaterWinBook/base_header_footer_dark.html" %}
 {% load static %}
 {% block css_script %}
-    <style>
-        .breadcrumb-wrap {
-            padding: 5%;
-        }
-    </style>
-    <script src="https://uicdn.toast.com/tui.code-snippet/latest/tui-code-snippet.js"></script>
-    <script src="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://uicdn.toast.com/tui-calendar/latest/tui-calendar.css"/>
+
 
 {% endblock %}
 
 {% block content %}
-    <div class="breadcrumb-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-6" style="">
-                    <h4 style="padding-left: 5%">극장승 달력</h4>
+
+ <div class="wrapper">
+            <div class="container-fluid">
+
+                <!-- Page-Title -->
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="btn-group pull-right m-t-20">
+                            <button type="button" class="btn btn-custom dropdown-toggle waves-effect waves-light" data-toggle="dropdown" aria-expanded="false">Settings </button>
+                            <div class="dropdown-menu dropdown-menu-right">
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                            </div>
+                        </div>
+                        <h4 class="page-title">Calendar</h4>
+                    </div>
+                </div>
+                <!-- end page title end breadcrumb -->
+
+
+                <div class="row">
+                    <div class="col-lg-12">
+
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="widget">
+                                    <div class="widget-body">
+                                        <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-lg btn-success btn-block waves-effect waves-light">
+                                                    <i class="fa fa-plus"></i> Create New
+                                                </a>
+                                                <div id="external-events" class="m-t-20">
+                                                    <br>
+                                                    <p>Drag and drop your event or click in the calendar</p>
+                                                    <div class="external-event bg-primary" data-class="bg-primary">
+                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>New Theme Release
+                                                    </div>
+                                                    <div class="external-event bg-pink" data-class="bg-pink">
+                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>My Event
+                                                    </div>
+                                                    <div class="external-event bg-warning" data-class="bg-warning">
+                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Meet manager
+                                                    </div>
+                                                    <div class="external-event bg-purple" data-class="bg-purple">
+                                                        <i class="mdi mdi-checkbox-blank-circle mr-2 vertical-middle"></i>Create New theme
+                                                    </div>
+                                                </div>
+
+                                                <!-- checkbox -->
+                                                <div class="checkbox m-t-40">
+                                                    <input id="drop-remove" type="checkbox">
+                                                    <label for="drop-remove">
+                                                        Remove after drop
+                                                    </label>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end col-->
+                            <div class="col-lg-9">
+                                <div class="card-box">
+                                    <div id="calendar"></div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>  <!-- end row -->
+
+                        <!-- BEGIN MODAL -->
+                        <div class="modal fade none-border" id="event-modal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mt-0"><strong>Add New Event</strong></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                                        <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Modal Add Category -->
+                        <div class="modal fade none-border" id="add-category">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mt-0"><strong>Add a category </strong></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form role="form">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="control-label">Category Name</label>
+                                                    <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="control-label">Choose Category Color</label>
+                                                    <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                                        <option value="success">Success</option>
+                                                        <option value="danger">Danger</option>
+                                                        <option value="info">Info</option>
+                                                        <option value="pink">Pink</option>
+                                                        <option value="primary">Primary</option>
+                                                        <option value="warning">Warning</option>
+                                                        <option value="inverse">Inverse</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END MODAL -->
+                    </div>
+                    <!-- end col-12 -->
+                </div> <!-- end row -->
+
+
+            </div> <!-- end container -->
+
+
+            <!-- Right Sidebar -->
+            <div class="side-bar right-bar">
+                <a href="javascript:void(0);" class="right-bar-toggle">
+                    <i class="mdi mdi-close-circle-outline"></i>
+                </a>
+                <h4 class="">Notifications</h4>
+                <div class="notification-list nicescroll">
+                    <ul class="list-group list-no-border user-list">
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="assets/images/users/avatar-2.jpg" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Michael Zenaty</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-info">
+                                    <i class="mdi mdi-account"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Signup</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">5 hours ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-pink">
+                                    <i class="mdi mdi-comment"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">New Message received</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="avatar">
+                                    <img src="assets/images/users/avatar-3.jpg" alt="">
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">James Anderson</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">2 days ago</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="list-group-item active">
+                            <a href="#" class="user-list-item">
+                                <div class="icon bg-warning">
+                                    <i class="mdi mdi-settings"></i>
+                                </div>
+                                <div class="user-desc">
+                                    <span class="name">Settings</span>
+                                    <span class="desc">There are new settings available</span>
+                                    <span class="time">1 day ago</span>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
                 </div>
             </div>
+            <!-- /Right-bar -->
+
         </div>
-    </div><!--breadcrumbs-->
-    <div style="text-align: center; margin: 5px">
-    <span id="menu-navi">
-          <button type="button" id="calendar_go_prevbtn" class="btn btn-default btn-sm move-day"
-                  data-action="move-prev" style="border-radius: 25px;text-align: center">
-                    <i class="fas fa-chevron-left" style="text-align: center; margin: 0 2px"></i>
-                </button>
-                 <button type="button" id="calendar_go_todaybtn" class="btn btn-default btn-sm move-today"
-                         data-action="move-today" style="text-align: center; margin: 0 2px">TODAY</button>
-
-                <button type="button" id="calendar_go_nextbtn" class="btn btn-default btn-sm move-day"
-                        data-action="move-next" style="border-radius: 25px;">
-                   <i class="fas fa-chevron-right " style="text-align: center; margin: 0 2px"></i>
-                </button>
-            </span>
-    </div>
-    <div id="container">
-        <div id="calendar" style="width: 100%; height: 800px"></div>
-    </div>
-
-
+        <!-- end wrapper -->
 
 {% endblock %}
 
 {% block javascript %}
 
-    <script>
-        var Calendar = tui.Calendar;
-
-        var calendar = new Calendar(document.getElementById('calendar'), {
-            defaultView: 'month',
-            taskView: true,    // can be also ['milestone', 'task']
-            scheduleView: true,  // can be also ['allday', 'time']
-            template: {
-                milestone: function (schedule) {
-                    return '<span style="color:red;"><i class="fa fa-flag"></i> ' + schedule.title + '</span>';
-                },
-                milestoneTitle: function () {
-                    return 'Milestone';
-                },
-                task: function (schedule) {
-                    return '&nbsp;&nbsp;#' + schedule.title;
-                },
-                taskTitle: function () {
-                    return '<label><input type="checkbox" />Task</label>';
-                },
-                allday: function (schedule) {
-                    return schedule.title + ' <i class="fa fa-refresh"></i>';
-                },
-                alldayTitle: function () {
-                    return 'All Day';
-                },
-                time: function (schedule) {
-                    return schedule.title + ' <i class="fa fa-refresh"></i>' + schedule.start;
-                }
-            },
-            month: {
-                daynames: ['일', '월', '화', '수', '목', '금', '토'],
-                startDayOfWeek: 0,
-                narrowWeekend: false
-            }
-        });
-
-
-        {#    tui-line-chart#}
-        // 모든 정보 불러오기
-        var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
-        var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
-        var chart_x_array = [];
-        var chart_y_array = [];
-        var lose_counting = 0;
-        var win_counting = 0;
-        var yet_counting = 0;
-        var untilnow_profit = 0;
-
-        for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
-            var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
-            var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
-            chart_x_array.push(buy_date);
-            var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
-            var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
-            var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
-            var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
-            var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
-            var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
-            var net_profit = 0
-            if (win_check == "0") {
-                lose_counting++;
-                net_profit = -(batting_money * folder_num);
-            } else if (win_check == '1') {
-                win_counting++;
-                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
-            } else if (win_check == '2') {
-                yet_counting++;
-                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
-
-            }
-            untilnow_profit += net_profit
-            chart_y_array.push(untilnow_profit)
-            var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
-            var duration = 0;
-            var start = 0;
-            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
-            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
-            buy_date = buy_date.replace(regExp, "");
-
-            {#caelndaer에 스케줄 추가#}
-            calendar.createSchedules([
-                {
-                    id: record_pk,
-                    title: buy_game_title,
-                    calendarId: '1',
-                    category: 'allday',
-                    start: buy_date,
-                    end: buy_date,
-                }
-            ]);
-
-
-        }
-
-
-        calendar.on('clickSchedule', function (event) {
-
-            var schedule = event.schedule;
-            alert(schedule.title);
-            if (lastClickSchedule) {
-                calendar.updateSchedule(lastClickSchedule.id, lastClickSchedule.calendarId, {
-                    isFocused: false
-                });
-            }
-            calendar.updateSchedule(schedule.id, schedule.calendarId, {
-                isFocused: true
-            });
-
-            lastClickSchedule = schedule;
-            // open detail view
-        });
-
-
-    </script>
-    <script>
-        $(document).ready(function () {
-            $("#calendar_go_nextbtn").click(function () {
-                calendar.next();
-                console.log(calendar.getDateRangeStart());
-                console.log(calendar.getDate().getMonth());
-                console.log(calendar.getDateRangeEnd());
-            });
-            $("#calendar_go_prevbtn").click(function () {
-                calendar.prev();
-                console.log(calendar.getDateRangeStart());
-                console.log(calendar.getDate().getMonth());
-                console.log(calendar.getDateRangeEnd());
-            });
-            $("#calendar_go_todaybtn").click(function () {
-                calendar.today();
-                console.log(calendar.getDateRangeStart());
-                console.log(calendar.getDate().getMonth());
-                console.log(calendar.getDateRangeEnd());
-            });
-
-            console.log(calendar.getDateRangeStart());
-            console.log(calendar.getDate().getMonth());
-            console.log(calendar.getDateRangeEnd());
-            console.log((calendar.getDateRangeStart()+calendar.getDateRangeEnd())/2);
-        });
-
-    </script>
 {% endblock %}
 
 

@@ -35,6 +35,13 @@
     <link href="{% static 'TheaterWinBook/assets/plugins/sweet-alert/sweetalert2.min.css' %}" rel="stylesheet"
           type="text/css"/>
 
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="{% static 'TheaterWinBook/assets/plugins/morris/morris.css' %}">
+
+    <!--calendar css-->
+    <link href="{% static 'TheaterWinBook/assets/plugins/fullcalendar/css/fullcalendar.min.css' %}" rel="stylesheet"/>
+
+
     <!-- App css -->
     <link href="{% static 'TheaterWinBook/assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
     <link href="{% static 'TheaterWinBook/assets/css/icons.css' %}" rel="stylesheet" type="text/css"/>
@@ -55,21 +62,14 @@
 {#          <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>#}
 {#          <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>#}
         <![endif]-->
-    {#jquery UI CSS 추가함. #}
-    <link href="{% static 'TheaterWinBook/css/jquery-ui-1.7.css' %}" rel="stylesheet" type="text/css">
-    {#    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">#}
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
-          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
     <style>
-        .breadcrumb-wrap {
-            padding: 5%;
-        }
+
     </style>
     {% block css_script %}
 
@@ -95,7 +95,7 @@
                 <!--<span class="logo-large"><i class="mdi mdi-radar"></i> Adminto</span>-->
                 <!--</a>-->
                 <!-- Image Logo -->
-                <a href="index.html" class="logo">
+                <a href="{% url 'index' %}" class="logo">
                     <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"
                          class="logo-small">
                     <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">
@@ -354,6 +354,7 @@
 <script src="{% static 'TheaterWinBook/assets/js/waves.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/jquery.slimscroll.js' %}"></script>
 
+
 <!-- Counter Up  -->
 <script src="{% static 'TheaterWinBook/assets/plugins/waypoints/jquery.waypoints.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/plugins/counterup/jquery.counterup.min.js' %}"></script>
@@ -388,6 +389,18 @@
 <!-- Sweet Alert Js  -->
 <script src="{% static 'TheaterWinBook/assets/plugins/sweet-alert/sweetalert2.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/pages/jquery.sweet-alert.init.js' %}"></script>
+
+<!--Morris Chart-->
+<script src="{% static 'TheaterWinBook/assets/plugins/morris/morris.min.js' %}"></script>
+<script src="{% static 'TheaterWinBook/assets/plugins/raphael/raphael-min.js' %}"></script>
+
+<!-- Jquery-Ui -->
+<script src="{% static 'TheaterWinBook/assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+
+<!-- SCRIPTS -->
+<script src="{% static 'TheaterWinBook/assets/plugins/moment/moment.js' %}"></script>
+<script src="{% static 'TheaterWinBook/assets/plugins/fullcalendar/js/fullcalendar.min.js' %}"></script>
+<script src="{% static 'TheaterWinBook/assets/pages/jquery.fullcalendar.js' %}"></script>
 
 
 <!-- App js -->

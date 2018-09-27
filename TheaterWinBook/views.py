@@ -314,3 +314,8 @@ def validate_username(request):
     }
     print("this is is_taken:", data)
     return JsonResponse(data)
+
+
+
+
+
