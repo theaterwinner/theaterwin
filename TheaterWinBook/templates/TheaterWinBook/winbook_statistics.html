@@ -38,7 +38,7 @@
                             </a>
                         </div>
 
-                        <h4 class="header-title m-t-0 m-b-30">나의 순이익</h4>
+                        <h4 class="header-title m-t-0 m-b-30">순이익 -  <span id="total_net_profit"></span></h4>
 
                         <div class="text-center">
                             <ul class="list-inline chart-detail-list">
@@ -55,13 +55,7 @@
 
                 <div class="col-xl-12">
                     <div class="card-box">
-                        <div class="dropdown pull-right">
-                            <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown"
-                               aria-expanded="false">
-                                <i class="mdi mdi-dots-vertical"></i>
-                            </a>
 
-                        </div>
 
                         <h4 class="header-title m-t-0 m-b-30"> 적중 결과 </h4>
 
@@ -88,81 +82,6 @@
 
 
         </div> <!-- end container -->
-
-
-        <!-- Right Sidebar -->
-        <div class="side-bar right-bar">
-            <a href="javascript:void(0);" class="right-bar-toggle">
-                <i class="mdi mdi-close-circle-outline"></i>
-            </a>
-            <h4 class="">Notifications</h4>
-            <div class="notification-list nicescroll">
-                <ul class="list-group list-no-border user-list">
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-2.jpg" alt="">
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">Michael Zenaty</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">2 hours ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-info">
-                                <i class="mdi mdi-account"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">New Signup</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">5 hours ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-pink">
-                                <i class="mdi mdi-comment"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">New Message received</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">1 day ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item active">
-                        <a href="#" class="user-list-item">
-                            <div class="avatar">
-                                <img src="assets/images/users/avatar-3.jpg" alt="">
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">James Anderson</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">2 days ago</span>
-                            </div>
-                        </a>
-                    </li>
-                    <li class="list-group-item active">
-                        <a href="#" class="user-list-item">
-                            <div class="icon bg-warning">
-                                <i class="mdi mdi-settings"></i>
-                            </div>
-                            <div class="user-desc">
-                                <span class="name">Settings</span>
-                                <span class="desc">There are new settings available</span>
-                                <span class="time">1 day ago</span>
-                            </div>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-        <!-- /Right-bar -->
 
     </div>
     <!-- end wrapper -->
@@ -203,7 +122,6 @@
 {% block javascript %}
 
     <script>
-        {#    tui-line-chart#}
         // 모든 정보 불러오기
         var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
         var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
@@ -216,6 +134,9 @@
         for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
             var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
             var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
+            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
+            buy_date = buy_date.replace(regExp, "");
             chart_x_array.push(buy_date);
             var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
             var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
@@ -239,9 +160,7 @@
             var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
             var duration = 0;
             var start = 0;
-            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
-            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
-            buy_date = buy_date.replace(regExp, "");
+
         }
         var container = document.getElementById('tui_line_chart');
         var data = {
@@ -253,21 +172,37 @@
                 }
             ]
         };
-
-
     </script>
 
 
     {% comment %}    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>{% endcomment %}
     <script>
+        {#현재까지 profit 저장하기#}
+        function total_profit_calculate() {
+            $("#total_net_profit").text(addCommas(untilnow_profit));
+        }
+
+        {#3자리마다 콤마 찍어주기#}
+        //3자리 단위마다 콤마 생성
+        function addCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        //모든 콤마 제거
+        function removeCommas(x) {
+            if (!x || x.length == 0) return "";
+            else return x.split(",").join("");
+        }
+
+    </script>
+
+    <script>
         !function ($) {
             "use strict";
-
+            total_profit_calculate();
             var MorrisCharts = function () {
             };
-
-
             //creates area chart with dotted
             MorrisCharts.prototype.createAreaChartDotted = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, Pfillcolor, Pstockcolor, lineColors) {
                 Morris.Area({
@@ -307,38 +242,31 @@
                         return {y: chart_x_array, a: chart_y_array};
                     });
                     var area_with_dotted_data = [];
-                    for (let xy_data of chart_xy_array) {
-                        var date_data = xy_data.y;
+                    for (var i = 0; i < chart_x_array.length; i++) {
                         var object_xy_data = new Object();
-                        object_xy_data.y = xy_data.y;
-                        object_xy_data.a = xy_data.a;
-                        console.log("this is object -- " , date_data);
+                        object_xy_data.y = chart_x_array[i];
+                        object_xy_data.a = chart_y_array[i];
                         area_with_dotted_data.push(object_xy_data);
-                    }
 
+                    }
+                    console.log("this is area_with_dotted_data", area_with_dotted_data);
                     //chart_x_array = ['2018-08-09', '2018-08-10'.'2018-08-15']
                     //chart_y_array = ['100000', '200000', '300000']
-
                     var combination = chart_x_array.map((e, i) => `${e}:${chart_y_array[i]}`);
                     {##}
                     for (var c in combination) {
                         area_with_dotted_data.push();
                     }
-                    var $areaDotData = [
-                        {y: '2018-08-03', a: 75000},
-                        {y: '2018-09-10', a: 100000}
-                    ];
-                    console.log("this is array:" , area_with_dotted_data);
-                    for (let xy_data of $areaDotData) {
-                        console.log("this is object real -- " + xy_data.y);
-                    }
 
                     {% comment %}
-                                var $areaDotData = [
-                                    {y: '2018-08-03', a: 75000},
-                                    {y: '2018-09-10', a: 100000}
-                                ];
-                                {% endcomment %}
+                    var $areaDotData = [
+                                {y: '2018-08-03', a: 75000},
+                                {y: '2018-09-10', a: 100000}
+                            ];
+                    {% endcomment %}
+
+                    var $areaDotData = area_with_dotted_data;
+
                     this.createAreaChartDotted('morris-area-with-dotted', 0, 0, $areaDotData, 'y', ['a'], ['순이익'], ['#ffffff'], ['#999999'], ['#5b69bc']);
 
                     //creating donut chart

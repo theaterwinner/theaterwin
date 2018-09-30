@@ -316,6 +316,11 @@ def validate_username(request):
     return JsonResponse(data)
 
 
-
+@login_required(login_url='/login_view')
+def winbook_detail(request, record_pk):
+    record_pk = record_pk
+    print("this is record_pk"+record_pk)
+    winbook_record = TheaterWinBookRecord.objects.get(pk=record_pk)
+    return render(request, 'TheaterWinBook/winbook_detail.html', {'winbook_record': winbook_record})
 
 

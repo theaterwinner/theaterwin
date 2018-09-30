@@ -21,7 +21,6 @@
         }
 
 
-
     </style>
 {% endblock %}
 
@@ -31,171 +30,172 @@
 
 
     <div class="wrapper">
-    <div class="container-fluid">
+        <div class="container-fluid">
 
-    <!-- Page-Title -->
-    <div class="row">
-        <div class="col-sm-12">
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
 
-            <h4 class="page-title">나의 기록 - {{ winbook_user_result|length }}개</h4>
-        </div>
-    </div>
-    <!-- end page title end breadcrumb -->
-
-
-    <div class="row">
-        <div class="col-xl-12 col-md-12">
-            <div class="card-box widget-user">
-
-                <div class="text-center">
-                    <h2 class="text-custom" data-plugin="counterup" id="h_test1">{{ total_net_profit }}
-                    </h2>
-                    <h5 id="h_test2">총 이익</h5>
+                    <h4 class="page-title">나의 기록 - {{ winbook_user_result|length }}개</h4>
                 </div>
             </div>
-        </div>
-    </div>
-    <!-- end row -->
+            <!-- end page title end breadcrumb -->
 
 
-    <div class="row" style="text-align:right; margin-left: 20px">
-        <p class="text-muted font-13 m-b-15 m-t-20"> - </p>
-        <div class="radio radio-info form-check-inline">
-            <input type="radio" id="inlineRadio1" value="win_check_all" name="radioInline" checked>
-            <label for="inlineRadio1">전체</label>
-        </div>
-        <div class="radio form-check-inline">
-            <input type="radio" id="inlineRadio2" value="win_check_hit" name="radioInline">
-            <label for="inlineRadio2">적중 </label>
-        </div>
-        <div class="radio form-check-inline">
-            <input type="radio" id="inlineRadio3" value="win_check_miss" name="radioInline">
-            <label for="inlineRadio3">미적중</label>
-        </div>
-        <div class="radio form-check-inline">
-            <input type="radio" id="inlineRadio4" value="win_check_yet" name="radioInline">
-            <label for="inlineRadio4">경기전</label>
-        </div>
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="card-box widget-user">
 
-    </div>
+                        <div class="text-center">
+                            <h2 class="text-custom" data-plugin="counterup" id="h_test1">{{ total_net_profit }}
+                            </h2>
+                            <h5 id="h_test2">총 이익</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
 
 
-    <div class="row ">
-        {% for winbook_record in winbook_user_result %}
+            <div class="row" style="text-align:right; margin-left: 20px">
+                <p class="text-muted font-13 m-b-15 m-t-20"> - </p>
+                <div class="radio radio-info form-check-inline">
+                    <input type="radio" id="inlineRadio1" value="win_check_all" name="radioInline" checked>
+                    <label for="inlineRadio1">전체</label>
+                </div>
+                <div class="radio form-check-inline">
+                    <input type="radio" id="inlineRadio2" value="win_check_hit" name="radioInline">
+                    <label for="inlineRadio2">적중 </label>
+                </div>
+                <div class="radio form-check-inline">
+                    <input type="radio" id="inlineRadio3" value="win_check_miss" name="radioInline">
+                    <label for="inlineRadio3">미적중</label>
+                </div>
+                <div class="radio form-check-inline">
+                    <input type="radio" id="inlineRadio4" value="win_check_yet" name="radioInline">
+                    <label for="inlineRadio4">경기전</label>
+                </div>
+
+            </div>
 
 
-            {#                    <div class="col-xl-12  winbook_record_list ">#}
-            {#  적중/비적중/미경기에 따라서 클래스를 바꿔 넣는다   #}
-            {% if winbook_record.win_check == 0 %}
-                {% with win_check_color_status="#ff253b" %}
-                    <div class="col-xl-12  card-box project-box winbook_record_list win_check_miss "
-                         style=" ">
-                {% endwith %}
-            {% elif winbook_record.win_check == 1 %}
-                {% with win_check_color_status="#59df57" %}
-                    <div class="col-xl-12 card-box project-box winbook_record_list  win_check_hit "
-                         style=" ">
-                {% endwith %}
-            {% elif winbook_record.win_check == 2 %}
-                {% with win_check_color_status="#ffcd38" %}
-                    <div class="col-xl-12 card-box project-box winbook_record_list win_check_yet "
-                         style=" ">
-                {% endwith %}
-            {% endif %}
+            <div class="row ">
+                {% for winbook_record in winbook_user_result %}
 
 
-        <span class="hidden win_check">{{ winbook_record.win_check }}</span>
+                    {#                    <div class="col-xl-12  winbook_record_list ">#}
+                    {#  적중/비적중/미경기에 따라서 클래스를 바꿔 넣는다   #}
+                    {% if winbook_record.win_check == 0 %}
+                        {% with win_check_color_status="#ff253b" %}
+                            <div class="col-xl-12  card-box project-box winbook_record_list win_check_miss "
+                                 style=" ">
+                        {% endwith %}
+                    {% elif winbook_record.win_check == 1 %}
+                        {% with win_check_color_status="#59df57" %}
+                            <div class="col-xl-12 card-box project-box winbook_record_list  win_check_hit "
+                                 style=" ">
+                        {% endwith %}
+                    {% elif winbook_record.win_check == 2 %}
+                        {% with win_check_color_status="#ffcd38" %}
+                            <div class="col-xl-12 card-box project-box winbook_record_list win_check_yet "
+                                 style=" ">
+                        {% endwith %}
+                    {% endif %}
 
 
-        {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
-        {% if winbook_record.win_check == 0 %}
-            <div class="badge badge-danger" style="color: #212529 ;  font-weight: bold;">미적중</div>
-        {% elif winbook_record.win_check == 1 %}
-            <div class="badge badge-success" style="color: #212529 ;  font-weight: bold;">적중</div>
-        {% elif winbook_record.win_check == 2 %}
-            <div class="badge badge-warning" style="color: #212529 ;  font-weight: bold;">경기전</div>
-        {% endif %}
-
-        {#   slugify 는 integer나 string을 최소한의 형태로 맞추어 주는 역할이다. 비교를 할 때는 반드시 이걸 하자.. #}
-        {% if new_winbook_pk|slugify == winbook_record.pk|slugify %}
-            <span class="label label-primary">New</span>
-        {% endif %}
-        <p style="position: relative;"> No.{{ forloop.counter }} - {{ winbook_record.buy_date }} 구매<span></span></p>
+                <span class="hidden win_check">{{ winbook_record.win_check }}</span>
 
 
-        <h4 class="mt-0" style="text-align: center;"><a href=""
-                                                        class="text-white"> {{ winbook_record.buy_game_title }} </a>
-        </h4>
+                {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
+                {% if winbook_record.win_check == 0 %}
+                    <div class="badge badge-danger" style="color: #212529 ;  font-weight: bold;">미적중</div>
+                {% elif winbook_record.win_check == 1 %}
+                    <div class="badge badge-success" style="color: #212529 ;  font-weight: bold;">적중</div>
+                {% elif winbook_record.win_check == 2 %}
+                    <div class="badge badge-warning" style="color: #212529 ;  font-weight: bold;">경기전</div>
+                {% endif %}
+
+                {#   slugify 는 integer나 string을 최소한의 형태로 맞추어 주는 역할이다. 비교를 할 때는 반드시 이걸 하자.. #}
+                {% if new_winbook_pk|slugify == winbook_record.pk|slugify %}
+                    <span class="label label-primary">New</span>
+                {% endif %}
+                <p style="position: relative;"> No.{{ forloop.counter }} - {{ winbook_record.buy_date }} 구매<span></span>
+                </p>
+
+                {% comment %}         <h4 class="mt-0" style="text-align: center;"><a href="{% url 'winbook_detail' record_pk=3 %}"
+                                                            class="text-white"> {{ winbook_record.buy_game_title }} </a>
+            </h4>{% endcomment %}
+                <h4 class="mt-0" style="text-align: center;"><a href="/winbook_detail/{{ winbook_record.pk }}/"
+                                                                class="text-white"> {{ winbook_record.buy_game_title }} </a>
+                </h4>
+
+                <ul class="list-inline" style="text-align: center">
+                    <li class="list-inline-item" style="    width: 31%; text-align: center;">
+                        <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">금액</p>
+                        <h3 class="mb-0" style="margin-top: 0px"><span
+                                class="batting_money">{{ winbook_record.batting_money }}</span></h3>
+
+                    </li>
+
+                    <li class="list-inline-item" style="    width: 31%; text-align: center;">
+                        <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">폴더수</p>
+                        <h3 class="mb-0" style="margin-top: 0px"> <span
+                                class="folder_num">{{ winbook_record.folder_num }}</span></h3>
+
+                    </li>
+                    <li class="list-inline-item" style="    width: 31%; text-align: center;">
+                        <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">배당률</p>
+                        <h3 class="mb-0" style="margin-top: 0px"> <span
+                                class="batting_ratio">{{ winbook_record.batting_ratio }}</span></h3>
+
+                    </li>
+                </ul>
+                <p class="font-600 m-b-5" style="font-size: 20px"> &nbsp
+                    {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
+                    {% if winbook_record.win_check == 0 %}
+                        <span
+                                class="net_profit_money pull-right" style="color: #ff5b5b;">순이익</span></span>
+                    {% elif winbook_record.win_check == 1 %}
+                        <span
+                                class="net_profit_money pull-right" style="color: #10c469;">순이익</span></span>
+                    {% elif winbook_record.win_check == 2 %}
+                        <span
+                                class="net_profit_money pull-right" style="color: #f9c851;">순이익</span></span>
+                    {% endif %}
 
 
-        <ul class="list-inline" style="text-align: center">
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
-                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">금액</p>
-                <h3 class="mb-0" style="margin-top: 0px"><span
-                        class="batting_money">{{ winbook_record.batting_money }}</span></h3>
-
-            </li>
-
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
-                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">폴더수</p>
-                <h3 class="mb-0" style="margin-top: 0px"> <span
-                        class="folder_num">{{ winbook_record.folder_num }}</span></h3>
-
-            </li>
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
-                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">배당률</p>
-                <h3 class="mb-0" style="margin-top: 0px"> <span
-                        class="batting_ratio">{{ winbook_record.batting_ratio }}</span></h3>
-
-            </li>
-        </ul>
-        <p class="font-600 m-b-5" style="font-size: 20px"> &nbsp
-            {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
-            {% if winbook_record.win_check == 0 %}
-                <span
-                        class="net_profit_money pull-right" style="color: #ff5b5b;">순이익</span></span>
-            {% elif winbook_record.win_check == 1 %}
-                <span
-                        class="net_profit_money pull-right" style="color: #10c469;">순이익</span></span>
-            {% elif winbook_record.win_check == 2 %}
-                <span
-                        class="net_profit_money pull-right" style="color: #f9c851;">순이익</span></span>
-            {% endif %}
+                </p>
 
 
-        </p>
+                <p class="font-600 m-b-5" style="margin-left: 10px"><span>{{ winbook_record.etc_memo }}</span>
+                </p>
 
-
-        <p class="font-600 m-b-5" style="margin-left: 10px"><span>{{ winbook_record.etc_memo }}</span>
-        </p>
-
-        <ul class="list-inline post-detail" style="margin: 0px; text-align: right;     border-top: 1px solid #666666;
+                <ul class="list-inline post-detail" style="margin: 0px; text-align: right;     border-top: 1px solid #666666;
     border-bottom: 1px solid #666666; ">
 
-            <li style="    display: inline-block;"><i class="fas fa-trash-alt"></i><a href="#"
-                                                                                      id="delete_btn_{{ winbook_record.pk }}"
-                                                                                      record_pk={{ winbook_record.pk }} name="delete_btn"
-                                                                                      style="color: #98a6ad">
-                삭제</a>
-  {% comment %}              <button type="button" class="btn btn-light waves-effect waves-light btn-sm" id="sa-warning">Click me
+                    <li style="    display: inline-block;"><i class="fas fa-trash-alt"></i><a href="#"
+                                                                                              id="delete_btn_{{ winbook_record.pk }}"
+                                                                                              record_pk={{ winbook_record.pk }} name="delete_btn"
+                                                                                              style="color: #98a6ad">
+                        삭제</a>
+                        {% comment %}              <button type="button" class="btn btn-light waves-effect waves-light btn-sm" id="sa-warning">Click me
                 </button>{% endcomment %}
-            </li>
+                    </li>
 
 
-            <li style="    display: inline-block;"><i class="fas fa-pen-square"></i> <a href="#"
-                                                                                        id="modify_btn_{{ winbook_record.pk }}"
-                                                                                        record_pk={{ winbook_record.pk }}
-                                                                                                name="modify_btn"
-                                                                                        style="color: #98a6ad">
-                수정 </a></li>
-        </ul>
-        </div>
-            <!-- end col-->  {% endfor %}
-        </div>
+                    <li style="    display: inline-block;"><i class="fas fa-pen-square"></i> <a href="#"
+                                                                                                id="modify_btn_{{ winbook_record.pk }}"
+                                                                                                record_pk={{ winbook_record.pk }}
+                                                                                                        name="modify_btn"
+                                                                                                style="color: #98a6ad">
+                        수정 </a></li>
+                </ul>
+                </div>   <!-- end col-->
+                {% endfor %}
+            </div>       <!--end row-->
+        </div>    <!-- end container -->
+    </div>    <!-- end wrapper -->
 
-        </div> <!-- end container -->
-    </div>
-    <!-- end wrapper -->
 
 
 
@@ -339,7 +339,7 @@
         $(document).ready(function () {
             //삭제버튼 및 수정버튼 클릭시 confirm
             btn_delete_modify();
-            money_calculate();
+            total_profit_calculate();
 
             {#url체크해서 navigation에 색깔 칠해주기. #}
             if (window.location.href.indexOf("winbook_list") > -1) {
@@ -389,10 +389,12 @@
             } else {
 
             }
-        });
-        {#돈 단위에 3자리 컴마#}
+        });    {#   document.ready(function())    끝    #}
 
-        function money_calculate() {
+
+
+        {#돈 단위에 3자리 컴마#}
+        function total_profit_calculate() {
             var total_net_profit = 0;
             {#모든 Class에 대해서 #}
             $(".winbook_record_list").each(function (index) {
@@ -508,5 +510,4 @@
         }
     </script>
 {% endblock %}
-
 

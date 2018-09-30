@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^error_wronguser/$', views.error_wronguser, name='error_wronguser'),
     url(r'^bower_test/$', views.bower_test, name='bower_test'),
     url(r'^calendar_test/$', views.calendar_test, name='calendar_test'),
+    url(r'^winbook_detail/(?P<record_pk>\d+)/$', views.winbook_detail, name='winbook_detail'),
 ]
