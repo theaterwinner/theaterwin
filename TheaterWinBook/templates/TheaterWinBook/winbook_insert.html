@@ -18,7 +18,7 @@
                 <div class="col-sm-12">
                     <div class="btn-group pull-right m-t-20">
                     </div>
-                    <h4 class="page-title">토계부 정보 입력</h4>
+                    <h4 class="page-title" style = "">토계부 정보 입력</h4>
                 </div>
             </div>
             <!-- end page title end breadcrumb -->
@@ -106,8 +106,7 @@
 
                                         <button type="submit" id="submit_BT"
                                                 class="btn btn-block btn--md btn-info waves-effect waves-light"
-                                                style="width: 90%; margin: 0% 5%;height: 45px; border-radius: 6px;" ;>입력
-                                            하기
+                                                style="font-family: BM_DOHYEON; width: 90%; margin: 0% 5%;height: 45px; border-radius: 6px;" ;>입력 하기
                                         </button>
 
 
@@ -223,18 +222,7 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
-            {#dark version starti#}
-            $('#buy_date').datepicker({
-                format: "yyyy-mm-dd",
-                autoclose: true,
-                todayHighlight: true,
-                inline: true,
-                showOtherMonths: true,
-                showMonthAfterYear: true,
-                monthNames: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
-                dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
-            });
-            {#           dark version end #}
+
 
 
             {#url체크해서 navigation에 색깔 칠해주기. #}
@@ -335,7 +323,17 @@
                             dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
                             dateFormat: 'yy-mm-dd',
                         }).datepicker("setDate", new Date());{% endcomment %}
+            {#dark version starti#}
+            $('#buy_date').datepicker({
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                todayHighlight: true,
+                inline: true,
+                showOtherMonths: true,
+                showMonthAfterYear: true,
 
+            });
+            {#           dark version end #}
         });
 
         function check_input_value() {
@@ -477,17 +475,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + addCommas(id_batting_money * id_folder_num);
-                net_profit_text = "- " + addCommas(id_batting_money * id_folder_num);
+                expecting_text = "- " + addCommas(Math.round(id_batting_money ));
+                net_profit_text = "- " + addCommas(Math.round(id_batting_money ));
             } else if (id_win_check == 1) {
-                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num);
-                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num)
-                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }

@@ -14,19 +14,24 @@
                     </div>
                     <div class="m-t-40 card-box">
                         <div class="text-center">
-                                    <a href="index.html" class="logo"><span><span>극장승 토계부</span></span></a>
-                        <h5 class="text-muted mt-0 font-600"> 극장승의 원활한 이용을 위해 로그인이 필요합니다. </h5>
+                            <a href="index.html" class="logo" style=""><span><span style="font-family: BM_DOHYEON;">극장승 로그인</span></span></a>
                         </div>
-                        <div class="p-20">
+                        <div class="p-20" style="padding-top: 5px !important;">
                             <form role="form" class="form-horizontal m-t-20" method="post" action="">
                                 {% csrf_token %}
 
                                 <div style="text-align: center;margin-bottom: 10px">
+                                    <span style="text-align: center;font-size: 12px;color: 	#808080;">* 극장승 토계부의 원활한 이용을 위해서는 로그인이 필요합니다. </span>
+                                    {% comment %}
+로그인 안한 상태에서, index이외의 다른 메뉴로 들어갔을시~ -> auth_page yes라고 표시
                                     {% if auth_page == 'yes' %}
-                                        <span style="text-align: center;font-size: 10px;color: 	#808080;">* 극장승의 원활한 이용을 위해 로그인이 필요합니다. </span>
+                                        <span style="text-align: center;font-size: 12px;color: 	#808080;">* 극장승의 원활한 이용을 위해 로그인이 필요합니다. </span>
                                     {% endif %}
+{% endcomment %}
+
                                     {% if login_try == 'login_fail' %}
-                                        <span style="text-align: center;font-size: 10px;color: red;">* 로그인 실패! 아이디와 비밀번호를 확인해주세요</span>
+                                        <br><span style="text-align: center;font-size: 12px;color: red;">* 로그인 실패! 아이디와 비밀번호를 확인해주세요</span>
+                                        <br>
                                     {% endif %}
                                     {% if messages %}
                                         {% for message in messages %}
@@ -44,7 +49,8 @@
                                     <label class="col-3 col-form-label">아이디</label>
                                     <div class="col-9">
                                         <input class="form-control" type="text" required="" name="username"
-                                               maxlength="15" placeholder=" 아이디를 입력해주세요">
+                                               maxlength="15" placeholder=" 아이디를 입력해주세요"
+                                               style="font-family: Roboto sans-seri">
                                     </div>
                                 </div>
 
@@ -52,7 +58,8 @@
                                     <label class="col-3 col-form-label">비밀번호</label>
                                     <div class="col-9">
                                         <input class="form-control" type="password" name="password" maxlength="15"
-                                               placeholder="비밀번호를 입력해주세요" required="" placeholder="비밀번호">
+                                               placeholder="비밀번호를 입력해주세요1" required="" placeholder="비밀번호"
+                                               style="font-family: Roboto sans-seri">
                                     </div>
                                 </div>
 

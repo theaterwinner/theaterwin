@@ -32,7 +32,7 @@
 
 
     <!-- Sweet Alert css -->
-    <link href="{% static 'TheaterWinBook/assets/plugins/sweet-alert/sweetalert2.min.css' %}" rel="stylesheet"
+    <link href="{% static 'TheaterWinBook/assets/plugins/sweetb-alert/sweetalert2.min.css' %}" rel="stylesheet"
           type="text/css"/>
 
     <!--Morris Chart CSS -->
@@ -49,8 +49,8 @@
 
     <script src="{% static 'TheaterWinBook/assets/js/modernizr.min.js' %}"></script>
 
-    {#TheaterWinner Custom Css#}
-    <link href="{% static 'TheaterWinBook/css/theaterwinner.css' %}" rel="stylesheet" type="text/css"/>
+
+
 
 
     {#this is for index video css#}
@@ -67,10 +67,20 @@
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
           integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    {#TheaterWinner Custom Css#}
+    <link href="{% static 'TheaterWinBook/css/theaterwinner.css' %}" rel="stylesheet" type="text/css" media="screen">
 
-    <style>
 
-    </style>
+    {% comment %}    {#jquery UI CSS 추가함. #}
+    <link href="{% static 'TheaterWinBook/css/jquery-ui-1.7.css' %}" rel="stylesheet" type="text/css">
+    {#    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">#}
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.print.css">{% endcomment %}
+
     {% block css_script %}
 
 
@@ -95,10 +105,11 @@
                 <!--<span class="logo-large"><i class="mdi mdi-radar"></i> Adminto</span>-->
                 <!--</a>-->
                 <!-- Image Logo -->
-                <a href="{% url 'index' %}" class="logo">
-                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"
-                         class="logo-small">
-                    <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">
+                <a href="{% url 'index' %}" class="logo" style="padding-left: 10px">
+                      극장승 토계부
+{#                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"#}
+{#                         class="logo-small">#}
+{#                    <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">#}
                 </a>
 
             </div>
@@ -125,24 +136,25 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
                            href="#" role="button"
                            aria-haspopup="false" aria-expanded="false">
-                            <img src="/static/TheaterWinBook/assets/images/users/avatar-1.jpg" alt="user"
-                                 class="rounded-circle">
+{#                            <img src="/static/TheaterWinBook/assets/images/users/avatar-1.jpg" alt="user"#}
+{#                                 class="rounded-circle">#}
+                            <i class = "mdi mdi-account" style="font-size:x-large"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
                             <!-- item-->
                             <a href="{% url 'signup' %}" class="dropdown-item notify-item">
-                                <i class="ti-user m-r-5"></i> 회원가입
+                                <i class=" ti-check-box" ></i>  회원가입
                             </a>
 
                             {% if user.is_active %}
-                                <a href="{% url 'logout' %}" class="dropdown-item notify-item">
-                                    <i class="ti-power-off m-r-5"></i> {{ user.username }}님 로그아웃
+                                <a href="{% url 'logout' %}" class="dropdown-item notify-item ">
+                                    <i class="ti-power-off m-r-5" style="margin: 0 auto"></i>  {{ user.username }}님 로그아웃
                                 </a>
                                 <!-- 로그인 되어있지 않은 경우 -->
                             {% else %}
                                 <a href="{% url 'login_view' %}" class="dropdown-item notify-item">
-                                    <i class="ti-user m-r-5"></i> 로그인
+                                    <i class=" ti-unlock"></i>  로그인
                                 </a>
                             {% endif %}
 
@@ -166,18 +178,19 @@
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
                     <li class="has-submenu">
-                        <a href="{% url 'winbook_insert' %}"><i class="mdi mdi-view-dashboard"></i> <span> 입력 </span>
+                        <a href="{% url 'winbook_insert' %}"><i class="mdi mdi-lead-pencil"></i> <span> 입력 </span>
                         </a>
                     </li>
                     <li class="has-submenu">
-                        <a href="{% url 'winbook_list' %}"><i class="mdi mdi-view-dashboard"></i> <span> 기록 </span> </a>
+                        <a href="{% url 'winbook_list' %}"><i class=" mdi mdi-format-list-numbers"></i>
+                            <span> 기록 </span> </a>
                     </li>
                     <li class="has-submenu">
-                        <a href="{% url 'winbook_statistics' %}"><i class="mdi mdi-view-dashboard"></i>
+                        <a href="{% url 'winbook_statistics' %}"><i class="mdi mdi-chart-areaspline"></i>
                             <span> 통계 </span> </a>
                     </li>
                     <li class="has-submenu">
-                        <a href="{% url 'winbook_calendar' %}"><i class="mdi mdi-view-dashboard"></i> <span> 달력 </span>
+                        <a href="{% url 'winbook_calendar' %}"><i class="mdi mdi-calendar-check"></i> <span> 달력 </span>
                         </a>
                     </li>
 
@@ -315,9 +328,11 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center">
-                © TheaterWinner <br> <i class="fa fa-envelope"></i> TheaterWinner@gmail.com
+            <div class="col-12 text-center" style="font-family: Sans-Serif">
+                <br>극장승 토계부은 불법 문화를 지양하고, <br>건전한 토토 문화생활을 지향합니다. <br>
+ © TheaterWinner@gmail.com
             </div>
+
         </div>
     </div>
 </footer>
@@ -388,14 +403,13 @@
 
 <!-- Sweet Alert Js  -->
 <script src="{% static 'TheaterWinBook/assets/plugins/sweet-alert/sweetalert2.min.js' %}"></script>
-<script src="{% static 'TheaterWinBook/assets/pages/jquery.sweet-alert.init.js' %}"></script>
 
 <!--Morris Chart-->
 <script src="{% static 'TheaterWinBook/assets/plugins/morris/morris.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/plugins/raphael/raphael-min.js' %}"></script>
-
+{% comment %}
 <!-- Jquery-Ui -->
-<script src="{% static 'TheaterWinBook/assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>
+<script src="{% static 'TheaterWinBook/assets/plugins/jquery-ui/jquery-ui.min.js' %}"></script>{% endcomment %}
 
 <!-- SCRIPTS -->
 <script src="{% static 'TheaterWinBook/assets/plugins/moment/moment.js' %}"></script>

@@ -4,3 +4,33 @@
 .hidden{
     display: none;
 }
+
+@font-face {
+  font-family: 'BM_JUA';
+  src: url('/static/TheaterWinBook/font_BM/BMJUA_ttf.ttf')  format("truetype"),
+       local('BM_JUA');
+}
+@font-face {
+  font-family: 'BM_DOHYEON';
+  src: url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.ttf')  format("truetype"),
+       local('BM_JUA');
+}
+@font-face {
+  font-family: 'BM_HANNA';
+  src: url('/static/TheaterWinBook/font_BM/BMHANNA_11yrs_ttf.ttf')  format("truetype"),
+       local('BM_HANNA');
+}
+@font-face {
+  font-family: 'BM_YEONSUNG';
+  src: url('/static/TheaterWinBook/font_BM/BMYEONSUNG_ttf.ttf')  format("truetype"),
+       local('BM_YEONSUNG');
+}
+
+body
+{
+    font-family: BM_DOHYEON;
+    /*기본 font-family 는 "Roboto" 이다.*/
+
+}
+
+

@@ -37,8 +37,14 @@
                                aria-expanded="false">
                             </a>
                         </div>
+                        <div class="row">
+                            <div class="col-sm-6"><h4 class="header-title m-t-0 m-b-30">순이익 : <span
+                                    id="total_net_profit"></span></h4></div>
+                            <div class="col-sm-6"><h5 class="header-title m-t-0 m-b-30 pull-right"
+                                                      style="color:  #f9c851;margin-bottom: 15px">경기전 금액 : <span
+                                    id="">{{ yet_total }}</span></h5></div>
+                        </div>
 
-                        <h4 class="header-title m-t-0 m-b-30">순이익 -  <span id="total_net_profit"></span></h4>
 
                         <div class="text-center">
                             <ul class="list-inline chart-detail-list">
@@ -64,13 +70,13 @@
                         <div class="text-center">
                             <ul class="list-inline chart-detail-list">
                                 <li class="list-inline-item">
-                                    <h5 style="color: #5b69bc;"><i class="fa fa-circle m-r-5"></i>적중</h5>
+                                    <h5 style="color: #10c469;"><i class="fa fa-circle m-r-5"></i>적중</h5>
                                 </li>
                                 <li class="list-inline-item">
-                                    <h5 style="color: #35b8e0;"><i class="fa fa-circle m-r-5"></i>미적중</h5>
+                                    <h5 style="color: #ff5b5b;"><i class="fa fa-circle m-r-5"></i>미적중</h5>
                                 </li>
                                 <li class="list-inline-item">
-                                    <h5 style="color: #ff8acc;"><i class="fa fa-circle m-r-5"></i>경기전</h5>
+                                    <h5 style="color: #f9c851;"><i class="fa fa-circle m-r-5"></i>경기전</h5>
                                 </li>
                             </ul>
                         </div>
@@ -125,41 +131,47 @@
         // 모든 정보 불러오기
         var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
         var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
+        {# x 축은 날짜 #}
         var chart_x_array = [];
+        {# y 축은 순이익 #}
         var chart_y_array = [];
         var lose_counting = 0;
         var win_counting = 0;
         var yet_counting = 0;
         var untilnow_profit = 0;
+        var buy_date_check;
         for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
             var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
             var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
             {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
             var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
             buy_date = buy_date.replace(regExp, "");
-            chart_x_array.push(buy_date);
-            var writing_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.writing_date);
-            var buy_game_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
             var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
             var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
-            var folder_num = JSON.stringify(winbook_user_result_json_parsed[i].fields.folder_num);
             var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
-            var net_profit = 0
+            var net_profit = 0;
             if (win_check == "0") {
                 lose_counting++;
-                net_profit = -(batting_money * folder_num);
+                net_profit = -(batting_money);
             } else if (win_check == '1') {
                 win_counting++;
-                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
-            } else if (win_check == '2') {
-                yet_counting++;
-                net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+                net_profit = ((batting_ratio * batting_money) - (batting_money));
             }
-            untilnow_profit += net_profit
-            chart_y_array.push(untilnow_profit)
-            var etc_memo = JSON.stringify(winbook_user_result_json_parsed[i].fields.etc_memo);
-            var duration = 0;
-            var start = 0;
+            else if (win_check == '2') {
+                yet_counting++;
+                {#net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));#}
+            }
+            untilnow_profit += net_profit;
+
+            //chart x array 에 바로 넣어 주는 것이 아니라, 이전 것이랑 같은지 체크해주자.
+            //이전의 것이랑 같으면, 마지막에 들어온 것을 빼고, 새롭게 계산된 것을 넣어준다.
+            if (buy_date_check == buy_date) {
+                chart_x_array.pop();
+                chart_y_array.pop();
+            }
+            chart_x_array.push(buy_date);
+            chart_y_array.push(untilnow_profit);
+            buy_date_check = buy_date;
 
         }
         var container = document.getElementById('tui_line_chart');
@@ -179,6 +191,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>{% endcomment %}
     <script>
         {#현재까지 profit 저장하기#}
+
         function total_profit_calculate() {
             $("#total_net_profit").text(addCommas(untilnow_profit));
         }
@@ -275,7 +288,7 @@
                         {label: "적중", value: win_counting},
                         {label: "미적중", value: lose_counting}
                     ];
-                    this.createDonutChart('morris-donut-example', $donutData, ['#ff8acc', '#5b69bc', "#35b8e0"]);
+                    this.createDonutChart('morris-donut-example', $donutData, ['#f9c851', '#10c469', "#ff5b5b"]);
                 },
                 //init
                 $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts

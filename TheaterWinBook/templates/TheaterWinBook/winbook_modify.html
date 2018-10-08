@@ -468,17 +468,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + addCommas(id_batting_money * id_folder_num);
-                net_profit_text = "- " + addCommas(id_batting_money * id_folder_num);
+                expecting_text = "- " + addCommas(Math.round(id_batting_money ));
+                net_profit_text = "- " + addCommas(Math.round(id_batting_money));
             } else if (id_win_check == 1) {
-                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num);
-                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = addCommas(id_batting_ratio * id_batting_money * id_folder_num)
-                var net_profit_money = addCommas((id_batting_ratio * id_batting_money * id_folder_num) - (id_batting_money * id_folder_num));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money)));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }

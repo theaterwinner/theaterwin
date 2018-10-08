@@ -188,12 +188,37 @@ def winbook_statistics(request):
     winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('buy_date',
                                                                                                   '-pk')
     winbook_user_result_json = serializers.serialize('json', winbook_user_result)
-    # winbook_user_result_json =JsonResponse({"models_to_return": list(winbook_user_result)})
-    # print(winbook_user_result)
-    # winbook_user_result_json = json.dumps(list(winbook_user_result), ensure_ascii=False, default=str)
+
     print("this is json:" + winbook_user_result_json)
+
+    # 로그인된 user를 확인하고
+    login_user_name = request.user
+    winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date', '-pk')
+    winbook_user_result_list = list(winbook_user_result)
+    total_net_profit = 0
+    yet_total = 0
+    for listobject in winbook_user_result_list:
+        win_check = listobject.win_check
+        batting_money = listobject.batting_money
+        batting_ratio = listobject.batting_ratio
+        folder_num = listobject.folder_num
+        net_profit = 0
+        yet_money = 0
+        if win_check == 0:
+            net_profit = -(batting_money)
+        elif win_check == 1:
+            net_profit = ((batting_ratio * batting_money) - (batting_money))
+            # 미적중은 total에 카운팅하지 않기로 했다.
+        elif win_check == 2:
+            yet_money = ((batting_ratio * batting_money) - (batting_money))
+        # net_profit = ((batting_ratio * batting_money) - (batting_money))
+        total_net_profit += net_profit
+        yet_total += yet_money
+    total_net_profit = format(int(total_net_profit), ',')
+    yet_total = format(int(yet_total), ',')
+
     return render(request, 'TheaterWinBook/winbook_statistics.html',
-                  {"winbook_user_result_json": winbook_user_result_json})
+                  {"winbook_user_result_json": winbook_user_result_json, "yet_total": yet_total})
 
 
 @login_required(login_url='/login_view')
@@ -213,32 +238,37 @@ def winbook_list(request):
         else:
             print("메세지 도달 실패")
 
-        # 로그인된 user를 확인하고
+    # 로그인된 user를 확인하고
     login_user_name = request.user
     winbook_user_result = TheaterWinBookRecord.objects.filter(user_name=login_user_name).order_by('-buy_date', '-pk')
     winbook_user_result_list = list(winbook_user_result)
     total_net_profit = 0
+    yet_total = 0
     for listobject in winbook_user_result_list:
         win_check = listobject.win_check
         batting_money = listobject.batting_money
         batting_ratio = listobject.batting_ratio
         folder_num = listobject.folder_num
         net_profit = 0
-
-        if win_check ==0:
-            net_profit = -(batting_money * folder_num)
-        elif win_check ==1:
-            net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num))
-        elif win_check ==2:
-            net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num))
+        yet_money = 0
+        if win_check == 0:
+            net_profit = -(batting_money)
+        elif win_check == 1:
+            net_profit = ((batting_ratio * batting_money) - (batting_money))
+            # 미적중은 total에 카운팅하지 않기로 했다.
+        elif win_check == 2:
+            yet_money = ((batting_ratio * batting_money) - (batting_money))
+        # net_profit = ((batting_ratio * batting_money) - (batting_money))
         total_net_profit += net_profit
-
-    total_net_profit = format(int(total_net_profit),',')
+        yet_total += yet_money
+    total_net_profit = format(int(total_net_profit), ',')
+    yet_total = format(int(yet_total), ',')
     # 현재까지 순수익 구하기.
 
     return render(request, 'TheaterWinBook/winbook_list.html',
                   {"winbook_user_result": winbook_user_result, "new_winbook_pk": new_winbook_pk,
-                   'new_winbook_check': new_winbook_check, "total_net_profit":total_net_profit})
+                   'new_winbook_check': new_winbook_check, "total_net_profit": total_net_profit,
+                   "yet_total": yet_total})
 
 
 def to_winnerBros(request):
@@ -319,8 +349,6 @@ def validate_username(request):
 @login_required(login_url='/login_view')
 def winbook_detail(request, record_pk):
     record_pk = record_pk
-    print("this is record_pk"+record_pk)
+    print("this is record_pk" + record_pk)
     winbook_record = TheaterWinBookRecord.objects.get(pk=record_pk)
     return render(request, 'TheaterWinBook/winbook_detail.html', {'winbook_record': winbook_record})
-
-

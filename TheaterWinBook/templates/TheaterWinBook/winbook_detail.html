@@ -163,8 +163,8 @@
                     net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
                 }
                 total_net_profit += net_profit;
-                $(this).find(".net_profit_money").text(addCommas(net_profit));
-                $(this).find(".batting_money").text(addCommas(batting_money));
+                $(this).find(".net_profit_money").text(addCommas(Math.round(net_profit)));
+                $(this).find(".batting_money").text(addCommas(Math.round(batting_money)));
             });
             $("#total_net_profit").text(addCommas(total_net_profit));
 
@@ -187,11 +187,19 @@
         {#삭제 및 수정 버튼#}
 
         function btn_delete_modify() {
-            $("[name = 'delete_btn']").click(function () {
-                var delete_result = confirm('해당 게시물을 정말 삭제하시겠습니까?');
-                {#버튼이 사실이면?#}
-                if (delete_result == true) {
-                    var record_pk = $(this).attr('record_pk');
+
+     $("[name = 'delete_btn']").click(function () {
+                swal({
+                    title: '정말 삭제하시겠습니까?',
+                    text: "삭제하면 다시 되돌릴 수 없습니다",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4fa7f3',
+                    cancelButtonColor: '#d57171',
+                    cancelButtonText: '아니요',
+                    confirmButtonText: '네, 삭제하겠습니다!'
+                }).then(function () {
+                    var record_pk = $("[name = 'delete_btn']").attr('record_pk');
                     $.ajax({
                         type: "POST",
                         url: "/list_delete/",
@@ -202,16 +210,21 @@
                         success: function (data) {
                             var delete_result = data.delete_success;
                             if (delete_result == "success") {
-                                alert("삭제가 성공적으로 이루어 졌습니다.");
-                                window.location = '/winbook_list/';
+                                swal(
+                                    '삭제 성공!',
+                                    '성공적으로 삭제되었습니다..',
+                                    'success'
+                                )
+                                  window.location = '/winbook_list/';
                             } else {
-                                alert("삭제가 정상적으로 되지 않았습니다.\n 다시 시도해주시기 바랍니다");
+                                swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
                             }
                         }
                     });
-                }
-                else {
-                }
+
+
+                });
+
             });
 
 
@@ -233,8 +246,6 @@
                         }
                     }
                 });
-
-
             });
 
         }
