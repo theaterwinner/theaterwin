@@ -1,92 +1,43 @@
 {% extends "TheaterWinBook/base_header_footer_dark.html" %}
 {% load static %}
 {% block css_script %}
-    <style type="text/css">
-.row {
-  display: table-cell;
-  position: relative;
-  z-index: -1
-}
-
-#play {
-  display: block;
-  position: absolute;
-  z-index: 1;
-  /* 50% - (height/2) [Using a font icon, adjust accordingliy] */
-  bottom: calc(50% - 5em);
-  /* 50% -(width/2) */
-  left: calc(50% - 4em)
-}
-
-#play.idle::before {
-  content: '\2bc8';
-  width: 8em;
-  /* AR 16:9 is width * .5625 */
-  height: 4.5em;
-  color: cyan;
-  font-size: 8em
-}
+    <style>
+        .breadcrumb-wrap {
+            padding: 5%;
+        }
     </style>
-
 {% endblock %}
-
 
 {% block content %}
 
-        <section height='560'>
-                    <div class="container-fluid">
-                        <div class="row">
-                            <video id='vid' src='http://media6000.dropshots.com/photos/1381926/20170326/005611.mp4'
-                                   width='100%' height='auto'></video>
-                            <div id='play' class='idle'></div>
-                        </div>
-                    </div>
-                </section>
+
     <div class="wrapper">
         <div class="container-fluid">
-            <!-- Page-Title -->
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
                     <div class="btn-group pull-right m-t-20">
                     </div>
-                    <h4 class="page-title" style="">토계부 정보 입력</h4>
+                    <h4 class="page-title" style = "">토계부 인덱스</h4>
                 </div>
             </div>
-            <div class="row">
-
-
-
-            </div>
-
+            <!-- end page title end breadcrumb -->
         </div>
     </div>
 
 
 {% endblock %}
 
-
-
 {% block javascript %}
     <script>
         $(document).ready(function () {
 
-
+            // JQuery 적용
+            {#alert("this is test");#}
         });
+
+
     </script>
-    <script>
-        {% comment %}        // Formstone Background - Video Background Settings
-                $(".video-section").background({
-                    source: {
-                        poster: "../static/TheaterWinBook/img/intro_screenshot.PNG",
-                        mp4: "../static/TheaterWinBook/img/TheaterWin_intro.mp4"
-                    }
-                });{% endcomment %}
-    </script>
-
-
-
-
 {% endblock %}
 
 
