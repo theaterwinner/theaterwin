@@ -69,22 +69,22 @@
         </h4>
 
         <ul class="list-inline" style="text-align: center">
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
-                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">금액</p>
-                <h3 class="mb-0" style="margin-top: 0px"><span
+            <li class="list-inline-item pull-left" style="text-align: center;">
+                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px;margin-left: 5px">배팅 금액</p>
+                <h3 class="mb-0" style="margin-top: 0px;margin-left: 5px"><span
                         class="batting_money">{{ winbook_record.batting_money }}</span></h3>
 
             </li>
 
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
+            <li class="list-inline-item" style="text-align: center;">
                 <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">폴더수</p>
                 <h3 class="mb-0" style="margin-top: 0px"> <span
                         class="folder_num">{{ winbook_record.folder_num }}</span></h3>
 
             </li>
-            <li class="list-inline-item" style="    width: 31%; text-align: center;">
-                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">배당률</p>
-                <h3 class="mb-0" style="margin-top: 0px"> <span
+            <li class="list-inline-item pull-right" style="text-align: center;">
+                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px;margin-right: 5px">배당률</p>
+                <h3 class="mb-0" style="margin-top: 0px;margin-right: 5px"> <span
                         class="batting_ratio">{{ winbook_record.batting_ratio }}</span></h3>
 
             </li>
@@ -93,13 +93,13 @@
             {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
             {% if winbook_record.win_check == 0 %}
                 <span
-                        class="net_profit_money pull-right" style="color: #ff5b5b;">순이익</span></span>
+                        class="net_profit_money pull-right" style="color: #ff5b5b; margin-right: 5px">순이익</span></span>
             {% elif winbook_record.win_check == 1 %}
                 <span
-                        class="net_profit_money pull-right" style="color: #10c469;">순이익</span></span>
+                        class="net_profit_money pull-right" style="color: #10c469; margin-right: 5px">순이익</span></span>
             {% elif winbook_record.win_check == 2 %}
                 <span
-                        class="net_profit_money pull-right" style="color: #f9c851;">순이익</span></span>
+                        class="net_profit_money pull-right" style="color: #f9c851; margin-right: 5px">순이익</span></span>
             {% endif %}
 
 
@@ -188,7 +188,7 @@
 
         function btn_delete_modify() {
 
-     $("[name = 'delete_btn']").click(function () {
+            $("[name = 'delete_btn']").click(function () {
                 swal({
                     title: '정말 삭제하시겠습니까?',
                     text: "삭제하면 다시 되돌릴 수 없습니다",
@@ -215,7 +215,7 @@
                                     '성공적으로 삭제되었습니다..',
                                     'success'
                                 )
-                                  window.location = '/winbook_list/';
+                                window.location = '/winbook_list/';
                             } else {
                                 swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
                             }

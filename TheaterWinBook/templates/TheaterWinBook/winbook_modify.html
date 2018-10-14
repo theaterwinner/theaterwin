@@ -34,7 +34,7 @@
                                         {% csrf_token %}
                                         <input type="number" name="record_pk" value="{{ record_pk }}" class="hidden">
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">구매날짜</label>
+                                            <label class="col-3 col-form-label">날짜</label>
                                             <div class="col-9">
                                                 <div class="input-group">
                                                     {{ form.buy_date }}
@@ -52,7 +52,7 @@
 
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">구매경기</label>
+                                            <label class="col-3 col-form-label">경기명</label>
                                             <div class="col-9">
                                                 {{ form.buy_game_title }}
                                             </div>
@@ -87,7 +87,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row"><label
-                                                style="width:100%; margin-top: 2px; border-radius: 5px; padding: 0 10px;color: whitesmoke;text-align: right">적중금액
+                                                style="width:100%; margin-top: 2px; border-radius: 5px; padding: 0 10px;color: whitesmoke;text-align: right">적중
                                             <i class="fas fa-won-sign"></i> <span id="expecting_money"
                                                                                   style="color: whitesmoke;"> </span></label>
                                         </div>
@@ -98,7 +98,7 @@
                                         </div>
 
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">기타 메모</label>
+                                            <label class="col-3 col-form-label">메모</label>
                                             <div class="col-9">
                                                 {{ form.etc_memo }}
 

@@ -2,8 +2,10 @@
 {% load static %}
 {% block css_script %}
     <style>
-        .breadcrumb-wrap {
-            padding: 5%;
+        /* Make the image fully responsive */
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
         }
     </style>
 {% endblock %}
@@ -13,18 +15,97 @@
 
     <div class="wrapper">
         <div class="container-fluid">
-            <!-- Page-Title -->
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="btn-group pull-right m-t-20">
+
+            <!-- end page title end breadcrumb -->
+            <div class="row" style="margin-top: 5%">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="{% static 'TheaterWinBook/img/bg-1.jpg' %}" alt="Los Angeles" width="1100"
+                                 height="500">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'TheaterWinBook/img/bg-2.jpg' %}" alt="Chicago" width="1100"
+                                 height="500">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{% static 'TheaterWinBook/img/bg-3.jpg' %}" alt="New York" width="1100"
+                                 height="500">
+                        </div>
                     </div>
-                    <h4 class="page-title" style = "">토계부 인덱스</h4>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
                 </div>
             </div>
-            <!-- end page title end breadcrumb -->
+
+            {#      아코디언 부분      #}
+            <div id="accordion" style="text-align: center;margin-bottom:100px; margin-top: 20px;" >
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseOne" style="color: whitesmoke">
+                            프로토 토계부(극장승) 소개
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            프로토 토계부(극장승)은 <br>스포츠토토 이용자를 위해 만들어졌습니다.
+                            <br> 나의 기록, 통계, 달력 기능이 존재합니다.
+                            <br> 더 좋은 서비스를 위해 <br>지속적으로 개선하고 발전하겠습니다.
+                            <br> 많은 관심과 진심 어린 조언 부탁드립니다.<br> 감사합니다.
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo" style="color: whitesmoke">
+                        이용 방법
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            프로토 토계부(극장승)을 이용하시려면 <br>회원가입이 반드시 필요합니다.
+                            <br> 가입 후 서비스를 이용해 주시기 바랍니다.
+                            <br> * 현재 자동로그인 기능을 개발 중입니다. <br>최대한 빨리 개선하도록 노력하겠습니다.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree" style="color: whitesmoke">
+                        문의 및 제안
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                        아이디/비밀번호 분실, 에러, 건의 등 <br>각종 문의 및 제안사항은
+                            <br>아래 이메일로 보내주시기 바랍니다.
+                            <br>TheaterWinner@gmail.com
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
-
 
 {% endblock %}
 
