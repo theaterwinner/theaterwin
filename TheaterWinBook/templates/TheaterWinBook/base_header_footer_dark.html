@@ -50,9 +50,6 @@
     <script src="{% static 'TheaterWinBook/assets/js/modernizr.min.js' %}"></script>
 
 
-
-
-
     {#this is for index video css#}
     {#    <link href="{% static 'TheaterWinBook/css/style.css' %}" rel="stylesheet" type="text/css">#}
 
@@ -106,10 +103,10 @@
                 <!--</a>-->
                 <!-- Image Logo -->
                 <a href="{% url 'index' %}" class="logo" style="padding-left: 10px">
-                      극장승 토계부
-{#                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"#}
-{#                         class="logo-small">#}
-{#                    <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">#}
+                    극장승 토계부
+                    {#                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"#}
+                    {#                         class="logo-small">#}
+                    {#                    <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">#}
                 </a>
 
             </div>
@@ -136,25 +133,25 @@
                         <a class="nav-link dropdown-toggle waves-effect waves-light nav-user" data-toggle="dropdown"
                            href="#" role="button"
                            aria-haspopup="false" aria-expanded="false">
-{#                            <img src="/static/TheaterWinBook/assets/images/users/avatar-1.jpg" alt="user"#}
-{#                                 class="rounded-circle">#}
-                            <i class = "mdi mdi-account" style="font-size:x-large"></i>
+                            {#                            <img src="/static/TheaterWinBook/assets/images/users/avatar-1.jpg" alt="user"#}
+                            {#                                 class="rounded-circle">#}
+                            <i class="mdi mdi-account" style="font-size:x-large"></i>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
 
                             <!-- item-->
                             <a href="{% url 'signup' %}" class="dropdown-item notify-item">
-                                <i class=" ti-check-box" ></i>  회원가입
+                                <i class=" ti-check-box"></i> 회원가입
                             </a>
 
                             {% if user.is_active %}
                                 <a href="{% url 'logout' %}" class="dropdown-item notify-item ">
-                                    <i class="ti-power-off m-r-5" style="margin: 0 auto"></i>  {{ user.username }}님 로그아웃
+                                    <i class="ti-power-off m-r-5" style="margin: 0 auto"></i> {{ user.username }}님 로그아웃
                                 </a>
                                 <!-- 로그인 되어있지 않은 경우 -->
                             {% else %}
                                 <a href="{% url 'login_view' %}" class="dropdown-item notify-item">
-                                    <i class=" ti-unlock"></i>  로그인
+                                    <i class=" ti-unlock"></i> 로그인
                                 </a>
                             {% endif %}
 
@@ -326,11 +323,11 @@
 
 <!-- Footer -->
 <footer class="footer">
-    <div class="container" >
+    <div class="container">
         <div class="row">
             <div class="col-12 text-center" style="font-family: Sans-Serif">
                 <br>극장승 토계부은 불법 문화를 지양하고, <br>건전한 토토 문화생활을 지향합니다. <br>
- © TheaterWinner@gmail.com
+                © TheaterWinner@gmail.com
             </div>
 
         </div>
@@ -360,8 +357,8 @@
     })();
 </script>
 {% endcomment %}
-
-
+{#explorer 에서 sweetalert2를 실행시키기 위한 javascript 추가 코드 . #}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <!-- jQuery  -->
 <script src="{% static 'TheaterWinBook/assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/popper.min.js' %}"></script>

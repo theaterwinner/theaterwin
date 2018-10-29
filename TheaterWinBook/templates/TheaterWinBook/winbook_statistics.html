@@ -180,6 +180,7 @@
         {#현재까지 profit 저장하기#}
 
         function total_profit_calculate() {
+
             $("#total_net_profit").text(addCommas(untilnow_profit));
         }
 
@@ -197,12 +198,15 @@
 
     </script>
 
+    {% comment %}
     <script>
+        alert("this is start1.3");
         !function ($) {
-            "use strict";
+            {#"use strict";#}
             total_profit_calculate();
             var MorrisCharts = function () {
             };
+            alert("this is start2");
             //creates area chart with dotted
             MorrisCharts.prototype.createAreaChartDotted = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, Pfillcolor, Pstockcolor, lineColors) {
                 Morris.Area({
@@ -258,12 +262,11 @@
                         area_with_dotted_data.push();
                     }
 
-                    {% comment %}
                     var $areaDotData = [
-                                {y: '2018-08-03', a: 75000},
-                                {y: '2018-09-10', a: 100000}
-                            ];
-                    {% endcomment %}
+                        {y: '2018-08-03', a: 75000},
+                        {y: '2018-09-10', a: 100000}
+                    ];
+
 
                     var $areaDotData = area_with_dotted_data;
 
@@ -283,9 +286,108 @@
 
 //initializing
             function ($) {
-                "use strict";
+                {#"use strict";#}
                 $.MorrisCharts.init();
+
+                alert("this is start3");
             }(window.jQuery);
+    </script>
+{% endcomment %}
+
+    <script>
+        !function ($) {
+            {#"use strict";#}
+            total_profit_calculate();
+            var MorrisCharts = function () {
+            };
+            //creates area chart with dotted
+            MorrisCharts.prototype.createAreaChartDotted = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, Pfillcolor, Pstockcolor, lineColors) {
+                Morris.Area({
+                    element: element,
+                    pointSize: 5,
+                    lineWidth: 2,
+                    data: data,
+                    xkey: xkey,
+                    ykeys: ykeys,
+                    labels: labels,
+                    hideHover: 'auto',
+                    pointFillColors: Pfillcolor,
+                    pointStrokeColors: Pstockcolor,
+                    resize: true,
+                    gridLineColor: '#2f3e47',
+                    gridTextColor: '#98a6ad',
+                    lineColors: lineColors
+                });
+            },
+
+                //creates Donut chart
+                MorrisCharts.prototype.createDonutChart = function (element, data, colors) {
+                    Morris.Donut({
+                        element: element,
+                        data: data,
+                        resize: true, //defaulted to true
+                        colors: colors,
+                        backgroundColor: '#2f3e47',
+                        labelColor: '#98a6ad'
+                    });
+                },
+                MorrisCharts.prototype.init = function () {
+                    //creating area chart with dotted
+                    chart_x_array;
+                    chart_y_array;
+                    {% comment %}       var chart_xy_array = chart_x_array.map((price, idx) => {
+                               return {y: chart_x_array, a: chart_y_array};
+                           });{% endcomment %}
+                    var chart_xy_array = chart_x_array.map(function (price, idx) {
+                        return {y: chart_x_array, a: chart_y_array};
+                    });
+                    var area_with_dotted_data = [];
+                    for (var i = 0; i < chart_x_array.length; i++) {
+                        var object_xy_data = new Object();
+                        object_xy_data.y = chart_x_array[i];
+                        object_xy_data.a = chart_y_array[i];
+                        area_with_dotted_data.push(object_xy_data);
+
+                    }
+                    console.log("this is area_with_dotted_data", area_with_dotted_data);
+                    //chart_x_array = ['2018-08-09', '2018-08-10'.'2018-08-15']
+                    //chart_y_array = ['100000', '200000', '300000']
+                    {#var combination = chart_x_array.map((e, i) => `${e}:${chart_y_array[i]}`);#}
+                    var combination = chart_x_array.map(function (e, i) {
+                        return e + ":" + chart_y_array[i];
+                    });
+
+                    for (var c in combination) {
+                        area_with_dotted_data.push();
+                    }
+
+                    var $areaDotData = [
+                        {y: '2018-08-03', a: 75000},
+                        {y: '2018-09-10', a: 100000}
+                    ];
+
+
+                    var $areaDotData = area_with_dotted_data;
+
+                    this.createAreaChartDotted('morris-area-with-dotted', 0, 0, $areaDotData, 'y', ['a'], ['순이익'], ['#ffffff'], ['#999999'], ['#5b69bc']);
+
+                    //creating donut chart
+                    var $donutData = [
+                        {label: "경기전", value: yet_counting},
+                        {label: "적중", value: win_counting},
+                        {label: "미적중", value: lose_counting}
+                    ];
+                    this.createDonutChart('morris-donut-example', $donutData, ['#f9c851', '#10c469', "#ff5b5b"]);
+                },
+                //init
+                $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
+        }(window.jQuery)
+
+        //initializing
+        !function ($) {
+            {#"use strict";#}
+            $.MorrisCharts.init();
+        }(window.jQuery);
     </script>
 
 {% endblock %}

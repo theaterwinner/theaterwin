@@ -41,7 +41,8 @@ def error_wronguser(request):
 
 
 def index(request):
-    return render(request, 'TheaterWinBook/index.html')
+    return redirect('winbook_insert')
+    # return render(request, 'TheaterWinBook/index.html')
 
 
 def index_video_test(request):

@@ -12,8 +12,14 @@
 }
 @font-face {
   font-family: 'BM_DOHYEON';
-  src: url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.ttf')  format("truetype"),
-       local('BM_JUA');
+/*  src: url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.ttf')  format("truetype"),
+       local('BM_DOHYEON');*/
+  src: url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.eot');
+    src: url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.eot?#iefix')
+             format('embedded-opentype'),
+         url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.woff') format('woff'),
+         url('/static/TheaterWinBook/font_BM/BMDOHYEON_ttf.ttf') format('truetype');
+
 }
 @font-face {
   font-family: 'BM_HANNA';

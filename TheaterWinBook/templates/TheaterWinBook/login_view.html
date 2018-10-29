@@ -21,7 +21,8 @@
                                 {% csrf_token %}
 
                                 <div style="text-align: center;margin-bottom: 10px">
-                                    <span style="text-align: center;font-size: 12px;color: 	#808080;">* 극장승 토계부는 로그인이 필요합니다. </span>
+                                    <span style="text-align: center;font-size: 12px;color: 	#808080;">* 극장승 토계부는 로그인이 필요합니다. </span><br>
+                                    <span style="text-align: center;font-size: 12px;color: 	#808080;">* 자동로그인 기능 개발 예정입니다. </span>
                                     {% comment %}
 로그인 안한 상태에서, index이외의 다른 메뉴로 들어갔을시~ -> auth_page yes라고 표시
                                     {% if auth_page == 'yes' %}
