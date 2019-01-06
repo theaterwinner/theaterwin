@@ -1,0 +1,116 @@
+{% extends "TheaterWinBook/base_header_footer_dark.html" %}
+{% load static %}
+{% block css_script %}
+    <style>
+        .breadcrumb-wrap {
+            padding: 5%;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <div class="wrapper">
+        <div class="container-fluid">
+
+            <!-- Page-Title -->
+            <div class="row">
+                <div class="col-sm-12">
+                    <h4 class="page-title">문의 및 제안</h4>
+                </div>
+            </div>
+
+
+            <div class="card-box">
+
+                <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%" id="question_write_btn">
+                    <i
+                            class="fa fa-pencil-square-o "></i> <span>글쓰기</span></button>
+                <br><br>
+                <div class="inbox-widget nicescroll">
+                    {% for record in database_list_result %}
+                        <a href="/question_detail/{{ record.pk }}">
+                            <div class="inbox-item">
+                                <div class="inbox-item-img" style="color: #eeeeee">No.{{ record.pk }}</div>
+                                <p class="inbox-item-author" style="color: #eeeeee">
+                                    {% with ''|center:record.question_level_ingorup as range %}
+                                        {% for i in range %}
+                                                &nbsp
+                                            {% if forloop.last %}
+                                                 ┗
+                                            {% endif %}
+                                        {% endfor %}
+                                    {% endwith %}
+                                    {% comment %}
+
+                                    {% with numeric={{ record.question_level_ingorup }} %}
+                                        {% with ''|center:numeric as range %}
+                                            {% for _ in range %}
+                                                &nbsp
+                                            {% endfor %}
+                                        {% endwith %}
+                                    {% endwith %}
+
+                                    {% endcomment %}
+                                    {{ record.question_title }}</p>
+                                <p class="inbox-item-text" style="margin-left: 55px">작성자 -
+                                    <span> {{ record.user_name }}</span></p>
+                                <p class="inbox-item-date"><span class="badge badge-success"
+                                                                 style="color: #212529 ;  font-weight: bold;">{{ record.question_isanswer }}</span>
+                                </p>
+                                <p class="inbox-item-date" style="top : 35px">{{ record.writing_date }}</p>
+                            </div>
+                        </a>
+                    {% endfor %}
+
+                </div>
+                <br>
+                <div class="row">
+                    <nav style="margin: 0 auto;">
+                        <ul class="pagination pagination-lg m-b-0">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                    <span class="sr-only">Previous</span>
+                                </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+
+
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                    <span class="sr-only">Next</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+            </div>
+
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+            $("#question_write_btn").click(function () {
+                window.location.href = "/question_write/";
+            });
+            // JQuery 적용
+        });
+
+
+    </script>
+{% endblock %}
+
+

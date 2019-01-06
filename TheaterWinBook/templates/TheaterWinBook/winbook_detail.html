@@ -113,7 +113,7 @@
     border-bottom: 1px solid #666666; ">
 
             <li style="    display: inline-block;"><i class="fas fa-trash-alt"></i><a href="#"
-                                                                                      id="delete_btn_{{ winbook_record.pk }}"
+                                                                                      id="delete_btn"
                                                                                       record_pk={{ winbook_record.pk }} name="delete_btn"
                                                                                       style="color: #98a6ad;font-size:15px; margin:5px">
                 삭제</a>
@@ -123,7 +123,7 @@
 
 
             <li style="    display: inline-block;"><i class="fas fa-pen-square"></i> <a href="#"
-                                                                                        id="modify_btn_{{ winbook_record.pk }}"
+                                                                                        id="modify_btn"
                                                                                         record_pk={{ winbook_record.pk }}
                                                                                                 name="modify_btn"
                                                                                         style="color: #98a6ad;font-size:15px; mar5gin:5px">
@@ -158,9 +158,9 @@
                 if (win_check == 0) {
                     net_profit = -(batting_money * folder_num);
                 } else if (win_check == 1) {
-                    net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+                    net_profit = ((batting_ratio * batting_money) - (batting_money));
                 } else if (win_check == 2) {
-                    net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));
+                    net_profit = ((batting_ratio * batting_money) - (batting_money));
                 }
                 total_net_profit += net_profit;
                 $(this).find(".net_profit_money").text(addCommas(Math.round(net_profit)));
@@ -185,10 +185,10 @@
         }
 
         {#삭제 및 수정 버튼#}
-
         function btn_delete_modify() {
 
             $("[name = 'delete_btn']").click(function () {
+                var record_pk = $(this).attr('record_pk');
                 swal({
                     title: '정말 삭제하시겠습니까?',
                     text: "삭제하면 다시 되돌릴 수 없습니다",
@@ -199,7 +199,6 @@
                     cancelButtonText: '아니요',
                     confirmButtonText: '네, 삭제하겠습니다!'
                 }).then(function () {
-                    var record_pk = $("[name = 'delete_btn']").attr('record_pk');
                     $.ajax({
                         type: "POST",
                         url: "/list_delete/",

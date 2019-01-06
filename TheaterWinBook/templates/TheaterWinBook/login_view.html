@@ -19,7 +19,6 @@
                         <div class="p-20" style="padding-top: 5px !important;">
                             <form role="form" class="form-horizontal m-t-20" method="post" action="">
                                 {% csrf_token %}
-
                                 <div style="text-align: center;margin-bottom: 10px">
                                     <span style="text-align: center;font-size: 12px;color: 	#808080;">* 극장승 토계부는 로그인이 필요합니다. </span><br>
                                     <span style="text-align: center;font-size: 12px;color: 	#808080;">* 자동로그인 기능 개발 예정입니다. </span>
@@ -37,7 +36,7 @@
                                     {% if messages %}
                                         {% for message in messages %}
                                             {% if message.tags == 'success' %}
-                                                <span style="text-align: center;font-size: 10px;color: green ; ">* {{ message }}</span>
+                                                <br><span style="text-align: center;font-size: 10px;color: green ; ">* {{ message }}</span>
                                             {% elif message.tags == 'error' %}
 
                                             {% endif %}

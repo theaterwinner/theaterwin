@@ -18,7 +18,7 @@
                 <div class="col-sm-12">
                     <div class="btn-group pull-right m-t-20">
                     </div>
-                    <h4 class="page-title" style = "">토계부 정보 입력</h4>
+                    <h4 class="page-title" style="">토계부 정보 입력</h4>
                 </div>
             </div>
             <!-- end page title end breadcrumb -->
@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">배당률</label>
+                                            <label class="col-3 col-form-label">배당률<br><span style="font-size: 8px">* 최대백만배</span></label>
                                             <div class="col-9">
                                                 {{ form.batting_ratio }}
                                             </div>
@@ -103,10 +103,15 @@
 
                                             </div>
                                         </div>
-
+                                        <a class="btn btn-warning waves-effect waves-light m-b-5"
+                                           href="javascript:sendLink()"
+                                           style=" font-family: BM_DOHYEON; width: 90%; margin: 1% 5%;height: 40px; border-radius: 6px; "><i
+                                                class="fa fa-share-alt-square"></i>
+                                            <span>다운로드 링크 카카오톡 공유(안드로이드)</span></a>
                                         <button type="submit" id="submit_BT"
                                                 class="btn btn-block btn--md btn-info waves-effect waves-light"
-                                                style="font-family: BM_DOHYEON; width: 90%; margin: 5% 5%;height: 45px; border-radius: 6px;" ;>입력 하기
+                                                style="font-family: BM_DOHYEON; width: 90%; margin: 1% 5%;height: 45px; border-radius: 6px;"
+                                                ;>입력 하기
                                         </button>
 
 
@@ -123,6 +128,11 @@
             </div>
         </div>
     </div>
+    {#    end wrapper div#}
+    <br>
+    <br>
+    <br>
+    <br>
 
 
 
@@ -387,17 +397,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + addCommas(Math.round(id_batting_money ));
-                net_profit_text = "- " + addCommas(Math.round(id_batting_money ));
+                expecting_text = "- " + addCommas(Math.round(id_batting_money));
+                net_profit_text = "- " + addCommas(Math.round(id_batting_money));
             } else if (id_win_check == 1) {
-                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
-                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money) - (id_batting_money)));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
-                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money) - (id_batting_money)));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }
@@ -405,6 +415,42 @@
             $("#net_profit_money").text(net_profit_text);
         }
     </script>
+    <script type='text/javascript'>
+        //<![CDATA[
+        // // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('097bb43560a0f48399086b901aeefe57');
+
+        // // 카카오링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+        function sendLink() {
+            Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '극장승 토계부 다운로드 (안드로이드)',
+                    description: '#프로토 #토토 #토계부 #극장승 #안드로이드만ㅠㅠ',
+                    imageUrl: 'https://theaterwin.com/static/TheaterWinBook/img/theatericon_1024.png',
+                    link: {
+                        mobileWebUrl: 'https://play.google.com/store/apps/details?id=com.theaterwin.theaterwinandroid&hl=ko',
+                        webUrl: 'https://play.google.com/store/apps/details?id=com.theaterwin.theaterwinandroid&hl=ko'
+                    }
+                },
+                social: {
+
+                },
+                buttons: [
+                    {
+                        title: '극장승 토계부 다운받으러가기 (안드로이드)',
+                        link: {
+                            mobileWebUrl: 'https://play.google.com/store/apps/details?id=com.theaterwin.theaterwinandroid&hl=ko',
+                            webUrl: 'https://play.google.com/store/apps/details?id=com.theaterwin.theaterwinandroid&hl=ko'
+                        }
+                    }
+                ]
+            });
+        }
+
+        //]]>
+    </script>
+
 {% endblock %}
 
 

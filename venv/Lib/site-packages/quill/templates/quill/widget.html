@@ -1,0 +1,41 @@
+{% load quill_tags %}
+<div class="quill-wrapper" data-field-id="{{ id }}">
+	{% render_toolbar config %}
+	{% render_editor config %}
+</div>
+
+<script type="text/html" id="ql-image-error">
+	<div class="ql-image-alert ql-image-alert-error">
+		<button type="button" class="close" data-dismiss="ql-image-alert">&times;</button>
+		<strong>Error:</strong> Image Upload Failed
+	</div>
+</script>
+
+<!-- Initialize Quill editor -->
+<script>
+(function () {
+    /* global QuillDjango:true */
+    'use strict';
+
+	var editorSelector = '[data-quill="{{ "editor_selector"|quill_conf }}"]';
+	var toolbarSelector = '[data-quill="{{ "toolbar_selector"|quill_conf }}"]';
+	var id = '{{ id }}';
+    var imageModuleOpts = {
+        handler: '{% url "admin:quill-file-upload" %}',
+        allowedExtensions: JSON.parse('{{ "allowed_image_extensions"|quill_conf_json }}')
+    };
+	var theme = '{{ "theme"|quill_conf }}';
+	var editor = new QuillDjango(id, editorSelector, toolbarSelector, imageModuleOpts, theme);
+    window.DjangoQuillEditors = window.DjangoQuillEditors || {};
+    window.DjangoQuillEditors[id] = editor;
+
+	var form = document.querySelector('form');
+	form.addEventListener('submit', function () {
+		var html = editor.quill.getHTML();
+		var textArea = document.querySelector('#' + id);
+		if(textArea) {
+			textArea.value = html;
+		}
+	});
+})();
+</script>

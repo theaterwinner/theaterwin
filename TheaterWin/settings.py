@@ -24,11 +24,13 @@ SECRET_KEY = 'v4t3@&*^zrj(+fxjpx_=2i_+$royxy5u98)2!8^pa@2l9%dxvj'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com','http://49.236.136.47/', '49.236.136.47', 'theaterwin.com', 'http://theaterwin.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com', 'http://49.236.136.47/', '49.236.136.47',
+                 'theaterwin.com', 'http://theaterwin.com', 'http://106.10.52.182/', '106.10.52.182']
 
 # Application definition
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
+    # 'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,10 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'TheaterWinBook',
-    #     bower
-    'djangobower'
-
-]
+    # wyswgi Editor와 이미지업로드를 위한 filebrowser
+    'tinymce',
+)
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -124,29 +125,18 @@ USE_L10N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.0/howto/static-files/
-
 # bower
 STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-    'djangobower.finders.BowerFinder',
 
 ]
-# bower
-BOWER_COMPONENTS_ROOT = '/TheaterWin/components/'
-
-BOWER_INSTALLED_APPS = (
-    'jquery#1.9',
-    'underscore',
-    'tui-calendar',
-    'tui-chart',
-)
-
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media/")
 
 # 로그인 이후 경로 수정
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -156,3 +146,36 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.media",
     "django.core.context_processors.request",
 )
+
+TINYMCE_DEFAULT_CONFIG = {
+    # 'width': "auto",
+    # 'height': "500",
+    # 'selector': "textarea",
+    # 'theme': "modern",
+    # 'paste_data_images': True,
+    # 'plugins': [
+    #     "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+    #     "searchreplace wordcount visualblocks visualchars code fullscreen",
+    #     "insertdatetime media nonbreaking save table contextmenu directionality",
+    #     "emoticons template paste textcolor colorpicker textpattern"
+    # ],
+    # 'toolbar1': "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+    # 'toolbar2': "print preview media | forecolor backcolor emoticons",
+    # 'image_advtab': True,
+
+    'width': "auto",
+    'height': "350",
+    'selector': "textarea",
+    'theme': "modern",
+    'paste_data_images': True,
+    'plugins': [
+        "advlist autolink lists link  charmap print preview hr anchor pagebreak",
+        "searchreplace wordcount visualblocks visualchars code fullscreen",
+        "insertdatetime media nonbreaking save table contextmenu directionality",
+        "emoticons template paste textcolor colorpicker textpattern"
+    ],
+    'toolbar1': "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link ",
+    'toolbar2': "print preview media | forecolor backcolor emoticons",
+    'image_advtab': True,
+
+}

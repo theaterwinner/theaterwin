@@ -25,8 +25,117 @@
                 <div class="col-sm-12">
                     <h4 class="page-title">극장승 통계</h4>
                 </div>
+                <div class="col-sm-12" style="text-align: center">
+                    <div class="btn-group m-b-10" style="width: 90%; margin: 1px auto;">
+                        <button type="button" class="btn btn-secondary waves-effect" style="width: 30%"
+                                id="recent_week_btn">최근
+                            일주일
+                        </button>
+                        <button type="button" class="btn btn-secondary waves-effect" style="width: 30%"
+                                id="recent_month_btn">최근
+                            한달
+                        </button>
+                        <button type="button" class="btn btn-secondary waves-effect" style="width: 30%"
+                                id="recent_all_btn">모든
+                            기간
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group row" style="width: 95%; padding: 10px 10px; margin: 0% 2.5%">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="검색 기간 시작일" id="datepicker_start"
+                                   style="text-align: center">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="ti-calendar"></i></span>
+                            </div>
+                        </div><!-- input-group -->
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="input-group" style="text-align: center; margin: 5px auto;">
+
+                        </div><!-- input-group -->
+                    </div>
+
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="검색 기간 종료일" id="datepicker_end"
+                                   style="text-align: center">
+                            <div class="input-group-append">
+                                <span class="input-group-text"><i class="ti-calendar"></i></span>
+                            </div>
+                        </div><!-- input-group -->
+                    </div>
+                </div>
+
+
             </div>
             <!-- end page title end breadcrumb -->
+
+            <div class="row">
+                <div class="col-xl-12 col-md-12">
+                    <div class="card-box widget-user">
+
+                        <div class="text-center">
+                            <div class="row">
+                                <div class="col">
+                                    <span style="color: #71b6f9 ;font-family: BM_DOHYEON">총 배팅횟수 </span>
+                                    <h3 class="text-custom" data-plugin="counterup" id="total_batting_num"
+                                        style="color: #71b6f9 !important;font-family: BM_DOHYEON">{{ total_batting_num }}
+                                    </h3>
+                                </div>
+                                <div class="col">
+                                    <span style="color: #71b6f9 ;font-family: BM_DOHYEON">총 배팅금액 </span>
+                                    <h3 class="text-custom" data-plugin="counterup" id="total_batting_money"
+                                        style="color: #71b6f9 !important;font-family: BM_DOHYEON">{{ total_batting_money }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="#"
+                                       class="text-white" id="max_profit_pk">
+                                        <span style="color: #10c469;font-family: BM_DOHYEON">최고 흑자경기 <br> <span
+                                                id="max_profit_name"></span></span>
+                                        <h3 class="text-custom" data-plugin="counterup" id="max_profit_money"
+                                            style="color: #10c469!important;font-family: BM_DOHYEON"
+                                            id="max_profit_money">
+                                        </h3>
+                                    </a>
+
+
+                                </div>
+                                <div class="col">
+                                    <a href="#"
+                                       class="text-white" id="max_fail_pk">
+                                            <span style="color: #ff5b5b;font-family: BM_DOHYEON">최고 적자경기 <br> <span
+                                                    id="max_fail_name"></span> </span>
+                                        <h3 class="text-custom" data-plugin="counterup" id="max_fail_money"
+                                            style="color: #ff5b5b!important;font-family: BM_DOHYEON">
+                                        </h3>
+                                    </a>
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <span style="color: #10c469 ;font-family: BM_DOHYEON">최대 연속 적중 경기</span>
+                                    <h3 class="text-custom" data-plugin="counterup" id="consecutive_max_win"
+                                        style="color: #10c469 !important;font-family: BM_DOHYEON">{{ consecutive_max_win }}
+                                    </h3>
+                                </div>
+                                <div class="col">
+                                    <span style="color: #ff5b5b ;font-family: BM_DOHYEON">최대 연속 미적중 경기 </span>
+                                    <h3 class="text-custom" data-plugin="counterup" id="consecutive_max_fail"
+                                        style="color: #ff5b5b !important;font-family: BM_DOHYEON">{{ consecutive_max_fail }}
+                                    </h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end row -->
 
 
             <div class="row">
@@ -38,11 +147,12 @@
                             </a>
                         </div>
                         <div class="row">
-                            <div class="col-sm-6"><h4 class="header-title m-t-0 m-b-30">순이익 : <span
-                                    id="total_net_profit"></span></h4></div>
+                            <div class="col-sm-6"><h4 class="header-title m-t-0 m-b-30" style="color:#71b6f9 ">순이익 :
+                                <span
+                                        id="total_net_profit"></span></h4></div>
                             <div class="col-sm-6"><h5 class="header-title m-t-0 m-b-30 pull-right"
                                                       style="color:  #f9c851;margin-bottom: 15px">경기전 금액 : <span
-                                    id="">{{ yet_total }}</span></h5></div>
+                                    id="yet_total"></span></h5></div>
                         </div>
 
 
@@ -65,7 +175,7 @@
 
                         <h4 class="header-title m-t-0 m-b-30"> 적중 결과 </h4>
 
-                        <div id="morris-donut-example" style="height: 300px;"></div>
+                        <div id="morris_donut" style="height: 300px;"></div>
 
                         <div class="text-center">
                             <ul class="list-inline chart-detail-list">
@@ -83,17 +193,18 @@
 
                     </div>
                 </div><!-- end col-->
-            </div>
-            <!-- end row -->
 
 
-        </div> <!-- end container -->
+            </div> <!-- end container -->
+
+        </div>
+        <!-- end wrapper -->
+        <br>
+        <br>
+        <br>
+        <br>
 
     </div>
-    <!-- end wrapper -->
-
-
-
     {% comment %}
   <div class="breadcrumb-wrap">
         <div class="container">
@@ -113,75 +224,123 @@
 {% endblock %}
 
 {% block javascript %}
-
     <script>
-        // 모든 정보 불러오기
-        var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
-        var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
-        {# x 축은 날짜 #}
-        var chart_x_array = [];
-        {# y 축은 순이익 #}
-        var chart_y_array = [];
-        var lose_counting = 0;
-        var win_counting = 0;
-        var yet_counting = 0;
-        var untilnow_profit = 0;
-        var buy_date_check;
-        for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
-            var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
-            var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
-            {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
-            var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
-            buy_date = buy_date.replace(regExp, "");
-            var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
-            var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
-            var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
-            var net_profit = 0;
-            if (win_check == "0") {
-                lose_counting++;
-                net_profit = -(batting_money);
-            } else if (win_check == '1') {
-                win_counting++;
-                net_profit = ((batting_ratio * batting_money) - (batting_money));
-            }
-            else if (win_check == '2') {
-                yet_counting++;
-                {#net_profit = ((batting_ratio * batting_money * folder_num) - (batting_money * folder_num));#}
-            }
-            untilnow_profit += net_profit;
 
-            //chart x array 에 바로 넣어 주는 것이 아니라, 이전 것이랑 같은지 체크해주자.
-            //이전의 것이랑 같으면, 마지막에 들어온 것을 빼고, 새롭게 계산된 것을 넣어준다.
-            if (buy_date_check == buy_date) {
-                chart_x_array.pop();
-                chart_y_array.pop();
-            }
-            chart_x_array.push(buy_date);
-            chart_y_array.push(untilnow_profit);
-            buy_date_check = buy_date;
 
+        {#오늘 및 일주일전 날짜 구하기 형식#}
+
+        function getDateStr(myDate) {
+            return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate())
         }
-        var container = document.getElementById('tui_line_chart');
-        var data = {
-            categories: chart_x_array,
-            series: [
-                {
-                    name: '순이익',
-                    data: chart_y_array
-                }
-            ]
-        };
+
+        /* 오늘 날짜를 문자열로 반환 */
+        function today_setting() {
+            var d = new Date()
+            return getDateStr(d)
+        }
+
+        /* 오늘로부터 1주일전 날짜 반환 */
+        function lastWeek_setting() {
+            var d = new Date()
+            var dayOfMonth = d.getDate()
+            d.setDate(dayOfMonth - 7)
+            return getDateStr(d)
+        }
+
+
+        function setting_recentBTN() {
+
+            {#  날짜 버튼 색깔 칠하기  #}
+            var url_string = window.location.href; //window.location.href
+            var url = new URL(url_string);
+            var url_datepicker_start = url.searchParams.get("datepicker_start");
+            var url_datepicker_end = url.searchParams.get("datepicker_end");
+            {# 최근 일주일, 한달, 모든기간 버튼 색칠 #}
+            $("#recent_week_btn").css("background", "#6c757d");
+            $("#recent_month_btn").css("background", "#6c757d");
+            $("#recent_all_btn").css("background", "#5a6268");
+
+            {#최근 일주일, 최근 한달 클릭 시 ㄴ#}
+            $("#recent_week_btn").click(function () {
+                $("#recent_week_btn").css("background", "#5a6268");
+                $("#recent_month_btn").css("background", "#6c757d");
+                $("#recent_all_btn").css("background", "#6c757d");
+                var datepicker_start = lastWeek_setting();
+                var datepicker_end = today_setting();
+
+                $("#datepicker_start").attr("value", datepicker_start);
+                $("#datepicker_start").trigger("changeDate");
+                $("#datepicker_end").attr("value", datepicker_end);
+                $("#datepicker_end").trigger("changeDate");
+                {% comment %}
+                 $("#datepicker_start").val(datepicker_start).trigger("change").change();
+                 $("#datepicker_end").val(datepicker_end).trigger("change").change();
+                {% endcomment %}
+
+            });
+            $("#recent_month_btn").click(function () {
+                $("#recent_week_btn").css("background", "#6c757d");
+                $("#recent_month_btn").css("background", "#5a6268");
+                $("#recent_all_btn").css("background", "#6c757d");
+
+                var datepicker_start = lastMonth_setting();
+                var datepicker_end = today_setting();
+
+                {#input value change 시에 changeDate로 Trigger 한다. (datepicker일 경우) #}
+                $("#datepicker_start").attr("value", datepicker_start);
+                $("#datepicker_start").trigger("changeDate");
+                $("#datepicker_end").attr("value", datepicker_end);
+                $("#datepicker_end").trigger("changeDate");
+
+            });
+            $("#recent_all_btn").click(function () {
+
+
+                window.location = '/winbook_statistics/';
+            });
+        }
+
+        $(document).ready(function () {
+            {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("winbook_statistics") > -1) {
+                $("#nav_winbook_statistics").addClass("active");
+            }
+            //recent BUTTON 설정
+            setting_recentBTN();
+
+        });
+
+    </script>
+    <script>
+        var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';
+        {#Morris 도넛 및 에어리어차트를 위한 전역변수#}
+        var win_counting;
+        var yet_counting;
+        var total_net_profit;
+        var area_with_dotted_data = [];
+        var donutData;
+
+
+        var yet_total;
+        var total_batting_money;
+        var total_batting_num;
+        var max_profit_money;
+        var max_fail_money;
+        var max_profit_name;
+        var max_fail_name;
+        var max_profit_pk;
+        var max_fail_pk;
+        var consecutive_max_win;
+        var consecutive_max_fail;
+
+
     </script>
 
-
-    {% comment %}    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>{% endcomment %}
     <script>
         {#현재까지 profit 저장하기#}
 
         function total_profit_calculate() {
 
-            $("#total_net_profit").text(addCommas(untilnow_profit));
         }
 
         {#3자리마다 콤마 찍어주기#}
@@ -197,198 +356,291 @@
         }
 
     </script>
-
-    {% comment %}
     <script>
-        alert("this is start1.3");
-        !function ($) {
-            {#"use strict";#}
-            total_profit_calculate();
-            var MorrisCharts = function () {
-            };
-            alert("this is start2");
-            //creates area chart with dotted
-            MorrisCharts.prototype.createAreaChartDotted = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, Pfillcolor, Pstockcolor, lineColors) {
-                Morris.Area({
-                    element: element,
-                    pointSize: 5,
-                    lineWidth: 2,
-                    data: data,
-                    xkey: xkey,
-                    ykeys: ykeys,
-                    labels: labels,
-                    hideHover: 'auto',
-                    pointFillColors: Pfillcolor,
-                    pointStrokeColors: Pstockcolor,
-                    resize: true,
-                    gridLineColor: '#2f3e47',
-                    gridTextColor: '#98a6ad',
-                    lineColors: lineColors
-                });
-            },
+        // Date Picker START
+        jQuery('#datepicker_start').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true,
 
-                //creates Donut chart
-                MorrisCharts.prototype.createDonutChart = function (element, data, colors) {
-                    Morris.Donut({
-                        element: element,
-                        data: data,
-                        resize: true, //defaulted to true
-                        colors: colors,
-                        backgroundColor: '#2f3e47',
-                        labelColor: '#98a6ad'
+        }).on('changeDate', function (ev) {
+            //my work here
+            periodSetting();
+        });
+
+        jQuery('#datepicker_end').datepicker({
+            format: "yyyy-mm-dd",
+            autoclose: true,
+            todayHighlight: true
+        }).on('changeDate', function (ev) {
+            //my work here
+            periodSetting();
+        });
+
+
+        function periodSetting() {
+            // 만약 시작시간 & 끝 시간이 설정이 안되있을 경우 - 아무 일도 안함
+            if ($('#datepicker_start').val() == '') {
+                {#alert("시작시간 미정");#}
+            } else if ($('#datepicker_end').val() == '') {
+                {#alert("끝 시간 미정");#}
+            } else {
+                if ($('#datepicker_end').val() < $('#datepicker_start').val()) {
+                    swal({
+                        title: '검색 기간 설정을 제대로 해주세요',
+                        text: "- 마지막일이 시작일보다 앞선 날짜입니다 - ",
+                        type: 'warning',
+                        showCancelButton: false,
+                        confirmButtonColor: '#4fa7f3',
+                        cancelButtonColor: '#d57171',
+                        confirmButtonText: '확인'
+                    })
+
+                } else {
+                    $.ajax({
+                        url: '/ajax/winbook_statistics_ajax/',
+                        data: {
+                            'datepicker_start': $('#datepicker_start').val(),
+                            'datepicker_end': $('#datepicker_end').val()
+                        },
+                        dataType: 'json',
+                        success: function (data) {
+                            parsing_statistics_data(data.winbook_user_result_json);
+
+                        },
+                        complete: function () {
+                            winbook_statistics_refresh();
+                        }
                     });
-                },
-                MorrisCharts.prototype.init = function () {
-                    //creating area chart with dotted
-                    chart_x_array;
-                    chart_y_array;
-                    var chart_xy_array = chart_x_array.map((price, idx) => {
-                        return {y: chart_x_array, a: chart_y_array};
-                    });
-                    var area_with_dotted_data = [];
-                    for (var i = 0; i < chart_x_array.length; i++) {
-                        var object_xy_data = new Object();
-                        object_xy_data.y = chart_x_array[i];
-                        object_xy_data.a = chart_y_array[i];
-                        area_with_dotted_data.push(object_xy_data);
+                }
+            }
+        }
 
-                    }
-                    console.log("this is area_with_dotted_data", area_with_dotted_data);
-                    //chart_x_array = ['2018-08-09', '2018-08-10'.'2018-08-15']
-                    //chart_y_array = ['100000', '200000', '300000']
-                    var combination = chart_x_array.map((e, i) => `${e}:${chart_y_array[i]}`);
-                    {##}
-                    for (var c in combination) {
-                        area_with_dotted_data.push();
-                    }
+        function winbook_statistics_refresh() {
+            {# 라인차트 및 도넛차트 업데이트 해주기. #}
+            MorrisLineAreaChart.setData(area_with_dotted_data);
+            MorrisDonutChart.setData(donutData);
+            {#    기타 잡다한 통계 수치 변경해주기 #}
+            console.log("this is batting_num:" + total_batting_num);
+            $("#total_batting_num").text(addCommas(Math.round(total_batting_num)));
+            $("#total_batting_money").text(addCommas(Math.round(total_batting_money)));
+            if (max_profit_pk == 0) {
+                $("#max_profit_money").text(0);
+                $("#max_profit_name").text("-적중 경기 없음-");
+                $("#max_profit_pk").attr("href", "#");
+            } else {
+                $("#max_profit_money").text(addCommas(Math.round(max_profit_money)));
+                $("#max_profit_name").text(max_profit_name);
+                $("#max_profit_pk").attr("href", "/winbook_detail/" + max_profit_pk);
+            }
+            if (max_fail_pk == 0) {
+                $("#max_fail_money").text(0);
+                $("#max_fail_name").text("-미적중 경기 없음-");
+                $("#max_fail_pk").attr("href", "#");
+            } else {
+                $("#max_fail_money").text(addCommas(Math.round(max_fail_money)));
+                $("#max_fail_name").text(max_fail_name);
+                $("#max_fail_pk").attr("href", "/winbook_detail/" + max_fail_pk);
+            }
 
-                    var $areaDotData = [
-                        {y: '2018-08-03', a: 75000},
-                        {y: '2018-09-10', a: 100000}
-                    ];
-
-
-                    var $areaDotData = area_with_dotted_data;
-
-                    this.createAreaChartDotted('morris-area-with-dotted', 0, 0, $areaDotData, 'y', ['a'], ['순이익'], ['#ffffff'], ['#999999'], ['#5b69bc']);
-
-                    //creating donut chart
-                    var $donutData = [
-                        {label: "경기전", value: yet_counting},
-                        {label: "적중", value: win_counting},
-                        {label: "미적중", value: lose_counting}
-                    ];
-                    this.createDonutChart('morris-donut-example', $donutData, ['#f9c851', '#10c469', "#ff5b5b"]);
-                },
-                //init
-                $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
-        }(window.jQuery),
-
-//initializing
-            function ($) {
-                {#"use strict";#}
-                $.MorrisCharts.init();
-
-                alert("this is start3");
-            }(window.jQuery);
+            $("#consecutive_max_win").text(addCommas(Math.round(consecutive_max_win)));
+            $("#consecutive_max_fail").text(addCommas(Math.round(consecutive_max_fail)));
+            {#사실상 지금까지의 profit 이 total profit이기 때문#}
+            $("#total_net_profit").text(addCommas(Math.round(untilnow_profit)));
+            $("#yet_total").text(addCommas(Math.round(yet_total)));
+        }
     </script>
-{% endcomment %}
+    <script>
+
+        function parsing_statistics_data(winbook_user_result_json) {
+            //초기화
+            area_with_dotted_data = [];
+            yet_total = 0;
+            total_batting_money = 0;
+            total_batting_num = 0;
+            max_profit_money = 0;
+            max_fail_money = 0;
+            max_profit_name = '';
+            max_fail_name = '';
+            max_profit_pk = 0;
+            max_fail_pk = 0;
+            consecutive_max_win = 0;
+            consecutive_max_fail = 0;
+            {## 첫 시작은 아무 의가 없는 wincheck,failcheck 3으로 시작 (0은 실패, 1은 성공, 2는 경기전)#}
+            var before_wincheck = 3;
+            var current_consecutive_win = 0
+            var current_consecutive_fail = 0
+
+
+            // 모든 정보 불러오기
+            var winbook_user_result_json = winbook_user_result_json;
+            {#var winbook_user_result_json = '{{ winbook_user_result_json|escapejs|safe  }}';#}
+            var winbook_user_result_json_parsed = $.parseJSON(winbook_user_result_json);
+            {# x 축은 날짜 #}
+            var chart_x_array = [];
+            {# y 축은 순이익 #}
+            var chart_y_array = [];
+            lose_counting = 0;
+            win_counting = 0;
+            yet_counting = 0;
+            untilnow_profit = 0;
+            total_net_profit = 0;
+            var buy_date_check;
+            //기본 정보 세팅
+            total_batting_num = winbook_user_result_json_parsed.length;
+
+            for (var i = 0; i < winbook_user_result_json_parsed.length; ++i) {
+                var record_pk = JSON.stringify(winbook_user_result_json_parsed[i].pk);
+                var buy_date = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_date);
+                {#record_buy_date의 날짜에 "2018-08-01"형식으로 되어 있어서, 위의 따옴표를 없애준다. #}
+                var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^_+<>@\#$%&\\\=\(\'\"]/gi;
+                buy_date = buy_date.replace(regExp, "");
+                var batting_ratio = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_ratio);
+                var batting_money = JSON.stringify(winbook_user_result_json_parsed[i].fields.batting_money);
+                var batting_title = JSON.stringify(winbook_user_result_json_parsed[i].fields.buy_game_title);
+                //기본정보 세팅
+                total_batting_money += parseInt(batting_money);
+                var win_check = JSON.stringify(winbook_user_result_json_parsed[i].fields.win_check);
+                var net_profit = 0;
+                var yet_money = 0
+                if (win_check == "0") {
+                    {#연속 경기수를 구하기 위한 알고리즘#}
+                    if (before_wincheck != win_check) {
+                        current_consecutive_fail = 1;
+                    } else {
+                        current_consecutive_fail = current_consecutive_fail + 1;
+                    }
+                    lose_counting++;
+                    net_profit = -(batting_money);
+                    {#    max_fail 구하기#}
+
+                    if (net_profit < max_fail_money) {
+                        max_fail_money = net_profit;
+                        max_fail_name = batting_title;
+                        max_fail_pk = record_pk;
+                    }
+
+                } else if (win_check == '1') {
+                    {#연속 경기수를 구하기 위한 알고리즘#}
+                    if (before_wincheck != win_check) {
+                        current_consecutive_win = 1;
+                    } else {
+                        current_consecutive_win = current_consecutive_win + 1;
+                    }
+                    win_counting++;
+                    net_profit = ((batting_ratio * batting_money) - (batting_money));
+                    {#    max_profit 구하기#}
+                    if (net_profit > max_profit_money) {
+                        max_profit_money = net_profit;
+                        max_profit_name = batting_title;
+                        max_profit_pk = record_pk;
+                    }
+
+                }
+                else if (win_check == '2') {
+                    yet_counting++;
+                    yet_money = ((batting_ratio * batting_money) - (batting_money))
+
+                }
+                untilnow_profit += net_profit;
+                total_net_profit += net_profit;
+                yet_total += yet_money;
+                //chart x array 에 바로 넣어 주는 것이 아니라, 이전 것이랑 같은지 체크해주자.
+                //이전의 것이랑 같으면, 마지막에 들어온 것을 빼고, 새롭게 계산된 것을 넣어준다.
+                if (buy_date_check == buy_date) {
+                    chart_x_array.pop();
+                    chart_y_array.pop();
+                }
+                chart_x_array.push(buy_date);
+                chart_y_array.push(untilnow_profit);
+                buy_date_check = buy_date;
+
+                {## 현재의 wincheck를 마지막 wincheck로 저장#}
+                before_wincheck = win_check
+                {## 지금까지 최대 맥스 승리값이, 이번에 연속 숫자보다 작으면, 바꿔치기.#}
+                if (consecutive_max_win < current_consecutive_win)
+                    consecutive_max_win = current_consecutive_win
+                if (consecutive_max_fail < current_consecutive_fail)
+                    consecutive_max_fail = current_consecutive_fail
+            }
+
+            {#Morris LineArea Chart 시작 #}
+
+            var chart_xy_array = chart_x_array.map((price, idx) => {
+                return {y: chart_x_array, a: chart_y_array};
+            });
+            var chart_xy_array = chart_x_array.map(function (price, idx) {
+                return {y: chart_x_array, a: chart_y_array};
+            });
+
+            for (var i = 0; i < chart_x_array.length; i++) {
+                var object_xy_data = new Object();
+                object_xy_data.y = chart_x_array[i];
+                object_xy_data.a = chart_y_array[i];
+                area_with_dotted_data.push(object_xy_data);
+
+            }
+            console.log("this is area_with_dotted_data", area_with_dotted_data);
+            //chart_x_array = ['2018-08-09', '2018-08-10'.'2018-08-15']
+            //chart_y_array = ['100000', '200000', '300000']
+            {#var combination = chart_x_array.map((e, i) => `${e}:${chart_y_array[i]}`);#}
+            var combination = chart_x_array.map(function (e, i) {
+                return e + ":" + chart_y_array[i];
+            });
+
+            for (var c in combination) {
+                area_with_dotted_data.push();
+            }
+
+            {# 모리스 dounut chart를 위한 데이터#}
+            donutData = [
+                {label: "경기전", value: yet_counting},
+                {label: "적중", value: win_counting},
+                {label: "미적중", value: lose_counting}
+            ];
+        }
+
+
+    </script>
 
     <script>
-        !function ($) {
-            {#"use strict";#}
-            total_profit_calculate();
-            var MorrisCharts = function () {
-            };
-            //creates area chart with dotted
-            MorrisCharts.prototype.createAreaChartDotted = function (element, pointSize, lineWidth, data, xkey, ykeys, labels, Pfillcolor, Pstockcolor, lineColors) {
-                Morris.Area({
-                    element: element,
-                    pointSize: 5,
-                    lineWidth: 2,
-                    data: data,
-                    xkey: xkey,
-                    ykeys: ykeys,
-                    labels: labels,
-                    hideHover: 'auto',
-                    pointFillColors: Pfillcolor,
-                    pointStrokeColors: Pstockcolor,
-                    resize: true,
-                    gridLineColor: '#2f3e47',
-                    gridTextColor: '#98a6ad',
-                    lineColors: lineColors
-                });
-            },
 
-                //creates Donut chart
-                MorrisCharts.prototype.createDonutChart = function (element, data, colors) {
-                    Morris.Donut({
-                        element: element,
-                        data: data,
-                        resize: true, //defaulted to true
-                        colors: colors,
-                        backgroundColor: '#2f3e47',
-                        labelColor: '#98a6ad'
-                    });
-                },
-                MorrisCharts.prototype.init = function () {
-                    //creating area chart with dotted
-                    chart_x_array;
-                    chart_y_array;
-                    {% comment %}       var chart_xy_array = chart_x_array.map((price, idx) => {
-                               return {y: chart_x_array, a: chart_y_array};
-                           });{% endcomment %}
-                    var chart_xy_array = chart_x_array.map(function (price, idx) {
-                        return {y: chart_x_array, a: chart_y_array};
-                    });
-                    var area_with_dotted_data = [];
-                    for (var i = 0; i < chart_x_array.length; i++) {
-                        var object_xy_data = new Object();
-                        object_xy_data.y = chart_x_array[i];
-                        object_xy_data.a = chart_y_array[i];
-                        area_with_dotted_data.push(object_xy_data);
-
-                    }
-                    console.log("this is area_with_dotted_data", area_with_dotted_data);
-                    //chart_x_array = ['2018-08-09', '2018-08-10'.'2018-08-15']
-                    //chart_y_array = ['100000', '200000', '300000']
-                    {#var combination = chart_x_array.map((e, i) => `${e}:${chart_y_array[i]}`);#}
-                    var combination = chart_x_array.map(function (e, i) {
-                        return e + ":" + chart_y_array[i];
-                    });
-
-                    for (var c in combination) {
-                        area_with_dotted_data.push();
-                    }
-
-                    var $areaDotData = [
-                        {y: '2018-08-03', a: 75000},
-                        {y: '2018-09-10', a: 100000}
-                    ];
+        parsing_statistics_data(winbook_user_result_json);
 
 
-                    var $areaDotData = area_with_dotted_data;
-
-                    this.createAreaChartDotted('morris-area-with-dotted', 0, 0, $areaDotData, 'y', ['a'], ['순이익'], ['#ffffff'], ['#999999'], ['#5b69bc']);
-
-                    //creating donut chart
-                    var $donutData = [
-                        {label: "경기전", value: yet_counting},
-                        {label: "적중", value: win_counting},
-                        {label: "미적중", value: lose_counting}
-                    ];
-                    this.createDonutChart('morris-donut-example', $donutData, ['#f9c851', '#10c469', "#ff5b5b"]);
-                },
-                //init
-                $.MorrisCharts = new MorrisCharts, $.MorrisCharts.Constructor = MorrisCharts
-        }(window.jQuery)
-
-        //initializing
-        !function ($) {
-            {#"use strict";#}
-            $.MorrisCharts.init();
-        }(window.jQuery);
     </script>
+
+    <script>
+        {#    Morris Donut AND Area chart 시작 #}
+        var MorrisDonutChart = new Morris.Donut({
+            element: 'morris_donut',
+            data: donutData,
+            backgroundColor: '#2f3e47',
+            labelColor: '#98a6ad',
+            colors: ['#f9c851', '#10c469', "#ff5b5b"]
+        });
+        var MorrisLineAreaChart = new Morris.Area({
+            element: 'morris-area-with-dotted',
+            pointSize: 5,
+            lineWidth: 2,
+            data: area_with_dotted_data,
+            xkey: 'y',
+            ykeys: ['a'],
+            labels: ['순이익'],
+            hideHover: 'auto',
+            pointFillColors: ['#ffffff'],
+            pointStrokeColors: ['#999999'],
+            resize: true,
+            gridLineColor: '#2f3e47',
+            gridTextColor: '#98a6ad',
+            lineColors: ['#5b69bc']
+        });
+        winbook_statistics_refresh();
+    </script>
+
+
+
+
 
 {% endblock %}
 

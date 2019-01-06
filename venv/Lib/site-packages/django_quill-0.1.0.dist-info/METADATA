@@ -1,0 +1,45 @@
+Metadata-Version: 2.0
+Name: django-quill
+Version: 0.1.0
+Summary: Easily use Quill.js in your django admin.
+Home-page: UNKNOWN
+Author: Ryan Senkbeil
+Author-email: ryan.senkbeil@gsdesign.com
+License: UNKNOWN
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP
+
+django-quill
+============
+
+Easily use `Quill.js <http://quilljs.com/>`_ in your django admin.
+
+Quick Start
+-----------
+
+1. Install the package from pypi
+
+    .. code-block:: bash
+
+        pip install django-quill
+
+2. Add "quill" to your INSTALLED_APPS setting like this:
+
+    .. code-block:: python
+
+        INSTALLED_APPS = (
+            ...
+            'quill',
+        )
+
+See the `GitHub repo <https://github.com/gsmke/django-quill>`_ for more details.
+
+

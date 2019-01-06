@@ -67,7 +67,8 @@
     {#TheaterWinner Custom Css#}
     <link href="{% static 'TheaterWinBook/css/theaterwinner.css' %}" rel="stylesheet" type="text/css" media="screen">
 
-
+    {# 카카오 api 사용을 위한 스크립트 #}
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
     {% comment %}    {#jquery UI CSS 추가함. #}
     <link href="{% static 'TheaterWinBook/css/jquery-ui-1.7.css' %}" rel="stylesheet" type="text/css">
     {#    <link href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css">#}
@@ -102,7 +103,7 @@
                 <!--<span class="logo-large"><i class="mdi mdi-radar"></i> Adminto</span>-->
                 <!--</a>-->
                 <!-- Image Logo -->
-                <a href="{% url 'index' %}" class="logo" style="padding-left: 10px">
+                <a href="{% url 'index_real' %}" class="logo" style="padding-left: 10px">
                     극장승 토계부
                     {#                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"#}
                     {#                         class="logo-small">#}
@@ -145,7 +146,7 @@
                             </a>
 
                             {% if user.is_active %}
-                                <a href="{% url 'logout' %}" class="dropdown-item notify-item ">
+                                <a href="{% url 'logout' %}?next=/" class="dropdown-item notify-item ">
                                     <i class="ti-power-off m-r-5" style="margin: 0 auto"></i> {{ user.username }}님 로그아웃
                                 </a>
                                 <!-- 로그인 되어있지 않은 경우 -->
@@ -174,22 +175,39 @@
             <div id="navigation">
                 <!-- Navigation Menu-->
                 <ul class="navigation-menu">
-                    <li class="has-submenu">
+                    <li class="has-submenu" id="nav_winbook_insert">
                         <a href="{% url 'winbook_insert' %}"><i class="mdi mdi-lead-pencil"></i> <span> 입력 </span>
                         </a>
                     </li>
-                    <li class="has-submenu">
-                        <a href="{% url 'winbook_list' %}"><i class=" mdi mdi-format-list-numbers"></i>
+                    <li class="has-submenu" id="nav_winbook_list">
+                        <a href="#" id="nav_winbook_list_btn"><i
+                                class=" mdi mdi-format-list-numbers"></i>
                             <span> 기록 </span> </a>
                     </li>
-                    <li class="has-submenu">
+                    <li class="has-submenu" id="nav_winbook_statistics">
                         <a href="{% url 'winbook_statistics' %}"><i class="mdi mdi-chart-areaspline"></i>
                             <span> 통계 </span> </a>
                     </li>
-                    <li class="has-submenu">
+                    <li class="has-submenu" id="nav_winbook_calendar">
                         <a href="{% url 'winbook_calendar' %}"><i class="mdi mdi-calendar-check"></i> <span> 달력 </span>
                         </a>
                     </li>
+
+                    <li class="has-submenu" id="nav_index_real">
+                        <a href="{% url 'index_real' %}"><i class="mdi mdi-alert-box"></i> <span> 공지 </span>
+                        </a>
+                    </li>
+
+                    <li class="has-submenu" id="nav_question_list">
+                        <a href="{% url 'question_list' %}"><i class="mdi mdi-comment-question-outline"></i> <span> 문의&제안</span>
+                        </a>
+                    </li>
+
+                    <li class="has-submenu" id="nav_question_list">
+                        <a href="{% url 'full_chatting' %}"><i class="mdi mdi-comment-question-outline"></i> <span> 채팅</span>
+                        </a>
+                    </li>
+
 
                 </ul>
                 <!-- End navigation menu -->
@@ -200,93 +218,7 @@
 <!-- End Navigation Bar-->
 
 
-{% comment %}
 
-<div class="top-bar-dark">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4 hidden-xs">
-
-            </div>
-            <div class="col-sm-8 text-right">
-                <ul class="list-inline top-dark-right">
-
-                    {% if user.is_active %}
-                        <li><a href="{% url 'logout' %}"><i class="fa fa-lock"></i> 로그아웃</a></li>
-                        <!-- 로그인 되어있지 않은 경우 -->
-                    {% else %}
-                        <li><a href="{% url 'login_view' %}?next={% firstof request.path '/' %}"><i
-                                class="fa fa-lock"></i> 로그인</a></li>
-
-                    {% endif %}
-
-                    <li><a href="{% url 'signup' %}"><i class="fa fa-user"></i> 회원가입</a></li>
-                    {#                    <li><a href="{% url 'to_winnerBros' %}"><i class="fa fa-user"></i> 문의</a></li>#}
-                </ul>
-
-
-            </div>
-        </div>
-    </div>
-</div><!--top-bar-dark end here-->
-
-<!--navigation -->
-<!-- Static navbar -->
-<div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation" style="margin: 0px">
-    <div class="container">
-        {#                <div class="navbar-header" >#}
-        {#                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">#}
-        {#                        <span class="sr-only">Toggle navigation</span>#}
-        {#                        <span class="icon-bar"></span>#}
-        {#                        <span class="icon-bar"></span>#}
-        {#                        <span class="icon-bar"></span>#}
-        {#                    </button>#}
-        <a class="navbar-brand" href="{% url 'index' %}" style="padding: 15px 5px">극장승</a>
-        {#                    <ul>#}
-        {#                        <li class="dropdown">#}
-        {#                            <a href="#" class="dropdown-toggle navbar-brand" data-toggle="dropdown"  style = "width: 25%">토계부 <i class="fa fa-angle-down"></i></a>#}
-        {#                            <ul class="dropdown-menu" role="menu" style="    margin-top: 45px; width: 100%;">#}
-        {#                                <li><a href="{% url 'winbook_insert' %}">입력</a></li>#}
-        {#                                <li><a href="{% url 'winbook_list' %}">리스트</a></li>#}
-        {#                                <li><a href="#">기타</a></li>#}
-        {#                            </ul>#}
-        {#                        </li>#}
-        {#                    </ul>#}
-        {##}
-        {#                    <a class="navbar-brand"   style = "width: 25%" href="{% url 'to_winnerBros' %}">문의</a>#}
-        {#                    {% if user.is_active %}#}
-        {#                        <a class="navbar-brand" href="{% url 'logout' %}" style="text-align: center; width: 25%; background-color: #555; color: #FFFFFF; border-radius: 10px">{{ user.username }}님 <br>로그아웃</a>#}
-        {#                        <!-- 로그인 되어있지 않은 경우 -->#}
-        {#                    {% else %}#}
-        {#                        <a class="navbar-brand" href="{% url 'login_view' %}" style="text-align: center; width: 25%; background-color: #555; color: #FFFFFF; border-radius: 10px">로그인&회원가입</a>#}
-        {##}
-        {#                    {% endif %}#}
-        {#                </div>#}
-        {#  테스트 중  #}
-        <div class="">
-            <ul class="nav navbar-nav navbar-right" style="margin: 0px">
-
-                <li style="float: right; "><a id="navtop_winbook_calendar" href="{% url 'winbook_calendar' %}">달력</a>
-                </li>
-                <li style="float: right;"><a id="navtop_winbook_statistics" href="{% url 'winbook_statistics' %}">통계</a>
-                </li>
-                <li style="float: right; "><a id="navtop_winbook_list" href="{% url 'winbook_list' %}">기록</a></li>
-                <li style=" float: right;"><a id="navtop_winbook_insert" href="{% url 'winbook_insert' %}">입력</a></li>
-                {#                <li style=" float: right;"><a id="navtop_bower_test" href="{% url 'bower_test' %}">test</a></li>#}
-                {#                <li style=" float: right;"><a id="navtop_calendar_test" href="{% url 'calendar_test' %}">달력</a></li>#}
-
-                {#<span style="font-size: 8px">{{ user.username }}님</span>#}
-
-
-                <!--menu home li end here-->
-            </ul>
-
-
-        </div><!--/.nav-collapse -->
-
-    </div><!--container-->
-</div><!--navbar-default-->
-{% endcomment %}
 
 {% block content %}
 
@@ -294,40 +226,13 @@
 
 {% endblock %}
 
-{% comment %}
-
-<footer id="footer" style="padding: 15px 5px">
-    <div class="container" style=" padding: 0px">
-
-        <div class="row" style="margin: 0px; padding: 0px">
-
-            <div class="col-md-12 col-sm-12 " style="margin: 0px; rpadding: 0px; text-align: center">
-                <div class="footer-col">
-
-                    <p style="margin: 2px;">
-                        극장승 토계부은 불법 문화를 지양하고, <br>건전한 토토 문화생활을 지향합니다.
-                        <br>모든 극장승 사용자님들의 영화 같은 승리를 기원합니다.
-                    </p>
-                    <ul class="list-unstyled contact">
-                        <li><p><strong><i class="fa fa-envelope"></i> E-mail:</strong> <a href="#">TheaterWinner@gmail.com</a>
-                        </p></li>
-                    </ul>
-                </div>
-            </div><!--footer col-->
-        </div>
-
-    </div>
-</footer><!--default footer end here-->
-{% endcomment %}
-
-
 <!-- Footer -->
 <footer class="footer">
     <div class="container">
         <div class="row">
             <div class="col-12 text-center" style="font-family: Sans-Serif">
                 <br>극장승 토계부은 불법 문화를 지양하고, <br>건전한 토토 문화생활을 지향합니다. <br>
-                © TheaterWinner@gmail.com
+                © (주) 극장승리자 (TheaterWinner@gmail.com)
             </div>
 
         </div>
@@ -335,34 +240,16 @@
 </footer>
 <!-- End Footer -->
 
-{% comment %}
+{#  #}
 
-<!-- 이렇게 함으로써 외부의 CDN 서버에서 가장 최신의 jQuery 배포판을 불러 올 수 있습니다. //-->
-<script src="http://code.jquery.com/jquery-latest.min.js">
-</script>
 
-{#<script type="text/javascript" src="{% static 'TheaterWinBook/js/jquery_3.3.1.js' %}"></script>#}
-<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-{#<script type="text/javascript" src="{% static 'TheaterWinBook/js/jquery-ui-1.7.js' %}"></script>#}
-{#아래는 jquery-latest에 발생하는 에러를 해결하기 위한 코드#}
-<script>
-    jQuery.browser = {};
-    (function () {
-        jQuery.browser.msie = false;
-        jQuery.browser.version = 0;
-        if (navigator.userAgent.match(/MSIE ([0-9]+)\./)) {
-            jQuery.browser.msie = true;
-            jQuery.browser.version = RegExp.$1;
-        }
-    })();
-</script>
-{% endcomment %}
 {#explorer 에서 sweetalert2를 실행시키기 위한 javascript 추가 코드 . #}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
 <!-- jQuery  -->
 <script src="{% static 'TheaterWinBook/assets/js/jquery.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/popper.min.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/bootstrap.min.js' %}"></script>
+
 <script src="{% static 'TheaterWinBook/assets/js/waves.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/jquery.slimscroll.js' %}"></script>
 
@@ -417,75 +304,46 @@
 <script src="{% static 'TheaterWinBook/assets/js/jquery.core.js' %}"></script>
 <script src="{% static 'TheaterWinBook/assets/js/jquery.app.js' %}"></script>
 
-{% comment %}
 
-<!-- KNOB JS -->
-<!--[if IE]>
-        <script type="text/javascript" src="{% static 'TheaterWinBook/assets/plugins/jquery-knob/excanvas.js' %}"></script>
-        <![endif]-->
-<script src="{% static 'TheaterWinBook/assets/plugins/jquery-knob/jquery.knob.js' %}"></script>
+<script>
+{#   url 을 확인해서 색깔 바꾸어주기 #}
+{#   url 중에 question_detail 이 포함되어있는지 확인 후 -> 문의 제안 부분 색깔 칠해줌. #}
 
-<!--Morris Chart-->
-<script src="{% static 'TheaterWinBook/assets/plugins/morris/morris.min.js' %}"></script>
-<script src="{% static 'TheaterWinBook/assets/plugins/raphael/raphael-min.js' %}"></script>
+</script>
 
-<!-- Dashboard init -->
-<script src="{% static 'TheaterWinBook/assets/pages/jquery.dashboard.js' %}"></script>
+<script>
 
 
-<!-- App js -->
-<script src="{% static 'TheaterWinBook/assets/js/jquery.core.js' %}"></script>
-<script src="{% static 'TheaterWinBook/assets/js/jquery.app.js' %}"></script>
-{% endcomment %}
+    /* 오늘 날짜를 문자열로 반환 */
+    function getDateStr(myDate) {
+        return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate())
+    }
 
-{% comment %}
+    function today_setting() {
+        var d = new Date()
+        return getDateStr(d)
+    }
 
-<!--must need plugin jquery-->
-{#<script src="{% static 'TheaterWinBook/js/jquery.min.js' %}"  type="text/javascript"></script>#}
-<script src="{% static 'TheaterWinBook/js/jquery-migrate.min.js' %}"></script>
-<!--bootstrap js plugin-->
-<script src="{% static 'TheaterWinBook/bootstrap/js/bootstrap.min.js' %}" type="text/javascript"></script>
-<!--easing plugin for smooth scroll-->
-<script src="{% static 'TheaterWinBook/js/jquery.easing.1.3.min.js' %}" type="text/javascript"></script>
-<!--sticky header-->
-<script src="{% static 'TheaterWinBook/js/jquery.sticky.js' %}" type="text/javascript"></script>
-<!--flex slider plugin-->
-<script src="{% static 'TheaterWinBook/js/jquery.flexslider-min.js' %}" type="text/javascript"></script>
-<!--parallax background plugin-->
-<script src="{% static 'TheaterWinBook/js/jquery.stellar.min.js' %}" type="text/javascript"></script>
-<!--digit countdown plugin-->
-<script src="{% static 'TheaterWinBook/js/waypoints.min.js' %}"></script>
-<!--digit countdown plugin-->
-<script src="{% static 'TheaterWinBook/js/jquery.counterup.min.js' %}" type="text/javascript"></script>
-<!--on scroll animation-->
-<script src="{% static 'TheaterWinBook/js/wow.min.js' %}" type="text/javascript"></script>
-<!--owl carousel slider-->
-<script src="{% static 'TheaterWinBook/owl-carousel/owl.carousel.min.js' %}" type="text/javascript"></script>
-<!--popup js-->
-<script src="{% static 'TheaterWinBook/js/jquery.magnific-popup.min.js' %}" type="text/javascript"></script>
+    /* 오늘로부터 1개월전 날짜 반환 */
+    function lastMonth_setting() {
+        var d = new Date()
+        var monthOfYear = d.getMonth()
+        d.setMonth(monthOfYear - 1)
+        return getDateStr(d)
+    }
+
+    $("#nav_winbook_list_btn").click(function () {
+        var datepicker_start = lastMonth_setting();
+        var datepicker_end = today_setting();
+        window.location = '/winbook_list?datepicker_start=' + datepicker_start + "&datepicker_end=" + datepicker_end;
+    });
+</script>
+{% block javascript %}
 
 
-<!--customizable plugin edit according to your needs-->
-<script src="{% static 'TheaterWinBook/js/custom.js' %}" type="text/javascript"></script>
-<script type="text/javascript" src="{% static 'TheaterWinBook/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
-<script type="text/javascript"
-        src="{% static 'TheaterWinBook/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
-<script type="text/javascript" src="{% static 'TheaterWinBook/js/revolution-custom.js' %}"></script>
-<!--cube portfolio plugin-->
-<script src="{% static 'TheaterWinBook/cubeportfolio/js/jquery.cubeportfolio.min.js' %}"
-        type="text/javascript"></script>
-<script src="{% static 'TheaterWinBook/js/cube-portfolio.js' %}" type="text/javascript"></script>
-<script src="{% static 'TheaterWinBook/js/pace.min.js' %}" type="text/javascript"></script>
 
 
-{#this is for index video#}
-<script src="{% static 'TheaterWinBook/video-background/core.js' %}"></script>
-<script src="{% static 'TheaterWinBook/video-background/transition.js' %}"></script>
-<script src="{% static 'TheaterWinBook/video-background/background.js' %}"></script>
-
-{% endcomment %}
-
-{% block javascript %}{% endblock %}
+{% endblock %}
 
 </body>
 </html>
