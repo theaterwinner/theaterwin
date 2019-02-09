@@ -6,6 +6,8 @@
             padding: 5%;
         }
     </style>
+        {#    tinymce widget#}
+    {{ form.media }}
 {% endblock %}
 
 {% block content %}
@@ -104,6 +106,23 @@
 
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">나의 분석</label>
+                                            <div class="col-12">
+
+                                                <textarea id="id_batting_analysis"
+                                                          name="batting_analysis">  {{ target_record.batting_analysis }}  </textarea>
+                                                <input name="image" type="file" id="upload" class="hidden" onchange="">
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">공유여부</label>
+                                            <div class="col-9">
+                                                {{ form.share_check }}
+                                            </div>
+                                        </div>
+
 
                                         <button type="submit" id="submit_BT"
                                                 class="btn btn-block btn--md btn-info waves-effect waves-light"
@@ -128,7 +147,7 @@
 
 
 
-{% comment %}
+    {% comment %}
 
 
     <div class="breadcrumb-wrap">
@@ -222,7 +241,54 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
-                        {#dark version starti#}
+            tinymce.init({
+                selector: '#id_batting_analysis',
+                {#selector: "#id_content2",  // change this value according to your HTML#}
+                width: 'auto',
+                height: '350',
+                paste_data_images: true,
+                plugins: [
+                    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen",
+                    "insertdatetime media nonbreaking save table contextmenu directionality",
+                    "emoticons template paste textcolor colorpicker textpattern"
+                ],
+                toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                toolbar2: "print preview media | forecolor backcolor emoticons",
+                image_advtab: true,
+                file_picker_callback: function (callback, value, meta) {
+                    if (meta.filetype == 'image') {
+                        $('#upload').trigger('click');
+                        $('#upload').on('change', function () {
+                            if (this.files[0].size > 1000000) {
+                                alert("File is too big!");
+                                this.value = "";
+                            }
+
+                            var file = this.files[0];
+
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                callback(e.target.result, {
+                                    alt: ''
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                        });
+                    }
+                },
+                templates: [{
+                    title: 'Test template 1',
+                    content: 'Test 1'
+                }, {
+                    title: 'Test template 2',
+                    content: 'Test 2'
+                }]
+            });
+
+
+            {#dark version starti#}
             $('#buy_date').datepicker({
                 format: "yyyy-mm-dd",
                 autoclose: true,
@@ -323,7 +389,6 @@
                 }
 
             });
-
 
 
             {#    #}
@@ -468,17 +533,17 @@
             var expecting_text = "";
             var net_profit_text = "";
             if (id_win_check == 0) {
-                expecting_text = "- " + addCommas(Math.round(id_batting_money ));
+                expecting_text = "- " + addCommas(Math.round(id_batting_money));
                 net_profit_text = "- " + addCommas(Math.round(id_batting_money));
             } else if (id_win_check == 1) {
-                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
-                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money )));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money) - (id_batting_money)));
                 expecting_text = "+ " + expecting_money;
                 net_profit_text = "+ " + net_profit_money;
 
             } else if (id_win_check == 2) {
-                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money ));
-                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money ) - (id_batting_money)));
+                var expecting_money = addCommas(Math.round(id_batting_ratio * id_batting_money));
+                var net_profit_money = addCommas(Math.round((id_batting_ratio * id_batting_money) - (id_batting_money)));
                 expecting_text = "+ " + expecting_money + " 예상";
                 net_profit_text = "+ " + net_profit_money + " 예상";
             }

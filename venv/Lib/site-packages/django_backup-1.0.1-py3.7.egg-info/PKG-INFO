@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: django-backup
+Version: 1.0.1
+Summary: A backup script for the Django admin
+Home-page: https://github.com/chriscohoat/django-backup
+Author: Chris Cohoat
+Author-email: chris.cohoat@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

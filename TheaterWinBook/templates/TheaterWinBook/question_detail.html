@@ -6,6 +6,11 @@
             padding: 5%;
         }
 
+        .mouse_cursor {
+            cursor: pointer;
+        }
+
+
     </style>
     {{ form.media }}
 {% endblock %}
@@ -16,70 +21,177 @@
         <div class="container-fluid">
 
             <br>
-            <div class="card-box">
+            <div class="card-box" style="padding-bottom: 5px;">
 
                 <div class="form-group row">
-                    <label class="col-2 col-form-label">글제목</label>
-                    <div class="col-10 col-form-label">
+                    <label class="col-3 col-form-label">글제목</label>
+                    <div class="col-9 col-form-label">
                         {{ question_record.question_title }}
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-2 col-form-label">작성날짜</label>
-                    <div class="col-10  col-form-label">
+                    <label class="col-3 col-form-label">작성날짜</label>
+                    <div class="col-9  col-form-label">
                         {{ question_record.writing_date }}
 
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-2 col-form-label">작성인</label>
-                    <div class="col-10  col-form-label">
+                    <label class="col-3 col-form-label">작성인</label>
+                    <div class="col-9  col-form-label">
                         {{ question_record.user_name }}
 
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-12">
-                        <textarea id="id_content2">{{ question_record.question_content }}</textarea>
+                    <label class="col-3 col-form-label">조회수</label>
+                    <div class="col-9  col-form-label">
+                        {{ question_record.question_hit }}
                     </div>
                 </div>
-                {#                오직 관리자만 볼 수 있게 해야 함 . #}
                 <div class="form-group row">
-                    <div class="col-12">
-                        <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
-                                id="question_reply_btn" name="{{ question_record.pk }}">
-                            <i class="fa fa-pencil-square-o "></i> <span>답글달기</span></button>
+                    <label class="col-3 col-form-label btn_thumbup" style="cursor: pointer">올려요 <i
+                            class="mdi mdi-thumb-up"></i></label>
+                    <div class="col-3  col-form-label btn_thumbup" style="cursor: pointer">
+                        {{ thumbup_count }}
                     </div>
-                </div>
+                    <label class="col-3 col-form-label btn_thumbdown" style="cursor: pointer"> 내려요 <i
+                            class="mdi mdi-thumb-down"></i></label>
+                    <div class="col-3  col-form-label btn_thumbdown" style="cursor: pointer">
+                        {{ thumbdown_count }}
+                    </div>
 
-
-                <div class="form-group row">
-                    <div class="col-12">
-                        <button class="btn btn-info waves-effect waves-light m-b-5"
-                                id="modify_btn"
-                                record_pk={{ question_record.pk }}
-                                        name="modify_btn"
-                                style="color: #98a6ad;font-size:15px; mar5gin:5px; width: 100%">
-                            <i class="fa fa-pencil-square-o "></i> <span>수정</span></button>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-12">
-                        <button class="btn btn-info waves-effect waves-light m-b-5"
-                                id="delete_btn"
-                                record_pk={{ question_record.pk }} name="delete_btn"
-                                style="color: #98a6ad;font-size:15px; margin:5px; width: 100%">
-                            <i class="fa fa-pencil-square-o "></i> <span>삭제</span></button>
-                    </div>
                 </div>
 
             </div>
 
 
-            <br>
-            <br>
-            <br>
+            <div class="form-group row">
+                <div class="col-12">
+                    <textarea id="id_content2">{{ question_record.question_content }}</textarea>
+                </div>
+            </div>
+
+
+            {#                오직 관리자만 볼 수 있게 해야 함 . #}
+            {#                <div class="card-box" style="background: #394C57">#}
+            <div class="form-group row" style="background: #394C57; margin: 1% 3%">
+
+                <label class="col-9 col-form-label"><input type="text" id="content_reply" name="content_reply"
+                                                           class="form-control" placeholder="댓글을 여기다 써주세요"></label>
+                <div class="col-3 col-form-label" style="">
+                    <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
+                            id="content_reply_btn">
+                        <span>댓글</span></button>
+
+                </div>
+            </div>
+            {#                </div>#}
+            {#        댓글 달기 부분 #}
+            {% for record in target_replys %}
+                <div class="form-group row" style="background: #394C57; margin: 0% 3%"
+                     id="parent_reply_section_{{ record.pk }}">
+                    <div class="col-1 col-form-label" style="text-align: center">{{ forloop.counter }}</div>
+                    <label class="col-11 col-form-label">{{ record.question_reply_content }}</label>
+
+                </div>
+
+                <div class="form-group row"
+                     style="background: #394C57; margin: 0% 3%; border-bottom: 0.5px solid; font-size: 10px">
+                    <div class="col-6 col-form-label" style="padding:1px 2%"><i
+                            class="mdi mdi mdi-calendar-check"></i> &nbsp{{ record.writing_date }} 작성
+                    </div>
+                    <div class="col-6 col-form-label" style="text-align: right; padding:1px 2%"> <span><i
+                            class="mdi mdi mdi mdi-account-circle"></i>&nbsp {{ record.by_whom }}
+
+                    </span>
+                        {% comment %}
+                        <span id="btn_re_reply_open_{{ record.pk }}" name="btn_re_reply_open"
+                                                 record_pk="{{ record.pk }}">     <i
+                            class="fa fa-pencil-square-o "></i> 대댓글</span>
+
+                            {% endcomment %}
+                    </div>
+                    <div class="form-group row col-12 hidden" name="reply_btn_section" style = "margin:0px; padding:0px 1%"
+                         reply_writer="{{ record.by_whom }}" >
+                        <div class="col-6 col-form-label" style="">
+                        </div>
+                        <div class="col-6 col-form-label" style="text-align: right">
+                            <a style="color: #98a6ad"
+                               class="mouse_cursor"
+                               name="btn_reply_modify_open"
+                               record_pk={{ record.pk }}
+                            >
+                                <i
+                                        class="mdi mdi mdi-table-edit"></i> 수정</a>
+                            <a href="#" style="color: #98a6ad"
+                               name="btn_reply_delete"
+                               record_pk={{ record.pk }}
+                                       name="btn_reply_delete"
+                            >
+                                <i
+                                        class="mdi mdi-delete"></i> 삭제</a>
+                        </div>
+                    </div>
+
+                    <div class="form-group row col-12 hidden" id="re_reply_section_{{ record.pk }}"
+                         name="re_reply_section">
+
+                        <label class="col-9 col-form-label"><input type="text" id="reply_modify_input_{{ record.pk }}"
+                                                                   name="reply_modify_input"
+                                                                   class="form-control"
+                                                                   placeholder="수정 댓글을 여기다 써주세요"
+                                                                   value="{{ record.question_reply_content }}"></label>
+                        <div class="col-3 col-form-label" style="text-align: center">
+                            <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
+                                    id="btn_reply_modify_{{ record.pk }}"
+                                    record_pk="{{ record.pk }}"
+                                    name="btn_reply_modify">
+                                <span>수정</span></button>
+
+                        </div>
+                    </div>
+                </div>
+
+            {% endfor %}
+
+            <div class="form-group row" style="margin-top: 10px">
+                <div class="col-12">
+                    <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
+                            id="question_reply_btn" name="{{ question_record.pk }}">
+                        <i class="fa fa-pencil-square-o "></i> <span>    답글달기</span></button>
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <div class="col-12">
+                    <button class="hidden btn btn-info waves-effect waves-light m-b-5"
+                            id="modify_btn"
+                            record_pk={{ question_record.pk }}
+                                    name="modify_btn"
+                            style="color: #98a6ad;font-size:15px; mar5gin:5px; width: 100%">
+                        <i class="fa fa-pencil-square-o "></i> <span>수정</span></button>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-12">
+                    <button class="hidden btn btn-info waves-effect waves-light m-b-5"
+                            id="delete_btn"
+                            record_pk={{ question_record.pk }} name="delete_btn"
+                            style="color: #98a6ad;font-size:15px; margin:5px; width: 100%">
+                        <i class="fa fa-pencil-square-o "></i> <span>삭제</span></button>
+                </div>
+            </div>
+
         </div>
+
+
+        <br>
+
+        <br>
+        <br>
+    </div>
     </div>
 
 
@@ -94,6 +206,10 @@
             //삭제버튼 및 수정버튼 클릭시 confirm
             btn_delete_modify();
             btn_delete_modify_hide();
+            btn_thumb_setting();
+            content_reply_btn_setting();
+            btn_reply_delete_modify();
+            btn_re_reply_open_setting();
 
             {#question_title 에 대한 값을 집어 넣는다. #}
             var question_title = '{{ question_record.question_title }}';
@@ -102,11 +218,14 @@
                     alert("this question content",question_content);
                     tinyMCE.activeEditor.setContent(question_content);{% endcomment %}
             tinymce.init({
-                selector: "#id_content2",  // change this value according to your HTML
+                selector : 'textarea',
+                {#selector: "#id_content2",  // change this value according to your HTML#}
                 width: 'auto',
-                height: '500',
+                height: '350',
                 {#readOnly 편집 불가능하게 설정. #}
                 readonly: '1',
+                content_css : '/static/TheaterWinBook/css/tinymce_style.css'
+
 
             });
 
@@ -117,28 +236,245 @@
 
             });
             // JQuery 적용
+
+
+
+
         });
+    </script>
+    <script>
+        function btn_re_reply_open_setting() {
+            $("[name = 'btn_re_reply_open']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $("#re_reply_section_" + record_pk).toggleClass("hidden");
+
+            });
+        }
+
+        function btn_reply_delete_modify() {
+            $("[name = 'btn_reply_delete']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                swal({
+                    title: '정말 삭제하시겠습니까?',
+                    text: "삭제하면 다시 되돌릴 수 없습니다",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4fa7f3',
+                    cancelButtonColor: '#d57171',
+                    cancelButtonText: '아니요',
+                    confirmButtonText: '네, 삭제하겠습니다!'
+                }).then(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/question_reply_delete/",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            'record_pk': record_pk,
+                        },
+                        success: function (data) {
+                            var delete_result = data.delete_success;
+                            if (delete_result == "success") {
+                                swal(
+                                    '삭제 성공!',
+                                    '성공적으로 삭제되었습니다..',
+                                    'success'
+                                )
+                                location.reload();
+                            } else {
+                                swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                            }
+                        }
+                    });
+
+
+                });
+
+            });
+
+
+            $("[name = 'btn_reply_modify_open']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $("#re_reply_section_" + record_pk).toggleClass("hidden");
+                $("#parent_reply_section_" + record_pk).toggleClass("hidden");
+
+
+            });
+            $("[name = 'btn_reply_modify']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                var reply_modify_content = $("#reply_modify_input_" + record_pk).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/question_reply_modify/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                        'reply_modify_content': reply_modify_content,
+                    },
+                    success: function (data) {
+                        var delete_result = data.delete_success;
+                        if (delete_result == "success") {
+                            swal(
+                                '수정 성공!',
+                                '성공적으로 수정되었습니다..',
+                                'success'
+                            )
+                            location.reload();
+                        } else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                        }
+                    }
+                });
+
+            });
+
+        }
+
+        function content_reply_btn_setting() {
+            $("#content_reply_btn").click(function () {
+                var question_pk = $("#question_reply_btn").attr("name");
+                var content_reply = $("#content_reply").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/content_reply_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'question_pk': question_pk,
+                        'content_reply': content_reply
+
+                    },
+                    success: function (data) {
+                        var result = data.result;
+                        if (result == "success") {
+                            swal(
+                                '추천!',
+                                '성공적으로 등록되었습니다',
+                                'success'
+                            );
+                            location.reload();
+                        } else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+
+
+        }
+
+
+        function btn_thumb_setting() {
+
+            $(".btn_thumbdown").hover(function () {
+                    $(this).css("color", "#71B6F9");
+                }, function () {
+                    $(this).css("color", "#98a6ad");
+                }
+            );
+
+
+            $(".btn_thumbdown").click(function () {
+                var question_pk = $("#question_reply_btn").attr("name");
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/question_thumb_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'question_pk': question_pk,
+                        'thumb_style': 'down'
+
+                    },
+                    success: function (data) {
+                        var result = data.thumb_result;
+                        if (result == "down_success") {
+                            swal('내려요가 표시됐습니다').catch(swal.noop);
+                            location.reload();
+                        } else if (result == 'down_cancel') {
+                            swal('내려요가 취소됐습니다!').catch(swal.noop);
+                            location.reload();
+                        }
+
+                        else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+
+            $(".btn_thumbup").hover(function () {
+                    $(this).css("color", "#71B6F9");
+                }, function () {
+                    $(this).css("color", "#98a6ad");
+                }
+            );
+
+
+            $(".btn_thumbup").click(function () {
+                {#비추 버튼 클릭 시#}
+                var question_pk = $("#question_reply_btn").attr("name");
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/question_thumb_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'question_pk': question_pk,
+                        'thumb_style': 'up'
+
+                    },
+                    success: function (data) {
+                        var result = data.thumb_result;
+                        if (result == "up_success") {
+                            swal(
+                                '추천!',
+                                '성공적으로 추천되었습니다.',
+                                'success'
+                            );
+                            location.reload();
+                        } else if (result == 'up_cancel') {
+                            swal('추천이 취소되었습니다').catch(swal.noop);
+                            location.reload();
+                        }
+
+                        else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+
+        }
 
         function btn_delete_modify_hide() {
             var is_record_owner = '{{ is_record_owner }}';
-            if(is_record_owner=='owner'){
-                $("#modify_btn").addClass('hidden');
-                $("#delete_btn").addClass('hidden');
-            }else if(is_record_owner =='not_owner'){
 
-            }else{
+            if (is_record_owner == 'owner') {
+                $("#modify_btn").removeClass('hidden');
+                $("#delete_btn").removeClass('hidden');
+            } else if (is_record_owner == 'not_owner') {
+
+            } else {
 
             }
 
 
+            {#    #}
+
+            var login_user = '{{ login_user }}';
+            $("div[name='reply_btn_section']").each(function (index) {
+                var record_writer = $(this).attr('reply_writer');
+
+                if (record_writer == login_user) {
+                    $(this).removeClass("hidden")
+                } else {
+                }
+            });
+
+
         }
-        
+
 
         {#삭제 및 수정 버튼#}
+
         function btn_delete_modify() {
-
-
-
             $("[name = 'delete_btn']").click(function () {
                 var record_pk = $(this).attr('record_pk');
                 swal({

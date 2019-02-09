@@ -230,21 +230,26 @@
         {#오늘 및 일주일전 날짜 구하기 형식#}
 
         function getDateStr(myDate) {
-            return (myDate.getFullYear() + '-' + (myDate.getMonth() + 1) + '-' + myDate.getDate())
+            var month_with_2_digit = myDate.getMonth()+1;
+            if(month_with_2_digit<10){
+                month_with_2_digit = '0'+month_with_2_digit;
+            }
+
+            return (myDate.getFullYear() + '-' + month_with_2_digit + '-' + myDate.getDate());
         }
 
         /* 오늘 날짜를 문자열로 반환 */
         function today_setting() {
-            var d = new Date()
-            return getDateStr(d)
+            var d = new Date();
+            return getDateStr(d);
         }
 
         /* 오늘로부터 1주일전 날짜 반환 */
         function lastWeek_setting() {
-            var d = new Date()
-            var dayOfMonth = d.getDate()
-            d.setDate(dayOfMonth - 7)
-            return getDateStr(d)
+            var d = new Date();
+            var dayOfMonth = d.getDate();
+            d.setDate(dayOfMonth - 7);
+            return getDateStr(d);
         }
 
 
@@ -253,6 +258,7 @@
             {#  날짜 버튼 색깔 칠하기  #}
             var url_string = window.location.href; //window.location.href
             var url = new URL(url_string);
+            {# 현 urpl 에 존재하는 파라미터 구하기#}
             var url_datepicker_start = url.searchParams.get("datepicker_start");
             var url_datepicker_end = url.searchParams.get("datepicker_end");
             {# 최근 일주일, 한달, 모든기간 버튼 색칠 #}
@@ -268,9 +274,13 @@
                 var datepicker_start = lastWeek_setting();
                 var datepicker_end = today_setting();
 
-                $("#datepicker_start").attr("value", datepicker_start);
+                $('#datepicker_start').datepicker("setDate", datepicker_start);
+                $('#datepicker_end').datepicker("setDate", datepicker_end);
+
+
+                {#$("#datepicker_start").attr("value", datepicker_start);#}
                 $("#datepicker_start").trigger("changeDate");
-                $("#datepicker_end").attr("value", datepicker_end);
+                {#$("#datepicker_end").attr("value", datepicker_end);#}
                 $("#datepicker_end").trigger("changeDate");
                 {% comment %}
                  $("#datepicker_start").val(datepicker_start).trigger("change").change();
@@ -565,13 +575,13 @@
             }
 
             {#Morris LineArea Chart 시작 #}
-
+{% comment %}
             var chart_xy_array = chart_x_array.map((price, idx) => {
                 return {y: chart_x_array, a: chart_y_array};
             });
             var chart_xy_array = chart_x_array.map(function (price, idx) {
                 return {y: chart_x_array, a: chart_y_array};
-            });
+            });{% endcomment %}
 
             for (var i = 0; i < chart_x_array.length; i++) {
                 var object_xy_data = new Object();

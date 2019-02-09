@@ -1,0 +1,480 @@
+{% extends "TheaterWinBook/base_header_footer_dark.html" %}
+{% load static %}
+{% block css_script %}
+    <style>
+        .breadcrumb-wrap {
+            padding: 5%;
+        }
+
+        body, html {
+            height: 100%;
+            margin: 0;
+            background: #394c57;
+            background: linear-gradient(to right, #394c57, #86A8E7, #394c57);
+        }
+
+        .chat {
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .card {
+            height: 500px;
+            border-radius: 15px !important;
+            background-color: rgba(0, 0, 0, 0.4) !important;
+        }
+
+        .contacts_body {
+            padding: 0.75rem 0 !important;
+            overflow-y: auto;
+            white-space: nowrap;
+        }
+
+        .msg_card_body {
+            overflow-y: auto;
+        }
+
+        .card-header {
+            border-radius: 15px 15px 0 0 !important;
+            border-bottom: 0 !important;
+        }
+
+        .card-footer {
+            border-radius: 0 0 15px 15px !important;
+            border-top: 0 !important;
+        }
+
+        .container {
+            align-content: center;
+        }
+
+        .search {
+            border-radius: 15px 0 0 15px !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+        }
+
+        .search:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+        .type_msg {
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            height: 60px !important;
+            overflow-y: auto;
+        }
+
+        .type_msg:focus {
+            box-shadow: none !important;
+            outline: 0px !important;
+        }
+
+        .attach_btn {
+            border-radius: 15px 0 0 15px !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .send_btn {
+            border-radius: 0 15px 15px 0 !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .search_btn {
+            border-radius: 0 15px 15px 0 !important;
+            background-color: rgba(0, 0, 0, 0.3) !important;
+            border: 0 !important;
+            color: white !important;
+            cursor: pointer;
+        }
+
+        .contacts {
+            list-style: none;
+            padding: 0;
+        }
+
+        .contacts li {
+            width: 100% !important;
+            padding: 5px 10px;
+            margin-bottom: 15px !important;
+        }
+
+        .user_img {
+            height: 70px;
+            width: 70px;
+            border: 1.5px solid #f5f6fa;
+
+        }
+
+        .user_img_msg {
+            height: 40px;
+            width: 40px;
+            border: 1.5px solid #f5f6fa;
+
+        }
+
+        .img_cont {
+            position: relative;
+            height: 70px;
+            width: 70px;
+        }
+
+        .img_cont_msg {
+            height: 40px;
+            width: 40px;
+        }
+
+        .online_icon {
+            position: absolute;
+            height: 15px;
+            width: 15px;
+            background-color: #4cd137;
+            border-radius: 50%;
+            bottom: 0.2em;
+            right: 0.4em;
+            border: 1.5px solid white;
+        }
+
+        .offline {
+            background-color: #c23616 !important;
+        }
+
+        .user_info {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 15px;
+        }
+
+        .user_info span {
+            font-size: 20px;
+            color: white;
+        }
+
+        .user_info p {
+            font-size: 10px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .video_cam {
+            margin-left: 50px;
+            margin-top: 5px;
+        }
+
+        .video_cam span {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+
+        .msg_cotainer {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-left: 10px;
+            border-radius: 25px;
+            background-color: #82ccdd;
+            padding: 10px;
+            position: relative;
+        }
+
+        .msg_cotainer_send {
+            margin-top: auto;
+            margin-bottom: auto;
+            margin-right: 10px;
+            border-radius: 25px;
+            background-color: #78e08f;
+            padding: 10px;
+            position: relative;
+        }
+
+        .msg_time {
+            position: absolute;
+            left: 0;
+            bottom: -15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+        }
+
+        .msg_time_send {
+            position: absolute;
+            right: 0;
+            bottom: -15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 10px;
+        }
+
+        .msg_head {
+            position: relative;
+        }
+
+        #action_menu_btn {
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        .action_menu {
+            z-index: 1;
+            position: absolute;
+            padding: 15px 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border-radius: 15px;
+            top: 30px;
+            right: 15px;
+            display: none;
+        }
+
+        .action_menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .action_menu ul li {
+            width: 100%;
+            padding: 10px 15px;
+            margin-bottom: 5px;
+        }
+
+        .action_menu ul li i {
+            padding-right: 10px;
+
+        }
+
+        .action_menu ul li:hover {
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 576px) {
+            .contacts_card {
+                margin-bottom: 15px !important;
+            }
+        }
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <br>
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="container-fluid h-100">
+                    <div class="row justify-content-center h-100">
+                    </div>
+                    <div class="col-md-12 chat">
+                        <div class="card" style="height: 700px;">
+                            <div class="card-header msg_head">
+                                <div class="d-flex bd-highlight">
+                                    <div class="img_cont">
+                                        <i class="mdi mdi-account-circle" style="font-size: 65px"></i>
+                                        <span class="online_icon"></span>
+                                    </div>
+                                    <div class="user_info">
+                                        <br>
+                                        <span>극장승 자유 채팅방</span>
+                                        {#                                        <p>- 현재 2명 접속 중 - </p>#}
+                                    </div>
+                                    {% comment %}
+                          <div class="video_cam">
+                            <span><i class="fas fa-video"></i></span>
+                            <span><i class="fas fa-phone"></i></span>
+                        </div>
+                        {% endcomment %}
+                                </div>
+                                {#                                <span id="action_menu_btn"><i class="fas fa-ellipsis-v"></i></span>#}
+                                <div class="action_menu">
+                                    <ul>
+                                        <li><i class="fas fa-user-circle"></i> View profile</li>
+                                        <li><i class="fas fa-users"></i> Add to close friends</li>
+                                        <li><i class="fas fa-plus"></i> Add to group</li>
+                                        <li><i class="fas fa-ban"></i> Block</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body msg_card_body" id="chatting_body" style="width: 98%;">
+
+                            </div>
+                            <div class="card-footer">
+                                <div class="input-group">
+                                    <div class="input-group-append">
+                                        <span class="input-group-text attach_btn"><i
+                                                class="fas fa-paperclip"></i></span>
+                                    </div>
+                                    <textarea id="chat-message-input" name="" class="form-control type_msg"
+                                              placeholder="" style="min-height: 10px;"></textarea>
+                                    <div class="input-group-append" id="chat-message-submit">
+                                        <span class="input-group-text send_btn"><i
+                                                class="fas fa-location-arrow"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+    <script>
+        $(document).ready(function () {
+
+            $('#action_menu_btn').click(function () {
+                $('.action_menu').toggle();
+            });
+            // JQuery 적용
+        });
+
+
+    </script>
+    {# reconnecting websocket#}
+    <script src="{% static 'TheaterWinBook/js/reconnecting-websocket.js' %}"></script>
+    <script>
+
+
+        var roomName = {{ room_name_json }};
+
+        var chatSocket = new WebSocket(
+            'ws://' + window.location.host +
+            '/ws/chatting_room/' + roomName + '/');
+
+        chatSocket.onopen = function (e) {
+            {#    성공하면 여기서 기존의 것을 받아오자..#}
+        };
+
+
+        chatSocket.onmessage = function (e) {
+            var data = JSON.parse(e.data);
+            var message = String(data['message']);
+            {#document.querySelector('#chat-log').value += (message + '\n');#}
+            {#  아이디 체크 후 새로운 글 채팅방에 추가하기 #}
+            var writer_name = String(data['username']);
+            var newmessage;
+            var current_username = '{{ user.get_username }}';
+
+            var writing_time = String(data['writing_time']);
+            if (writer_name == current_username) {
+                {#  내가 쓴 글   #}
+                newmessage = "   <div class=\"d-flex justify-content-end mb-4\">\n" +
+                    "\n" +
+                    "                                    <div class=\"msg_cotainer_send\" style=\"color: #ffffff;\">\n" +
+                    message +
+                    "                                        <div style=\"text-align: right\">\n" +
+                    "                                            <span class=\"msg_time_send\" style=\"margin-top: 10px; min-width: 300px\">" + writing_time + "&nbsp written by " +  writer_name+ "</span>\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "\n" +
+                    "                                    <div class=\"img_cont_msg\">\n" +
+                    "                                         <i class=\"mdi mdi-account-circle\" style=\"font-size: 45px\"></i>\n" +
+                    "                                    </div>\n" +
+                    "                                </div> ";
+            } else {
+                {#  남이 쓴 글   #}
+                newmessage = "   <div class=\"d-flex justify-content-start mb-4\">\n" +
+                    "                                    <div class=\"img_cont_msg\">\n" +
+                    "                                            <i class=\"mdi mdi-account-circle\" style=\"font-size: 35px\"></i>\n" +
+                    "                                    </div>\n" +
+                    "                                    <div class=\"msg_cotainer\" style=\"color: #ffffff; \">\n" +
+                    message +
+                    "                                        <div style=\"text-align: left\">\n" +
+                    "                                            <span class=\"msg_time\" style=\"margin-top: 10px; min-width: 300px\">" + writer_name + "&nbsp written at " + writing_time + "</span>\n" +
+                    "                                        </div>\n" +
+                    "                                    </div>\n" +
+                    "                                </div>";
+
+            }
+
+
+            $("#chatting_body").append(newmessage);
+            $("#chatting_body").scrollTop($("#chatting_body")[0].scrollHeight);
+
+        };
+
+        chatSocket.onclose = function (e) {
+            console.error('Chat socket closed unexpectedly');
+            {# 예상치 못하게 끊어졌을 경우, 채팅 룸을 모두 삭제하고 다시 접속하자#}
+            $("#chatting_body").empty()
+
+            {# 예상치 못하게 종료 시에, 같은 방을 다시 만들어 준다.    #}
+
+            var chatSocket = new WebSocket(
+                'ws://' + window.location.host +
+                '/ws/chatting_room/' + roomName + '/');
+
+        };
+
+        document.querySelector('#chat-message-input').focus();
+        document.querySelector('#chat-message-input').onkeyup = function (e) {
+            if (e.keyCode === 13) {  // enter, return
+                document.querySelector('#chat-message-submit').click();
+            }
+        };
+
+        document.querySelector('#chat-message-submit').onclick = function (e) {
+            {#로그인 체크 #}
+            var current_username = '{{ user.get_username }}';
+            if (current_username == '') {
+                swal({
+                    title: '로그인 필요',
+                    text: "- 채팅 서비스 이용을 위해서 로그인이 필요합니다 -  ",
+                    type: 'warning',
+                    showCancelButton: false,
+                    confirmButtonColor: '#4fa7f3',
+                    cancelButtonColor: '#d57171',
+                    confirmButtonText: '확인'
+                });
+                $("#chat-message-input").val('');
+            } else {
+                var messageInputDom = document.querySelector('#chat-message-input');
+                var message = messageInputDom.value;
+                var current_username = current_username;
+                var Now = new Date();
+                var NowTime = Now.getFullYear();
+                NowTime += '-' + Now.getMonth() + 1;
+                NowTime += '-' + Now.getDate();
+                NowTime += ' ' + Now.getHours();
+                NowTime += ':' + Now.getMinutes();
+                NowTime += ':' + Now.getSeconds();
+                chatSocket.send(JSON.stringify({
+                    'message': message,
+                    'username': current_username,
+                    'writing_time': NowTime,
+                    'command': 'new_message'
+
+                }));
+            }
+
+
+            messageInputDom.value = '';
+        };
+
+
+    </script>
+
+
+
+
+{% endblock %}
+
+

@@ -42,6 +42,10 @@ class TheaterWinBookRecordForm(forms.ModelForm):
     win_check_choice = [(0, '적중실패'), (1, '적중성공'), (2, '경기전')]
     win_check = forms.ChoiceField(choices=win_check_choice, initial=1,
                                   widget=forms.Select(attrs={'style': 'padding:5px 5px; text-align-last:center'}))
+    share_check_choice = [(0, '공유하지 않음'), (1, '공유함')]
+    share_check = forms.ChoiceField(choices=share_check_choice, initial=1,
+                                  widget=forms.Select(attrs={'style': 'padding:5px 5px; text-align-last:center'}))
+
 
     class Meta:
         model = TheaterWinBookRecord
@@ -72,8 +76,7 @@ class TheaterWinQuestionForm(forms.ModelForm):
     question_content = forms.CharField(widget=TinyMCEWidget(),required=False)
     question_isanswer = forms.IntegerField(required=False, max_value=5, min_value=0,
                                            widget=forms.NumberInput(attrs={'step': "1"}), initial=0)
-    question_thumbup = forms.IntegerField(required=False, max_value=1000000, min_value=1,
-                                          widget=forms.NumberInput(attrs={'step': "1"}), initial=1)
+
     question_hit = forms.IntegerField(required=False, min_value=1,
                                           widget=forms.NumberInput(attrs={'step': "1"}), initial=1)
     question_groupnum = forms.IntegerField(required=False, max_value=1000000, min_value=1,

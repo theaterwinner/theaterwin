@@ -47,7 +47,9 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-12">      {{ form.question_content }}</div>
+                        <div class="col-12">        <textarea id="id_question_content" name = "question_content">  {{ target_record.question_content }}  </textarea>
+                                      <input name="image" type="file" id="upload" class="hidden" onchange="">
+                        </div>
 
                     </div>
 
@@ -55,8 +57,6 @@
                             id="submit_BT">
                         <i
                                 class="fa fa-pencil-square-o "></i> <span>수정하기</span></button>
-
-
                 </form>
 
 
@@ -79,6 +79,54 @@
 
     <script>
         $(document).ready(function () {
+               tinymce.init({
+                selector: '#id_question_content',
+                {#selector: "#id_content2",  // change this value according to your HTML#}
+                width: 'auto',
+                height: '350',
+                paste_data_images: true,
+                plugins: [
+                    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen",
+                    "insertdatetime media nonbreaking save table contextmenu directionality",
+                    "emoticons template paste textcolor colorpicker textpattern"
+                ],
+                toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                toolbar2: "print preview media | forecolor backcolor emoticons",
+                image_advtab: true,
+                file_picker_callback: function (callback, value, meta) {
+                    if (meta.filetype == 'image') {
+                        $('#upload').trigger('click');
+                        $('#upload').on('change', function () {
+                                                        if (this.files[0].size > 1000000) {
+                                   alert("File is too big!");
+                                   this.value = "";
+                               }
+
+                            var file = this.files[0];
+
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                callback(e.target.result, {
+                                    alt: ''
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                        });
+                    }
+                },
+                templates: [{
+                    title: 'Test template 1',
+                    content: 'Test 1'
+                }, {
+                    title: 'Test template 2',
+                    content: 'Test 2'
+                }]
+            });
+
+
+
             var is_original = getParameterByName('is_original');
             var question_pk = getParameterByName('question_pk');
             if (is_original == 'question_reply') {

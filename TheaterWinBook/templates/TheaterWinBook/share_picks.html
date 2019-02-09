@@ -1,0 +1,585 @@
+{% extends "TheaterWinBook/base_header_footer_dark.html" %}
+
+{% block css_script %}
+    <style>
+
+        {#  전체/적중/비적중/라디오버튼  #}
+        .input-group .form-control.form-control-selectpicker {
+            padding: 0;
+        }
+
+        .input-group .form-control.form-control-selectpicker > .btn-group.bootstrap-select {
+            width: 100%;
+        }
+
+        .input-group .form-control.form-control-selectpicker .btn-group .btn {
+            border: 0;
+        }
+
+        label span {
+            color: #32c5d2;
+        }
+
+        {# ellipsis 는 inline으로 돼지 않고, class 로 가능하다. #}
+        .ellipsis {
+            text-overflow: ellipsis;
+            /* Required for text-overflow to do anything */
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+
+    </style>
+{% endblock %}
+
+
+{% block content %}
+
+
+
+    <div class="wrapper">
+    <div class="container-fluid">
+
+
+
+    <!-- Page-Title -->
+    <div class="row">
+        <div class="col-sm-12">
+            <h4 class="page-title"> 토계부 공유 - <span>{{ total_records_count }}</span>개</h4>
+        </div>
+
+    </div>
+    <!-- end page title end breadcrumb -->
+
+
+
+    <div class="row" style="margin-left: 40px">
+        <p class="text-muted font-13 m-b-15 m-t-20"></p>
+        <div class="radio radio-info form-check-inline ">
+            <input type="radio" id="inlineRadio1" value="win_check_all" name="radioInline" checked>
+            <label for="inlineRadio1">전체</label>
+        </div>
+        <div class="radio form-check-inline ">
+            <input type="radio" id="inlineRadio2" value="win_check_hit" name="radioInline">
+            <label for="inlineRadio2">적중 </label>
+        </div>
+        <div class="radio form-check-inline ">
+            <input type="radio" id="inlineRadio3" value="win_check_miss" name="radioInline">
+            <label for="inlineRadio3">미적중</label>
+        </div>
+        <div class="radio form-check-inline ">
+            <input type="radio" id="inlineRadio4" value="win_check_yet" name="radioInline">
+            <label for="inlineRadio4">경기전</label>
+        </div>
+
+    </div>
+
+
+    <div class="row ">
+        {% for winbook_record in database_list_result_page %}
+
+            {#                    <div class="col-xl-12  winbook_record_list ">#}
+            {#  적중/비적중/미경기에 따라서 클래스를 바꿔 넣는다   #}
+            {% if winbook_record.win_check == 0 %}
+                {% with win_check_color_status="#ff253b" %}
+                    <div class="col-xl-12  card-box project-box winbook_record_list win_check_miss "
+                         style=" ">
+                {% endwith %}
+            {% elif winbook_record.win_check == 1 %}
+                {% with win_check_color_status="#59df57" %}
+                    <div class="col-xl-12 card-box project-box winbook_record_list  win_check_hit "
+                         style=" ">
+                {% endwith %}
+            {% elif winbook_record.win_check == 2 %}
+                {% with win_check_color_status="#ffcd38" %}
+                    <div class="col-xl-12 card-box project-box winbook_record_list win_check_yet "
+                         style=" ">
+                {% endwith %}
+            {% endif %}
+
+
+        <span class="hidden win_check">{{ winbook_record.win_check }}</span>
+
+
+        {#  적중/비적중/미경기에 따라서 배지를 바꿉니다.    #}
+        {% if winbook_record.win_check == 0 %}
+            <div class="badge badge-danger" style="color: #212529 ;  font-weight: bold;">미적중</div>
+        {% elif winbook_record.win_check == 1 %}
+            <div class="badge badge-success" style="color: #212529 ;  font-weight: bold;">적중</div>
+        {% elif winbook_record.win_check == 2 %}
+            <div class="badge badge-warning" style="color: #212529 ;  font-weight: bold;">경기전</div>
+        {% endif %}
+
+        {#   slugify 는 integer나 string을 최소한의 형태로 맞추어 주는 역할이다. 비교를 할 때는 반드시 이걸 하자.. #}
+        {% if new_winbook_pk|slugify == winbook_record.pk|slugify %}
+            <p class="badge badge-primary" style="position: relative; left: 10px;">New</p>
+        {% endif %}
+        <p style="position: relative;"> No.{{ forloop.counter }} &nbsp<i class="fas fa-user-circle"></i>
+                {{ winbook_record.user_name }} <span></span>
+        </p>
+
+        {% comment %}         <h4 class="mt-0" style="text-align: center;"><a href="{% url 'winbook_detail' record_pk=3 %}"
+                                                            class="text-white"> {{ winbook_record.buy_game_title }} </a>
+            </h4>{% endcomment %}
+        <h4 class="mt-0" class="ellipsis" style="text-align: center;"><a href="/winbook_detail/{{ winbook_record.pk }}/"
+                                                                         class="text-white"> {{ winbook_record.buy_game_title }} </a>
+        </h4>
+
+        <ul class="list-inline" style="text-align: center">
+            <li class="list-inline-item pull-left" style="text-align: center;">
+                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px;margin-left: 5px">배팅 금액</p>
+                <h3 class="mb-0" style="margin-top: 0px;margin-left: 5px"><span
+                        class="batting_money">{{ winbook_record.batting_money }}</span></h3>
+
+            </li>
+
+            <li class="list-inline-item" style="text-align: center;">
+                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px">폴더수</p>
+                <h3 class="mb-0" style="margin-top: 0px"> <span
+                        class="folder_num">{{ winbook_record.folder_num }}</span></h3>
+
+            </li>
+            <li class="list-inline-item pull-right" style="text-align: center;">
+                <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px;margin-right: 5px">배당률</p>
+                <h3 class="mb-0" style="margin-top: 0px;margin-right: 5px"> <span
+                        class="batting_ratio">{{ winbook_record.batting_ratio }}</span></h3>
+
+            </li>
+        </ul>
+        <p class="font-600 m-b-5" style="font-size: 20px"> &nbsp
+            {#  적중/비적중/미경기에 따라서 색깔를 바꿉니다.    #}
+            {% if winbook_record.win_check == 0 %}
+
+                <span
+                        class="net_profit_money pull-right" style="color: #ff5b5b; margin-right: 5px">순이익</span>
+            {% elif winbook_record.win_check == 1 %}
+                <span
+                        class="net_profit_money pull-right" style="color: #10c469; margin-right: 5px">순이익</span>
+                <span></span>
+            {% elif winbook_record.win_check == 2 %}
+                <span
+                        class="net_profit_money pull-right" style="color: #f9c851; margin-right: 5px">순이익</span>
+                <span></span>
+            {% endif %}
+
+
+        </p>
+
+
+        <p class="font-600 m-b-5" style="margin-left: 10px"><span>{{ winbook_record.etc_memo }}</span>
+        </p>
+
+        <ul class="list-inline post-detail" style="margin: 0px; text-align: right;
+    border-bottom: 1px solid #666666; ">
+
+
+            <li style="    display: inline-block;"> {{ winbook_record.buy_date }} 구매 </li>
+            <li style="    display: inline-block;"><i class="fas  fa-share-alt"></i>
+                {% if winbook_record.share_check == 0 %}
+                    &nbsp비공개중
+                {% elif winbook_record.share_check == 1 %}
+                    &nbsp공개중
+                {% endif %}
+            </li>
+
+        </ul>
+
+        <ul class="list-inline post-detail hidden" style="margin: 0px; text-align: right;
+    border-bottom: 1px solid #666666; " name="modify_and_delete_section" record_writer="{{ winbook_record.user_name }}">
+            <li style="    display: inline-block;"><i class="fas fa-trash-alt"></i><a href="#"
+                                                                                      id="delete_btn_{{ winbook_record.pk }}"
+                                                                                      record_pk={{ winbook_record.pk }} name="delete_btn"
+                                                                                      style="color: #98a6ad;font-size:15px; margin:5px">
+                삭제</a>
+                {% comment %}              <button type="button" class="btn btn-light waves-effect waves-light btn-sm" id="sa-warning">Click me
+                </button>{% endcomment %}
+            </li>
+
+
+            <li style="    display: inline-block;"><i class="fas fa-pen-square"></i> <a href="#"
+                                                                                        id="modify_btn_{{ winbook_record.pk }}"
+                                                                                        record_pk={{ winbook_record.pk }}
+                                                                                                name="modify_btn"
+                                                                                        style="color: #98a6ad;font-size:15px; margin:5px">
+                수정 </a></li>
+        </ul>
+        </div>   <!-- end col-->
+        {% endfor %}
+
+
+        {% if database_list_result_page.has_other_pages %}
+            <div class="row card-box col-xs-12" style="margin: 0 auto; width: 100%">
+                <nav style="margin: 0 auto;">
+                    <ul class="pagination pagination-lg m-b-0">
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Previous" id="pagination_previous">
+                                <span aria-hidden="true">&laquo;</span>
+                            </a>
+                        </li>
+
+                        {% for i in database_list_result_page.custom_page_range %}
+                            {% if database_list_result_page.pagenum == i %}
+                                <li class="page-item active"><a class="page-link " href="#"
+                                                                name="page_num">{{ i }}</a>
+                                </li>
+                            {% else %}
+                                <li class="page-item"><a class="page-link page_number" name="page_num"
+                                                         href="/share_picks?pagenum={{ i }}">{{ i }}</a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Next" id="pagination_next">
+                                <span aria-hidden="true">&raquo;</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+                </nav>
+            </div>
+        {% endif %}
+        <br><br>
+        </div>       <!--end row-->
+        </div>    <!-- end container -->
+    </div>    <!-- end wrapper -->
+
+
+    <div class="row" style="margin: 5px 30px">
+
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+
+
+{% endblock %}
+
+
+{% block javascript %}
+
+    <script>
+        {#    처음 초기화 인지 아닌지 확인, 초기화시에는 setting이 제로#}
+        var setting_datepicker_initial = true;
+        var numberofrecords = 1;
+
+
+        function more_records_btn_ajax() {
+        }
+
+
+        {#오늘 및 일주일전 날짜 구하기 형식#}
+
+        function getDateStr(myDate) {
+            var month_with_2_digit = myDate.getMonth() + 1;
+            if (month_with_2_digit < 10) {
+                month_with_2_digit = '0' + month_with_2_digit;
+            }
+            return (myDate.getFullYear() + '-' + month_with_2_digit + '-' + myDate.getDate());
+        }
+
+        /* 오늘 날짜를 문자열로 반환 */
+        function today_setting() {
+            var d = new Date();
+            return getDateStr(d)
+        }
+
+        /* 오늘로부터 1주일전 날짜 반환 */
+        function lastWeek_setting() {
+            var d = new Date()
+            var dayOfMonth = d.getDate()
+            d.setDate(dayOfMonth - 7)
+            return getDateStr(d)
+        }
+
+        /* 오늘로부터 1개월전 날짜 반환 */
+        function lastMonth_setting() {
+            var d = new Date()
+            var monthOfYear = d.getMonth()
+            d.setMonth(monthOfYear - 1)
+            return getDateStr(d)
+        }
+
+        function modify_and_delete_section_setting() {
+            var login_user = '{{ request.user.username }}';
+            $("ul[name='modify_and_delete_section']").each(function (index) {
+                var record_writer = $(this).attr('record_writer');
+                if (record_writer == login_user) {
+                    $(this).removeClass("hidden");
+                } else {
+                }
+            });
+        }
+
+
+        $(document).ready(function () {
+
+            modify_and_delete_section_setting();
+
+
+            $(':radio[name="radioInline"]').change(function () {
+                var radiobutton = $(this);
+                if (radiobutton.length) {
+                    if (radiobutton.val() == 'win_check_all') {
+                        $(".winbook_record_list").removeClass("hidden");
+                    }
+                    else if (radiobutton.val() == 'win_check_hit') {
+                        $(".win_check_hit").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    }
+                    else if (radiobutton.val() == 'win_check_miss') {
+                        $(".win_check_miss").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    } else if (radiobutton.val() == 'win_check_yet') {
+                        $(".win_check_yet").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                    } else {
+                        alert("잘못된 행위입니다. 다시 시도해주십시요.");
+                    }
+
+                    return;
+                }
+
+            });
+
+
+            // datepicker 설정
+            // setting_datepicker();
+            // 페이지 nav 에 따른 설정하기
+
+            //recent BUTTON 설정
+
+            //삭제버튼 및 수정버튼 클릭시 confirm
+            btn_delete_modify();
+
+            pagination_setting();
+            //각각의 리코드에 대해서 netprofit을 계산하기
+            records_netprofit_setting();
+
+            {#url체크해서 navigation에 색깔 칠해주기. #}
+            if (window.location.href.indexOf("share_picks") > -1) {
+                $("#nav_share_picks").addClass("active");
+            }
+
+
+            $(':radio[name="radioInline"]').change(function () {
+                var radiobutton = $(this);
+                if (radiobutton.length) {
+                    if (radiobutton.val() == 'win_check_all') {
+                        $(".winbook_record_list").removeClass("hidden");
+                    }
+                    else if (radiobutton.val() == 'win_check_hit') {
+                        $(".win_check_hit").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    }
+                    else if (radiobutton.val() == 'win_check_miss') {
+                        $(".win_check_miss").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                        $(".win_check_yet").addClass("hidden");
+                    } else if (radiobutton.val() == 'win_check_yet') {
+                        $(".win_check_yet").removeClass("hidden");
+                        $(".win_check_all").addClass("hidden");
+                        $(".win_check_miss").addClass("hidden");
+                        $(".win_check_hit").addClass("hidden");
+                    } else {
+                        alert("잘못된 행위입니다. 다시 시도해주십시요.");
+                    }
+
+                    return;
+                }
+
+            });
+
+
+            {#페이지 시작시에 기본적으로 전체 라디오버튼 클릭, 앞의 라디오 버튼 설정 뒤에 클릭행위가 들어가야함. #}
+            $("#win_check_all_label").trigger('click');
+
+            {#새로운 토계부 정보를 체크하는 변수가  yes이면#}
+            var new_winbook_check = '{{ new_winbook_check }}';
+            if (new_winbook_check == 'n') {
+            } else if (new_winbook_check == 'y') {
+                {# sweet alert #}
+                swal(
+                    {
+                        title: 'Good Job!',
+                        text: '성공적으로 등록되었습니다!',
+                        type: 'success',
+                        confirmButtonColor: '#4fa7f3'
+                    }
+                )
+            } else {
+
+            }
+        });
+        {#   document.ready(function())    끝    #}
+
+        function pagination_setting() {
+            var start_page = '{{ database_list_result_page.start_page  }}';
+            var end_page = '{{ database_list_result_page.end_page  }}';
+            var total_page_number = '{{ database_list_result_page.total_page_number  }}';
+            var pagination_previous_num = parseInt(start_page) - 1;
+            var pagination_next_num = parseInt(end_page);
+            if (pagination_previous_num < 1) {
+                pagination_previous_num = 1;
+            }
+
+            if (pagination_next_num > total_page_number) {
+                pagination_next_num = total_page_number;
+            }
+
+            {# 현 urpl 에 존재하는 파라미터 구하기#}
+            var url_string = window.location.href; //window.location.href
+            var url = new URL(url_string);
+
+
+            $("#pagination_previous").attr("href", "/share_picks?pagenum=" + pagination_previous_num);
+            $("#pagination_next").attr("href", "/share_picks?pagenum=" + pagination_next_num);
+
+
+        }
+
+
+        function records_netprofit_setting() {
+            {#모든 winbook_record에 대해서 각각 netprofit을 구하기#}
+            $(".winbook_record_list").each(function (index) {
+                var total_net_profit;
+                var win_check = parseInt(($(this).find(".win_check").text()));
+                var batting_money = parseInt($(this).find(".batting_money").text());
+                var batting_ratio = parseFloat($(this).find(".batting_ratio").text());
+                var folder_num = parseInt($(this).find(".folder_num").text());
+                var net_profit = 0;
+                if (win_check == 0) {
+                    net_profit = -(batting_money);
+                } else if (win_check == 1) {
+                    net_profit = ((batting_ratio * batting_money) - (batting_money));
+                } else if (win_check == 2) {
+                    net_profit = ((batting_ratio * batting_money) - (batting_money));
+                }
+                total_net_profit += net_profit;
+                $(this).find(".net_profit_money").text(addCommas(Math.round(net_profit)));
+                $(this).find(".batting_money").text(addCommas(Math.round(batting_money)));
+            });
+        }
+
+
+        {#3자리마다 콤마 찍어주기#}
+        //3자리 단위마다 콤마 생성
+        function addCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        }
+
+        //모든 콤마 제거
+        function removeCommas(x) {
+            if (!x || x.length == 0) return "";
+            else return x.split(",").join("");
+        }
+
+        {#삭제 및 수정 버튼#}
+
+        function btn_delete_modify() {
+            $("[name = 'delete_btn']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                swal({
+                    title: '정말 삭제하시겠습니까?',
+                    text: "삭제하면 다시 되돌릴 수 없습니다",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4fa7f3',
+                    cancelButtonColor: '#d57171',
+                    cancelButtonText: '아니요',
+                    confirmButtonText: '네, 삭제하겠습니다!'
+                }).then(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/list_delete/",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            'record_pk': record_pk,
+                        },
+                        success: function (data) {
+                            var delete_result = data.delete_success;
+                            if (delete_result == "success") {
+                                swal(
+                                    '삭제 성공!',
+                                    '성공적으로 삭제되었습니다..',
+                                    'success'
+                                )
+                                location.reload();
+                            } else {
+                                swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                            }
+                        }
+                    });
+
+
+                });
+
+            });
+
+
+            $("[name = 'modify_btn']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $.ajax({
+                    type: "POST",
+                    url: "/list_usercheck/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                    },
+                    success: function (data) {
+                        var usercheck_result = data.usercheck_success;
+                        if (usercheck_result == "success") {
+                            window.location = '/winbook_modify?record_pk=' + record_pk;
+                        } else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                        }
+                    }
+                });
+
+
+            });
+
+        }
+
+        {#라디오 버튼에 사용되는 checkd & unchecked#}
+
+        function checked($input) {
+            var $button = $input.closest('.btn');
+            var $icon = $button.find('[data-icon-on]');
+            $button.addClass('active');
+            $input.prop('checked', true);
+            $icon.css('width', $icon.width());
+            $icon.removeAttr('class').addClass($icon.data('icon-on'));
+            $input.trigger('change');
+        }
+
+        function unchecked($input) {
+            var $button = $input.closest('.btn');
+            var $icon = $button.find('[data-icon-on]');
+            $button.removeClass('active');
+            $input.prop('checked', false);
+            $icon.css('width', $icon.width());
+            $icon.removeAttr('class').addClass($icon.data('icon-off'));
+            $input.trigger('change');
+        }
+    </script>
+    <script>
+
+
+    </script>
+{% endblock %}
+

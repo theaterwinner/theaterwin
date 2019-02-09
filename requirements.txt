@@ -12,3 +12,4 @@ pytz==2018.5
 setuptools==39.1.0
 simplejson==3.16.0
 six==1.11.0
+django-bower==5.2.0

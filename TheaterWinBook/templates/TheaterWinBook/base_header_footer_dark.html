@@ -8,7 +8,6 @@
     <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description"/>
     <meta content="Coderthemes" name="author"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
     <!-- App favicon -->
     <link rel="shortcut icon" href="{% static 'TheaterWinBook/assets/images/favicon.ico' %}">
 
@@ -182,7 +181,7 @@
                     <li class="has-submenu" id="nav_winbook_list">
                         <a href="#" id="nav_winbook_list_btn"><i
                                 class=" mdi mdi-format-list-numbers"></i>
-                            <span> 기록 </span> </a>
+                            <span> 내기록 </span> </a>
                     </li>
                     <li class="has-submenu" id="nav_winbook_statistics">
                         <a href="{% url 'winbook_statistics' %}"><i class="mdi mdi-chart-areaspline"></i>
@@ -197,14 +196,21 @@
                         <a href="{% url 'index_real' %}"><i class="mdi mdi-alert-box"></i> <span> 공지 </span>
                         </a>
                     </li>
-
                     <li class="has-submenu" id="nav_question_list">
-                        <a href="{% url 'question_list' %}"><i class="mdi mdi-comment-question-outline"></i> <span> 문의&제안</span>
+                        <a href="{% url 'question_list' %}" id="nav_question_list_text"><i
+                                class="mdi mdi-comment-question-outline"></i> <span> 게시판</span>
+                        </a>
+                    </li>
+                    <li class="has-submenu" id="nav_share_picks">
+                        <a href="{% url 'share_picks' %}" id="nav_share_picks"><i
+                                class="mdi mdi-share-variant"></i> <span> 공유</span>
                         </a>
                     </li>
 
+
                     <li class="has-submenu" id="nav_question_list">
-                        <a href="{% url 'full_chatting' %}"><i class="mdi mdi-comment-question-outline"></i> <span> 채팅</span>
+                        <a href="/chatting_room/everyone/"><i class=" mdi mdi-account-multiple"></i>
+                            <span> 채팅</span>
                         </a>
                     </li>
 
@@ -227,10 +233,10 @@
 {% endblock %}
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="footer" style="position: relative">
     <div class="container">
         <div class="row">
-            <div class="col-12 text-center" style="font-family: Sans-Serif">
+            <div class="col-12 text-center" style="font-family: Sans-Serif; ">
                 <br>극장승 토계부은 불법 문화를 지양하고, <br>건전한 토토 문화생활을 지향합니다. <br>
                 © (주) 극장승리자 (TheaterWinner@gmail.com)
             </div>
@@ -306,8 +312,15 @@
 
 
 <script>
-{#   url 을 확인해서 색깔 바꾸어주기 #}
-{#   url 중에 question_detail 이 포함되어있는지 확인 후 -> 문의 제안 부분 색깔 칠해줌. #}
+    {#   url 을 확인해서 색깔 바꾸어주기 #}
+    {#   url 중에 question_detail 이 포함되어있는지 확인 후 -> 문의 제안 부분 색깔 칠해줌. #}
+
+</script>
+
+<script>
+    if (window.location.href.indexOf("question_detail") > -1) {
+        $("#nav_question_list_text").css("color", "#71b6f9");
+    }
 
 </script>
 

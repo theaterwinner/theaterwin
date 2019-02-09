@@ -30,6 +30,9 @@ ALLOWED_HOSTS = ['localhost', '127.0.0.1', '[::1]', '.pythonanywhere.com', 'http
 # Application definition
 
 INSTALLED_APPS = (
+    'channels',
+    # 'django_channels',
+    # 'channels_presence',
     # 'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,7 +43,24 @@ INSTALLED_APPS = (
     'TheaterWinBook',
     # wyswgi Editor와 이미지업로드를 위한 filebrowser
     'tinymce',
+    'dbbackup',  # django-dbbackup
 )
+
+# 채팅을 위한 코드
+ASGI_APPLICATION = 'TheaterWin.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
+
+
+# db backup 용 저장소
+DBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'
+DBBACKUP_STORAGE_OPTIONS = {'location': '/var/backups'}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -148,21 +168,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 )
 
 TINYMCE_DEFAULT_CONFIG = {
-    # 'width': "auto",
-    # 'height': "500",
-    # 'selector': "textarea",
-    # 'theme': "modern",
-    # 'paste_data_images': True,
-    # 'plugins': [
-    #     "advlist autolink lists link image charmap print preview hr anchor pagebreak",
-    #     "searchreplace wordcount visualblocks visualchars code fullscreen",
-    #     "insertdatetime media nonbreaking save table contextmenu directionality",
-    #     "emoticons template paste textcolor colorpicker textpattern"
-    # ],
-    # 'toolbar1': "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-    # 'toolbar2': "print preview media | forecolor backcolor emoticons",
-    # 'image_advtab': True,
-
     'width': "auto",
     'height': "350",
     'selector': "textarea",

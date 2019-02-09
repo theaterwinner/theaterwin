@@ -5,6 +5,15 @@
         .breadcrumb-wrap {
             padding: 5%;
         }
+
+        {# ellipsis 는 inline으로 돼지 않고, class 로 가능하다. #}
+        .ellipsis {
+            text-overflow: ellipsis;
+            /* Required for text-overflow to do anything */
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
     </style>
 {% endblock %}
 
@@ -16,7 +25,7 @@
             <!-- Page-Title -->
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 class="page-title">문의 및 제안</h4>
+                    <h4 class="page-title">문의&제안&건의&기타 자유게시판</h4>
                 </div>
             </div>
 
@@ -28,36 +37,28 @@
                             class="fa fa-pencil-square-o "></i> <span>글쓰기</span></button>
                 <br><br>
                 <div class="inbox-widget nicescroll">
-                    {% for record in database_list_result %}
+                    {% for record in database_list_result_page %}
                         <a href="/question_detail/{{ record.pk }}">
                             <div class="inbox-item">
                                 <div class="inbox-item-img" style="color: #eeeeee">No.{{ record.pk }}</div>
-                                <p class="inbox-item-author" style="color: #eeeeee">
-                                    {% with ''|center:record.question_level_ingorup as range %}
-                                        {% for i in range %}
+                                <p class="inbox-item-author ellipsis" style="color: #eeeeee;">
+                                        {% with ''|center:record.question_level_ingorup as range %}
+                                            {% for i in range %}
                                                 &nbsp
-                                            {% if forloop.last %}
-                                                 ┗
-                                            {% endif %}
-                                        {% endfor %}
-                                    {% endwith %}
-                                    {% comment %}
-
-                                    {% with numeric={{ record.question_level_ingorup }} %}
-                                        {% with ''|center:numeric as range %}
-                                            {% for _ in range %}
-                                                &nbsp
+                                                {% if forloop.last %}
+                                                    ┗
+                                                {% endif %}
                                             {% endfor %}
                                         {% endwith %}
-                                    {% endwith %}
 
-                                    {% endcomment %}
-                                    {{ record.question_title }}</p>
-                                <p class="inbox-item-text" style="margin-left: 55px">작성자 -
-                                    <span> {{ record.user_name }}</span></p>
+                                        {{ record.question_title }}</p>
+                                        <p class=" inbox-item-text" style="margin-left: 55px">작성자 -
+                                <span> {{ record.user_name }}</span></p>
+                                {% comment %}
                                 <p class="inbox-item-date"><span class="badge badge-success"
                                                                  style="color: #212529 ;  font-weight: bold;">{{ record.question_isanswer }}</span>
                                 </p>
+                                {% endcomment %}
                                 <p class="inbox-item-date" style="top : 35px">{{ record.writing_date }}</p>
                             </div>
                         </a>
@@ -65,30 +66,40 @@
 
                 </div>
                 <br>
-                <div class="row">
-                    <nav style="margin: 0 auto;">
-                        <ul class="pagination pagination-lg m-b-0">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <br><br>
+                {% if database_list_result_page.has_other_pages %}
+                    <div class="row">
+                        <nav style="margin: 0 auto;">
+                            <ul class="pagination pagination-lg m-b-0">
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Previous" id="pagination_previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+
+                                {% for i in database_list_result_page.custom_page_range %}
+                                    {% if database_list_result_page.pagenum == i %}
+                                        <li class="page-item active"><a class="page-link" href="#">{{ i }}</a>
+                                        </li>
+                                    {% else %}
+                                        <li class="page-item"><a class="page-link"
+                                                                 href="/question_list?pagenum={{ i }}">{{ i }}</a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+
+                                <li class="page-item">
+                                    <a class="page-link" href="#" aria-label="Next" id="pagination_next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                        <span class="sr-only">Next</span>
+                                    </a>
+                                </li>
 
 
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
+                            </ul>
+                        </nav>
+                    </div>
+                {% endif %}
             </div>
 
             <br>
@@ -103,12 +114,33 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
+            pagination_setting();
+
             $("#question_write_btn").click(function () {
                 window.location.href = "/question_write/";
             });
             // JQuery 적용
         });
 
+        function pagination_setting() {
+            var start_page = '{{ database_list_result_page.start_page  }}';
+            var end_page = '{{ database_list_result_page.end_page  }}';
+            var end_page = '{{ database_list_result_page.end_page  }}';
+            var total_page_number = '{{ database_list_result_page.total_page_number  }}';
+            var pagination_previous_num = parseInt(start_page) - 1;
+            var pagination_next_num = parseInt(end_page);
+            if (pagination_previous_num < 1) {
+                pagination_previous_num = 1;
+            }
+
+            if (pagination_next_num > total_page_number) {
+                pagination_next_num = total_page_number;
+            }
+
+
+            $("#pagination_previous").attr("href", "/question_list?pagenum=" + pagination_previous_num);
+            $("#pagination_next").attr("href", "/question_list?pagenum=" + pagination_next_num);
+        }
 
     </script>
 {% endblock %}

@@ -2,15 +2,15 @@
 {% load static %}
 {% block css_script %}
     <style>
-        .breadcrumb-wrap {
-            padding: 5%;
+        .ui-datepicker {
+            width: 80%; /*what ever width you want*/
         }
+
     </style>
+    {{ form.media }}
+
 {% endblock %}
-
 {% block content %}
-
-
     <div class="wrapper">
     <div class="container-fluid">
     <!-- Page-Title -->
@@ -20,6 +20,44 @@
             <h4 class="page-title"> 상세 기록 </h4>
         </div>
     </div>
+    <div class="card-box" style="padding-bottom: 5px;">
+        <div class="form-group row">
+            <label class="col-3 col-form-label">작성인</label>
+            <div class="col-9  col-form-label">
+                {{ winbook_record.user_name }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">작성날짜</label>
+            <div class="col-9  col-form-label">
+                {{ winbook_record.writing_date }}
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-3 col-form-label">조회수</label>
+            <div class="col-9  col-form-label">
+                {{ winbook_record.hit_count }}
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-3 col-form-label btn_thumbup" name="record_thumbup" style="cursor: pointer"
+                   record_pk= {{ winbook_record.pk }}>올려요 <i
+                    class="mdi mdi-thumb-up"></i></label>
+            <div class="col-3  col-form-label btn_thumbup" style="cursor: pointer">
+                                {{ thumbup_count }}
+            </div>
+            <label class="col-3 col-form-label btn_thumbdown" name="record_thumbdown" style="cursor: pointer"
+                   record_pk= {{ winbook_record.pk }}> 내려요 <i
+                    class="mdi mdi-thumb-down"></i></label>
+            <div class="col-3  col-form-label btn_thumbdown" style="cursor: pointer">
+                                {{ thumbdown_count }}
+            </div>
+        </div>
+    </div>
+
+
     <!-- end page title end breadcrumb -->
     <div class="row ">
         {#                    <div class="col-xl-12  winbook_record_list ">#}
@@ -61,9 +99,7 @@
         <p style="position: relative;">{{ winbook_record.buy_date }} 구매<span></span>
         </p>
 
-        {% comment %}         <h4 class="mt-0" style="text-align: center;"><a href="{% url 'winbook_detail' record_pk=3 %}"
-                                                            class="text-white"> {{ winbook_record.buy_game_title }} </a>
-            </h4>{% endcomment %}
+
         <h4 class="mt-0" style="text-align: center;"><a href="/winbook_detail/{{ winbook_record.pk }}/"
                                                         class="text-white"> {{ winbook_record.buy_game_title }} </a>
         </h4>
@@ -109,16 +145,36 @@
         <p class="font-600 m-b-5" style="margin-left: 10px"><span>{{ winbook_record.etc_memo }}</span>
         </p>
 
-        <ul class="list-inline post-detail" style="margin: 0px; text-align: right;     border-top: 1px solid #666666;
+        <p class="font-600 m-b-5" style="margin-left: 10px"><textarea>{{ winbook_record.batting_analysis }}</textarea>
+        </p>
+
+
+        <ul class="list-inline post-detail" style="margin: 0px; text-align: right;
     border-bottom: 1px solid #666666; ">
+
+
+            <li style="    display: inline-block;"><i class="fas fa-user-circle"></i>
+                &nbsp{{ winbook_record.user_name }} </li>
+            <li style="    display: inline-block;"><i class="fas  fa-share-alt"></i>
+                {% if winbook_record.share_check == 0 %}
+                    &nbsp비공개
+                {% elif winbook_record.share_check == 1 %}
+                    &nbsp공개
+                {% endif %}
+            </li>
+
+        </ul>
+
+
+        <ul class="list-inline post-detail hidden" style="margin: 0px; text-align: right;
+    border-bottom: 1px solid #666666; " name="modify_and_delete_section" record_writer="{{ winbook_record.user_name }}">
 
             <li style="    display: inline-block;"><i class="fas fa-trash-alt"></i><a href="#"
                                                                                       id="delete_btn"
                                                                                       record_pk={{ winbook_record.pk }} name="delete_btn"
                                                                                       style="color: #98a6ad;font-size:15px; margin:5px">
                 삭제</a>
-                {% comment %}              <button type="button" class="btn btn-light waves-effect waves-light btn-sm" id="sa-warning">Click me
-                </button>{% endcomment %}
+
             </li>
 
 
@@ -128,6 +184,7 @@
                                                                                                 name="modify_btn"
                                                                                         style="color: #98a6ad;font-size:15px; mar5gin:5px">
                 수정 </a></li>
+
         </ul>
         </div>
         </div>       <!--end row-->
@@ -138,12 +195,124 @@
 
 {% block javascript %}
     <script>
+
+        function modify_and_delete_section_setting() {
+            var login_user = '{{ request.user.username }}';
+            $("ul[name='modify_and_delete_section']").each(function (index) {
+                var record_writer = $(this).attr('record_writer');
+                if (record_writer == login_user) {
+                    $(this).removeClass("hidden");
+                } else {
+                }
+            });
+        }
+
+
         $(document).ready(function () {
+            {#  tinymce 사용을 위해서 css 헤더에 media 추가가 반드시 필요하다.   #}
+
 
             //삭제버튼 및 수정버튼 클릭시 confirm
             btn_delete_modify();
             money_calculate();
+            modify_and_delete_section_setting();
+            btn_thumb_setting();
+            tinymce.init({
+                selector: 'textarea',
+                {#selector: "#id_content2",  // change this value according to your HTML#}
+                width: 'auto',
+                height: '350',
+                {#readOnly 편집 불가능하게 설정. #}
+                readonly: '1',
+                content_css: '/static/TheaterWinBook/css/tinymce_style.css'
+
+
+            });
+
+
         });
+
+
+        function btn_thumb_setting() {
+            $(".btn_thumbdown").hover(function () {
+                    $(this).css("color", "#71B6F9");
+                }, function () {
+                    $(this).css("color", "#98a6ad");
+                }
+            );
+            $(".btn_thumbdown").click(function () {
+                var record_pk = $("#delete_btn").attr("record_pk");
+                alert("this is record_pk"+record_pk);
+                $.ajax({
+                    type: "POST",
+                     url: "/ajax/winbook_thumb_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                        'thumb_style': 'down'
+
+                    },
+                    success: function (data) {
+                        var result = data.thumb_result;
+                        if (result == "down_success") {
+                            swal('내려요가 표시됐습니다').catch(swal.noop);
+                            location.reload();
+                        } else if (result == 'down_cancel') {
+                            swal('내려요가 취소됐습니다!').catch(swal.noop);
+                            location.reload();
+                        }
+
+                        else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+
+            $(".btn_thumbup").hover(function () {
+                    $(this).css("color", "#71B6F9");
+                }, function () {
+                    $(this).css("color", "#98a6ad");
+                }
+            );
+
+
+            $(".btn_thumbup").click(function () {
+                {#추천 버튼 클릭 시#}
+                var record_pk = $("#delete_btn").attr("record_pk");
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/winbook_thumb_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                        'thumb_style': 'up'
+
+                    },
+                    success: function (data) {
+                        var result = data.thumb_result;
+                        if (result == "up_success") {
+                            swal(
+                                '추천!',
+                                '성공적으로 추천되었습니다.',
+                                'success'
+                            );
+                            location.reload();
+                        } else if (result == 'up_cancel') {
+                            swal('추천이 취소되었습니다').catch(swal.noop);
+                            location.reload();
+                        }
+
+                        else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+
+        }
+
+
         {#돈 단위에 3자리 컴마#}
 
         function money_calculate() {
@@ -185,6 +354,7 @@
         }
 
         {#삭제 및 수정 버튼#}
+
         function btn_delete_modify() {
 
             $("[name = 'delete_btn']").click(function () {

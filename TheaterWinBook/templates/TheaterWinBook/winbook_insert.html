@@ -1,4 +1,5 @@
 {% extends "TheaterWinBook/base_header_footer_dark.html" %}
+{% load static %}
 {% block css_script %}
     <style>
         .ui-datepicker {
@@ -6,6 +7,7 @@
         }
 
     </style>
+ {{ form.media }}
 
 {% endblock %}
 {% block content %}
@@ -31,9 +33,14 @@
                                 <div class="p-20">
                                     <form role="form" class="form-horizontal" method="post" action="" id="inputForm">
                                         {% csrf_token %}
-
                                         <div class="form-group row">
-                                            <label class="col-3 col-form-label">날짜</label>
+                                            <label class="col-3 col-form-label">제목</label>
+                                            <div class="col-9">
+                                                {{ form.buy_game_title }}
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">구매일</label>
                                             <div class="col-9">
                                                 <div class="input-group">
                                                     {{ form.buy_date }}
@@ -45,17 +52,13 @@
                                             </div>
                                         </div>
                                         {#                            글을 쓴 날짜는 hidden #}
+
                                         <div class="form-group row" style="display: none">
                                             <label class="col-3 col-form-label">기록날짜</label>
                                             <div class="col-9"> {{ form.writing_date }}</div>
 
                                         </div>
-                                        <div class="form-group row">
-                                            <label class="col-3 col-form-label">경기명</label>
-                                            <div class="col-9">
-                                                {{ form.buy_game_title }}
-                                            </div>
-                                        </div>
+
                                         <div class="form-group row">
                                             <label class="col-3 col-form-label">배당률<br><span style="font-size: 8px">* 최대백만배</span></label>
                                             <div class="col-9">
@@ -103,13 +106,27 @@
 
                                             </div>
                                         </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">나의 분석</label>
+                                            <div class="col-12">
+                                                <textarea id="id_batting_analysis" name="batting_analysis"></textarea>
+                                                <input name="image" type="file" id="upload" class="hidden" onchange="">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-3 col-form-label">공유여부</label>
+                                            <div class="col-9">
+                                                {{ form.share_check }}
+                                            </div>
+                                        </div>
+
                                         <a class="btn btn-warning waves-effect waves-light m-b-5"
                                            href="javascript:sendLink()"
                                            style=" font-family: BM_DOHYEON; width: 90%; margin: 1% 5%;height: 40px; border-radius: 6px; "><i
                                                 class="fa fa-share-alt-square"></i>
                                             <span>다운로드 링크 카카오톡 공유(안드로이드)</span></a>
                                         <button type="submit" id="submit_BT"
-                                                class="btn btn-block btn--md btn-info waves-effect waves-light"
+                                                class="btn btn-block btn--md btn-info wㄹaves-effect waves-light"
                                                 style="font-family: BM_DOHYEON; width: 90%; margin: 1% 5%;height: 45px; border-radius: 6px;"
                                                 ;>입력 하기
                                         </button>
@@ -144,7 +161,52 @@
 {% block javascript %}
     <script>
         $(document).ready(function () {
+            tinymce.init({
+                selector: '#id_batting_analysis',
+                {#selector: "#id_content2",  // change this value according to your HTML#}
+                width: 'auto',
+                height: '350',
+                paste_data_images: true,
+                plugins: [
+                    "advlist autolink lists link image charmap print preview hr anchor pagebreak",
+                    "searchreplace wordcount visualblocks visualchars code fullscreen",
+                    "insertdatetime media nonbreaking save table contextmenu directionality",
+                    "emoticons template paste textcolor colorpicker textpattern"
+                ],
+                toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
+                toolbar2: "print preview media | forecolor backcolor emoticons",
+                image_advtab: true,
+                file_picker_callback: function (callback, value, meta) {
+                    if (meta.filetype == 'image') {
+                        $('#upload').trigger('click');
+                        $('#upload').on('change', function () {
+                            {% comment %}
+                            if (this.files[0].size > 1000000) {
+                                   alert("File is too big!");
+                                   this.value = "";
+                               }
+                             {% endcomment %}
+                            var file = this.files[0];
 
+
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                callback(e.target.result, {
+                                    alt: ''
+                                });
+                            };
+                            reader.readAsDataURL(file);
+                        });
+                    }
+                },
+                templates: [{
+                    title: 'Test template 1',
+                    content: 'Test 1'
+                }, {
+                    title: 'Test template 2',
+                    content: 'Test 2'
+                }]
+            });
 
 
             {#url체크해서 navigation에 색깔 칠해주기. #}
@@ -433,9 +495,7 @@
                         webUrl: 'https://play.google.com/store/apps/details?id=com.theaterwin.theaterwinandroid&hl=ko'
                     }
                 },
-                social: {
-
-                },
+                social: {},
                 buttons: [
                     {
                         title: '극장승 토계부 다운받으러가기 (안드로이드)',
