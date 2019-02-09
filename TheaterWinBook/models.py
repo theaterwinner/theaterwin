@@ -91,7 +91,7 @@ class TheaterWinBookRecord(models.Model):
     share_check = models.IntegerField(default=0)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     # 조회수
-    hit_count = models.IntegerField(default=0, blank=False)
+    hit_count = models.IntegerField(default=0, blank=True)
 
     def __str__(self):
         return self.buy_game_title

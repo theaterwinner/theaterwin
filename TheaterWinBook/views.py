@@ -614,18 +614,18 @@ def winbook_detail(request, record_pk):
     # 추천과 비추천 숫자를 세자. FOREIGNER 외래키를 찾을 때에는 get이 아니라, filter 를 사용해야 한다.
     thumbup_count = TheaterWinBookRecordInfo.objects.filter(record_fk=winbook_record, record_thumbup=1).count()
     thumbdown_count = TheaterWinBookRecordInfo.objects.filter(record_fk=winbook_record, record_thumbdown=1).count()
+    target_replys = TheaterWinBookRecordReply.objects.filter(record_fk=winbook_record)
     if share_check == 1:
         #공개로 설정 시에는 전부 공개
 
-
-        return render(request, 'TheaterWinBook/winbook_detail.html', {'winbook_record': winbook_record, "form": form, "thumbup_count":thumbup_count, "thumbdown_count":thumbdown_count})
+        return render(request, 'TheaterWinBook/winbook_detail.html', {'winbook_record': winbook_record, "form": form, "thumbup_count":thumbup_count, "thumbdown_count":thumbdown_count, "target_replys":target_replys})
     elif share_check ==0:
         login_user_name = request.user
         record_writer = winbook_record.user_name
         if login_user_name == record_writer:
             # 비공개시 그것이 내것이면 접근가능하게 하고
             return render(request, 'TheaterWinBook/winbook_detail.html',
-                          {'winbook_record': winbook_record, "form": form,"thumbup_count":thumbdown_count, "thumbdown_count":thumbdown_count})
+                          {'winbook_record': winbook_record, "form": form,"thumbup_count":thumbdown_count, "thumbdown_count":thumbdown_count, "target_replys":target_replys})
         else:
             #  유저가 확인이 안되면 에러 페이지로 넘김.
             return render(request, 'TheaterWinBook/error_wronguser.html')
@@ -937,13 +937,13 @@ def winbook_thumb_ajax(request):
 @login_required(login_url='/login_view')
 def winbook_reply_ajax(request):
     print("this is winbook_reply_ajax:")
-    question_pk = request.POST.get('question_pk', None)
-    print("question_pk", question_pk)
+    record_pk = request.POST.get('record_pk', None)
+    print("question_pk", record_pk)
     content_reply = request.POST.get('content_reply', None)
     print("content_reply", content_reply)
     login_user_name = request.user
-    question_target = TheaterWinQuestion.objects.get(pk=question_pk)
-    content_reply = TheaterWinQuestionReply(question_fk=question_target, question_reply_content=content_reply,
+    target_record = TheaterWinBookRecord.objects.get(pk=record_pk)
+    content_reply = TheaterWinBookRecordReply(record_fk=target_record, record_reply_content=content_reply,
                                             by_whom=login_user_name)
     content_reply.save()
     result = 'success'
@@ -961,13 +961,13 @@ def winbook_reply_delete(request):
     print("this is recordpk," + record_pk)
     # 받은 pk로 글의 user를 확인한다.
     login_user = request.user
-    target_record = TheaterWinQuestionReply.objects.get(pk=record_pk)
+    target_record = TheaterWinBookRecordReply.objects.get(pk=record_pk)
     # 글을 쓴 user와 로그인된 user가 일치하는지 확인
     delete_success = "fail"
     if target_record.by_whom == login_user:
         print('this is login user');
         # pk번호를 기준으로 삭제. 삭제는 데이터를 지우는 것이 아니라, title 이랑 content를 수정하는 것으로 하자.
-        target_record.question_reply_content = '-해당 댓글은 작성자에 의해 삭제되었습니다-'
+        target_record.record_reply_content = '-해당 댓글은 작성자에 의해 삭제되었습니다-'
         target_record.save()
         delete_success = "success";
     else:
@@ -984,13 +984,13 @@ def winbook_reply_modify(request):
     print("this is recordpk," + record_pk)
     # 받은 pk로 글의 user를 확인한다.
     login_user = request.user
-    target_record = TheaterWinQuestionReply.objects.get(pk=record_pk)
+    target_record = TheaterWinBookRecordReply.objects.get(pk=record_pk)
     # 글을 쓴 user와 로그인된 user가 일치하는지 확인
     delete_success = "fail"
     if target_record.by_whom == login_user:
         print('this is login user');
         # pk번호를 기준으로 삭제. 삭제는 데이터를 지우는 것이 아니라, title 이랑 content를 수정하는 것으로 하자.
-        target_record.question_reply_content = reply_modify_content
+        target_record.record_reply_content = reply_modify_content
         target_record.save()
         delete_success = "success";
     else:

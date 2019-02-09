@@ -6,6 +6,10 @@
             width: 80%; /*what ever width you want*/
         }
 
+        .mouse_cursor {
+            cursor: pointer;
+        }
+
     </style>
     {{ form.media }}
 
@@ -17,10 +21,18 @@
     <div class="row">
         <div class="col-sm-12">
 
-            <h4 class="page-title"> 상세 기록 </h4>
+            <h4 class="page-title" id="record_detail_title" record_pk="{{ winbook_record.pk }}"> 상세 기록 </h4>
         </div>
     </div>
     <div class="card-box" style="padding-bottom: 5px;">
+        <div class="form-group row">
+            <label class="col-3 col-form-label">제목</label>
+            <div class="col-9  col-form-label">
+                <a href="/winbook_detail/{{ winbook_record.pk }}/"
+                   class="text-white"> {{ winbook_record.buy_game_title }} </a>
+            </div>
+        </div>
+
         <div class="form-group row">
             <label class="col-3 col-form-label">작성인</label>
             <div class="col-9  col-form-label">
@@ -46,13 +58,13 @@
                    record_pk= {{ winbook_record.pk }}>올려요 <i
                     class="mdi mdi-thumb-up"></i></label>
             <div class="col-3  col-form-label btn_thumbup" style="cursor: pointer">
-                                {{ thumbup_count }}
+                {{ thumbup_count }}
             </div>
             <label class="col-3 col-form-label btn_thumbdown" name="record_thumbdown" style="cursor: pointer"
                    record_pk= {{ winbook_record.pk }}> 내려요 <i
                     class="mdi mdi-thumb-down"></i></label>
             <div class="col-3  col-form-label btn_thumbdown" style="cursor: pointer">
-                                {{ thumbdown_count }}
+                {{ thumbdown_count }}
             </div>
         </div>
     </div>
@@ -100,11 +112,11 @@
         </p>
 
 
-        <h4 class="mt-0" style="text-align: center;"><a href="/winbook_detail/{{ winbook_record.pk }}/"
-                                                        class="text-white"> {{ winbook_record.buy_game_title }} </a>
+        <h4 class="mt-0" style="text-align: center;">
         </h4>
 
         <ul class="list-inline" style="text-align: center">
+
             <li class="list-inline-item pull-left" style="text-align: center;">
                 <p class="text-muted" style="margin-bottom: 0px;margin-top: 5px;margin-left: 5px">배팅 금액</p>
                 <h3 class="mb-0" style="margin-top: 0px;margin-left: 5px"><span
@@ -186,6 +198,87 @@
                 수정 </a></li>
 
         </ul>
+
+        {#    댓글 부분입니다. #}
+        <div class="form-group row" style="background: #394C57; margin: 1% 3%">
+            <label class="col-9 col-form-label"><input type="text" id="content_reply" name="content_reply"
+                                                       class="form-control" placeholder="댓글을 여기다 써주세요"></label>
+            <div class="col-3 col-form-label" style="">
+                <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
+                        id="content_reply_btn">
+                    <span>댓글</span></button>
+
+            </div>
+        </div>
+        {#                </div>#}
+        {#        댓글 달기 부분 #}
+        {% for record in target_replys %}
+            <div class="form-group row" style="background: #394C57; margin: 0% 3%"
+                 id="parent_reply_section_{{ record.pk }}">
+                <div class="col-1 col-form-label" style="text-align: center">{{ forloop.counter }}</div>
+                <label class="col-11 col-form-label">{{ record.record_reply_content }}</label>
+
+            </div>
+
+            <div class="form-group row"
+                 style="background: #394C57; margin: 0% 3%; border-bottom: 0.5px solid; font-size: 10px">
+                <div class="col-6 col-form-label" style="padding:1px 2%"><i
+                        class="mdi mdi mdi-calendar-check"></i> &nbsp{{ record.writing_date }} 작성
+                </div>
+                <div class="col-6 col-form-label" style="text-align: right; padding:1px 2%"> <span><i
+                        class="mdi mdi mdi mdi-account-circle"></i>&nbsp {{ record.by_whom }}
+
+                    </span>
+                    {% comment %}
+                        <span id="btn_re_reply_open_{{ record.pk }}" name="btn_re_reply_open"
+                                                 record_pk="{{ record.pk }}">     <i
+                            class="fa fa-pencil-square-o "></i> 대댓글</span>
+
+                            {% endcomment %}
+                </div>
+                <div class="form-group row col-12 hidden" name="reply_btn_section" style="margin:0px; padding:0px 1%"
+                     reply_writer="{{ record.by_whom }}">
+                    <div class="col-6 col-form-label" style="">
+                    </div>
+                    <div class="col-6 col-form-label" style="text-align: right">
+                        <a style="color: #98a6ad"
+                           class="mouse_cursor"
+                           name="btn_reply_modify_open"
+                           record_pk={{ record.pk }}
+                        >
+                            <i
+                                    class="mdi mdi mdi-table-edit"></i> 수정</a>
+                        <a href="#" style="color: #98a6ad"
+                           name="btn_reply_delete"
+                           record_pk={{ record.pk }}
+                                   name="btn_reply_delete"
+                        >
+                            <i
+                                    class="mdi mdi-delete"></i> 삭제</a>
+                    </div>
+                </div>
+
+                <div class="form-group row col-12 hidden" id="re_reply_section_{{ record.pk }}"
+                     name="re_reply_section">
+
+                    <label class="col-9 col-form-label"><input type="text" id="reply_modify_input_{{ record.pk }}"
+                                                               name="reply_modify_input"
+                                                               class="form-control"
+                                                               placeholder="수정 댓글을 여기다 써주세요"
+                                                               value="{{ record.record_reply_content }}"></label>
+                    <div class="col-3 col-form-label" style="text-align: center">
+                        <button class="btn btn-info waves-effect waves-light m-b-5" style="width: 100%"
+                                id="btn_reply_modify_{{ record.pk }}"
+                                record_pk="{{ record.pk }}"
+                                name="btn_reply_modify">
+                            <span>수정</span></button>
+
+                    </div>
+                </div>
+            </div>
+
+        {% endfor %}
+
         </div>
         </div>       <!--end row-->
         </div>    <!-- end container -->
@@ -195,28 +288,20 @@
 
 {% block javascript %}
     <script>
-
-        function modify_and_delete_section_setting() {
-            var login_user = '{{ request.user.username }}';
-            $("ul[name='modify_and_delete_section']").each(function (index) {
-                var record_writer = $(this).attr('record_writer');
-                if (record_writer == login_user) {
-                    $(this).removeClass("hidden");
-                } else {
-                }
-            });
-        }
-
-
-        $(document).ready(function () {
+      $(document).ready(function () {
             {#  tinymce 사용을 위해서 css 헤더에 media 추가가 반드시 필요하다.   #}
 
 
             //삭제버튼 및 수정버튼 클릭시 confirm
             btn_delete_modify();
+            btn_delete_modify_hide();
             money_calculate();
             modify_and_delete_section_setting();
             btn_thumb_setting();
+            content_reply_btn_setting();
+            btn_reply_delete_modify();
+            btn_re_reply_open_setting();
+
             tinymce.init({
                 selector: 'textarea',
                 {#selector: "#id_content2",  // change this value according to your HTML#}
@@ -231,6 +316,149 @@
 
 
         });
+        function btn_delete_modify_hide() {
+
+            var login_user = '{{ request.user.username }}';
+            $("div[name='reply_btn_section']").each(function (index) {
+                var record_writer = $(this).attr('reply_writer');
+
+                if (record_writer == login_user) {
+                    $(this).removeClass("hidden")
+                } else {
+                }
+            });
+
+
+        }
+
+        function modify_and_delete_section_setting() {
+            var login_user = '{{ request.user.username }}';
+            $("ul[name='modify_and_delete_section']").each(function (index) {
+                var record_writer = $(this).attr('record_writer');
+                if (record_writer == login_user) {
+                    $(this).removeClass("hidden");
+                } else {
+                }
+            });
+        }
+
+        function content_reply_btn_setting() {
+            $("#content_reply_btn").click(function () {
+                var record_pk = $("#record_detail_title").attr("record_pk");
+                var content_reply = $("#content_reply").val();
+                $.ajax({
+                    type: "POST",
+                    url: "/ajax/winbook_reply_ajax/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                        'content_reply': content_reply
+
+                    },
+                    success: function (data) {
+                        var result = data.result;
+                        if (result == "success") {
+                            swal(
+                                '추천!',
+                                '성공적으로 등록되었습니다',
+                                'success'
+                            );
+                            location.reload();
+                        } else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop);
+                        }
+                    }
+                });
+            });
+        }
+
+        function btn_reply_delete_modify() {
+            $("[name = 'btn_reply_delete']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                swal({
+                    title: '정말 삭제하시겠습니까?',
+                    text: "삭제하면 다시 되돌릴 수 없습니다",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#4fa7f3',
+                    cancelButtonColor: '#d57171',
+                    cancelButtonText: '아니요',
+                    confirmButtonText: '네, 삭제하겠습니다!'
+                }).then(function () {
+                    $.ajax({
+                        type: "POST",
+                        url: "/winbook_reply_delete/",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}',
+                            'record_pk': record_pk,
+                        },
+                        success: function (data) {
+                            var delete_result = data.delete_success;
+                            if (delete_result == "success") {
+                                swal(
+                                    '삭제 성공!',
+                                    '성공적으로 삭제되었습니다..',
+                                    'success'
+                                )
+                                location.reload();
+                            } else {
+                                swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                            }
+                        }
+                    });
+
+
+                });
+
+            });
+
+
+            $("[name = 'btn_reply_modify_open']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $("#re_reply_section_" + record_pk).toggleClass("hidden");
+                $("#parent_reply_section_" + record_pk).toggleClass("hidden");
+
+
+            });
+            $("[name = 'btn_reply_modify']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                var reply_modify_content = $("#reply_modify_input_" + record_pk).val();
+                $.ajax({
+                    type: "POST",
+                    url: "/winbook_reply_modify/",
+                    data: {
+                        csrfmiddlewaretoken: '{{ csrf_token }}',
+                        'record_pk': record_pk,
+                        'reply_modify_content': reply_modify_content,
+                    },
+                    success: function (data) {
+                        var delete_result = data.delete_success;
+                        if (delete_result == "success") {
+                            swal(
+                                '수정 성공!',
+                                '성공적으로 수정되었습니다..',
+                                'success'
+                            )
+                            location.reload();
+                        } else {
+                            swal("정상적인 동작이 실행 되지 않았습니다.\n 다시 시도해주시기 바랍니다").catch(swal.noop)
+                        }
+                    }
+                });
+
+            });
+
+        }
+
+        function btn_re_reply_open_setting() {
+            $("[name = 'btn_re_reply_open']").click(function () {
+                var record_pk = $(this).attr('record_pk');
+                $("#re_reply_section_" + record_pk).toggleClass("hidden");
+
+            });
+        }
+
+
 
 
         function btn_thumb_setting() {
@@ -241,11 +469,10 @@
                 }
             );
             $(".btn_thumbdown").click(function () {
-                var record_pk = $("#delete_btn").attr("record_pk");
-                alert("this is record_pk"+record_pk);
+                var record_pk = $("#record_detail_title").attr("record_pk");
                 $.ajax({
                     type: "POST",
-                     url: "/ajax/winbook_thumb_ajax/",
+                    url: "/ajax/winbook_thumb_ajax/",
                     data: {
                         csrfmiddlewaretoken: '{{ csrf_token }}',
                         'record_pk': record_pk,
@@ -279,7 +506,7 @@
 
             $(".btn_thumbup").click(function () {
                 {#추천 버튼 클릭 시#}
-                var record_pk = $("#delete_btn").attr("record_pk");
+                var record_pk = $("#record_detail_title").attr("record_pk");
                 $.ajax({
                     type: "POST",
                     url: "/ajax/winbook_thumb_ajax/",

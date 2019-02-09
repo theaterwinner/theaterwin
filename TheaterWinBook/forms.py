@@ -8,6 +8,13 @@ from TheaterWinBook.models import TheaterWinBookRecord, Post, TheaterWinQuestion
 from tinymce import TinyMCE
 
 
+
+class TinyMCEWidget(TinyMCE):
+    def use_required_attribute(self, *args):
+        return False
+
+
+
 class UserForm(forms.ModelForm):
     class Meta:
         model = User
@@ -26,6 +33,8 @@ class LoginForm(forms.ModelForm):
         fields = ['username', 'password']  # 로그인 시에는 유저이름과 비밀번호만 입력 받는다.
 
 
+
+
 class TheaterWinBookRecordForm(forms.ModelForm):
     # record_id
     # 개인적으로 input type의 위젯이 필요하면, 이렇게 바꾼다
@@ -42,10 +51,13 @@ class TheaterWinBookRecordForm(forms.ModelForm):
     win_check_choice = [(0, '적중실패'), (1, '적중성공'), (2, '경기전')]
     win_check = forms.ChoiceField(choices=win_check_choice, initial=1,
                                   widget=forms.Select(attrs={'style': 'padding:5px 5px; text-align-last:center'}))
+    batting_analysis = forms.CharField(widget=TinyMCEWidget(),required=False)
+
     share_check_choice = [(0, '공유하지 않음'), (1, '공유함')]
     share_check = forms.ChoiceField(choices=share_check_choice, initial=1,
                                   widget=forms.Select(attrs={'style': 'padding:5px 5px; text-align-last:center'}))
-
+    hit_count = forms.IntegerField(required=False, min_value=1,
+                                          widget=forms.NumberInput(attrs={'step': "1"}), initial=1)
 
     class Meta:
         model = TheaterWinBookRecord
@@ -63,9 +75,6 @@ class TheaterWinBookRecordForm(forms.ModelForm):
             })
 
 
-class TinyMCEWidget(TinyMCE):
-    def use_required_attribute(self, *args):
-        return False
 
 
 class TheaterWinQuestionForm(forms.ModelForm):
