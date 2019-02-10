@@ -84,7 +84,19 @@
 
 
     {% endblock %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-134139906-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'UA-134139906-1');
+    </script>
 
 </head>
 <body style="">
@@ -103,7 +115,7 @@
                 <!--</a>-->
                 <!-- Image Logo -->
                 <a href="{% url 'index_real' %}" class="logo" style="padding-left: 10px">
-                    극장승 토계부
+                    극장승 토계부(http://theaterwin.com)
                     {#                    <img src="/static/TheaterWinBook/assets/images/logo-sm.png" alt="LOGO" height="26"#}
                     {#                         class="logo-small">#}
                     {#                    <img src="/static/TheaterWinBook/assets/images/logo.png" alt="LOGO" height="24" class="logo-large">#}
@@ -192,10 +204,7 @@
                         </a>
                     </li>
 
-                    <li class="has-submenu" id="nav_index_real">
-                        <a href="{% url 'index_real' %}"><i class="mdi mdi-alert-box"></i> <span> 공지 </span>
-                        </a>
-                    </li>
+
                     <li class="has-submenu" id="nav_question_list">
                         <a href="{% url 'question_list' %}" id="nav_question_list_text"><i
                                 class="mdi mdi-comment-question-outline"></i> <span> 게시판</span>
@@ -207,10 +216,17 @@
                         </a>
                     </li>
 
+                    {% if request.user.username == 'theaterwinner' %}
 
-                    <li class="has-submenu" id="nav_question_list">
-                        <a href="/chatting_room/everyone/"><i class=" mdi mdi-account-multiple"></i>
-                            <span> 채팅</span>
+
+                        <li class="has-submenu" id="nav_question_list">
+                            <a href="/chatting_room/everyone/"><i class=" mdi mdi-account-multiple"></i>
+                                <span> 채팅</span>
+                            </a>
+                        </li>
+                    {% endif %}
+                      <li class="has-submenu" id="nav_index_real">
+                        <a href="{% url 'index_real' %}"><i class="mdi mdi-alert-box"></i> <span> 공지 </span>
                         </a>
                     </li>
 

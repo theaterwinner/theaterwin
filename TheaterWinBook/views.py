@@ -849,7 +849,7 @@ def share_picks(request):
     pagenum = request.GET.get('pagenum', 1)
     # # GET 으로 받은 파라미터는 integer가 아니라, int 처리해줘야 한다....
     pagenum = int(pagenum)
-    winbook_user_result = TheaterWinBookRecord.objects.filter(share_check=1).order_by('-writing_date')
+    winbook_user_result = TheaterWinBookRecord.objects.filter(share_check=1).order_by('-writing_date','-pk')
     winbook_user_result_list = list(winbook_user_result)
     total_records_count = len(winbook_user_result_list)
      # 페이지 nator를 사용해서 10개씩 페이지로 만들기.

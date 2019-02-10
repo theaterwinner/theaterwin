@@ -20,7 +20,6 @@ class TheaterWinQuestion(models.Model):
     # 기타 메모 및 유저 네임 필드
     etc_memo = models.CharField(blank=True, max_length=200)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-
     def publish(self):
         self.writing_date = timezone.now()
         self.save()
