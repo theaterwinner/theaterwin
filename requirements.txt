@@ -3,7 +3,7 @@ asgi-redis==1.4.3
 asgiref==2.3.2
 async-timeout==3.0.1
 attrs==18.2.0
-autobahn==18.12.1
+autobahn==20.12.3
 Automat==0.7.0
 cent==2.1.0
 certifi==2018.11.29
